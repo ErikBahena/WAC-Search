@@ -4,16 +4,14 @@ import { cn } from "@/lib/utils"
 interface VoiceButtonProps {
   isListening: boolean
   isSupported: boolean
-  onPress: () => void
-  onRelease: () => void
+  onClick: () => void
   className?: string
 }
 
 export function VoiceButton({
   isListening,
   isSupported,
-  onPress,
-  onRelease,
+  onClick,
   className,
 }: VoiceButtonProps) {
   if (!isSupported) {
@@ -29,10 +27,7 @@ export function VoiceButton({
 
   return (
     <button
-      onMouseDown={onPress}
-      onMouseUp={onRelease}
-      onTouchStart={onPress}
-      onTouchEnd={onRelease}
+      onClick={onClick}
       className={cn(
         "w-32 h-32 rounded-full transition-all duration-200",
         "flex flex-col items-center justify-center gap-2",

@@ -47,6 +47,14 @@ function App() {
     setSelectedResult(result)
   }
 
+  const toggleListening = () => {
+    if (isListening) {
+      stopListening()
+    } else {
+      startListening()
+    }
+  }
+
   if (isLoading) {
     return <LoadingScreen progress={progress} />
   }
@@ -123,8 +131,7 @@ function App() {
       <VoiceButton
         isListening={isListening}
         isSupported={isSupported}
-        onPress={startListening}
-        onRelease={stopListening}
+        onClick={toggleListening}
       />
 
       {isListening && transcript && (
