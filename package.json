@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "scrape": "tsx scripts/scrape.ts"
+    "scrape": "tsx scripts/scrape.ts",
+    "embed": "tsx scripts/embed.ts"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",
