@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react"
-import { initSearch, search, isInitialized, SearchResult } from "@/lib/search"
+import { initSearch, search, isInitialized } from "@/lib/search"
+import type { SearchResult } from "@/lib/search"
 
 interface UseSearchReturn {
   isLoading: boolean

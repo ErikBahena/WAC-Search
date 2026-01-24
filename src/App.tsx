@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useSearch } from "@/hooks/useSearch"
 import { useVoice } from "@/hooks/useVoice"
-import { SearchResult } from "@/lib/search"
+import type { SearchResult } from "@/lib/search"
 import { VoiceButton } from "@/components/VoiceButton"
 import { SearchInput } from "@/components/SearchInput"
 import { AnswerCard } from "@/components/AnswerCard"

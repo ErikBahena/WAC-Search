@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Copy, Share2, ChevronDown, ChevronUp, Check } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { WacSection } from "@/lib/search"
+import type { WacSection } from "@/lib/search"
 
 interface AnswerCardProps {
   section: WacSection

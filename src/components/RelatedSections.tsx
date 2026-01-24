@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react"
-import { SearchResult } from "@/lib/search"
+import type { SearchResult } from "@/lib/search"
 
 interface RelatedSectionsProps {
   results: SearchResult[]
