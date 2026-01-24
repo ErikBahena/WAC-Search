@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
 
 @theme {
+  /* Custom app colors */
   --color-primary: #F9A8D4;
   --color-primary-dark: #EC4899;
   --color-secondary: #C4B5FD;
@@ -11,6 +12,16 @@
   --color-text-muted: #9CA3AF;
   --color-success: #86EFAC;
   --color-warning: #FCD34D;
+
+  /* shadcn required colors */
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary-foreground: #4C1D95;
+  --color-destructive: #EF4444;
+  --color-accent: #F3E8FF;
+  --color-accent-foreground: #4C1D95;
+  --color-ring: #EC4899;
+  --color-input: #E5E7EB;
+  --color-border: #E5E7EB;
 
   --font-sans: "Nunito", system-ui, sans-serif;
 
