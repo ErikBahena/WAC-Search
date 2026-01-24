@@ -60,6 +60,22 @@ export function useVoice(): UseVoiceReturn {
       // Audio capture has started - we're definitely listening now
       setIsStarting(false)
       setIsListening(true)
+
+      // Play a short beep to signal "ready to listen"
+      try {
+        const audioContext = new AudioContext()
+        const oscillator = audioContext.createOscillator()
+        const gainNode = audioContext.createGain()
+        oscillator.connect(gainNode)
+        gainNode.connect(audioContext.destination)
+        oscillator.frequency.value = 880 // A5 note
+        oscillator.type = "sine"
+        gainNode.gain.value = 0.1
+        oscillator.start()
+        oscillator.stop(audioContext.currentTime + 0.1) // 100ms beep
+      } catch (e) {
+        // Audio feedback not available, that's ok
+      }
     }
 
     recognition.onresult = (event) => {
