@@ -50,32 +50,15 @@ export function useVoice(): UseVoiceReturn {
     recognitionRef.current = recognition
 
     recognition.onstart = () => {
-      console.log("[Voice] onstart - recognition started")
-      setIsStarting(false)
-      setIsListening(true)
+      console.log("[Voice] onstart - recognition started, waiting for audio...")
+      // Don't set isListening yet - wait for onaudiostart
     }
 
     recognition.onaudiostart = () => {
-      console.log("[Voice] onaudiostart - audio capture started")
-      // Audio capture has started - we're definitely listening now
+      console.log("[Voice] onaudiostart - audio capture started, NOW listening")
+      // Audio capture has started - NOW we're actually listening
       setIsStarting(false)
       setIsListening(true)
-
-      // Play a short beep to signal "ready to listen"
-      try {
-        const audioContext = new AudioContext()
-        const oscillator = audioContext.createOscillator()
-        const gainNode = audioContext.createGain()
-        oscillator.connect(gainNode)
-        gainNode.connect(audioContext.destination)
-        oscillator.frequency.value = 880 // A5 note
-        oscillator.type = "sine"
-        gainNode.gain.value = 0.1
-        oscillator.start()
-        oscillator.stop(audioContext.currentTime + 0.1) // 100ms beep
-      } catch (e) {
-        // Audio feedback not available, that's ok
-      }
     }
 
     recognition.onresult = (event) => {
