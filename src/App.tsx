@@ -15,6 +15,7 @@ function App() {
   const { isLoading, isReady, progress, results, doSearch } = useSearch()
   const {
     isSupported,
+    isStarting,
     isListening,
     transcript,
     startListening,
@@ -129,6 +130,7 @@ function App() {
       </h1>
 
       <VoiceButton
+        isStarting={isStarting}
         isListening={isListening}
         isSupported={isSupported}
         onClick={toggleListening}

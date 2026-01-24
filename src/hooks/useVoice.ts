@@ -3,6 +3,7 @@ import { isSpeechSupported, createRecognition } from "@/lib/speech"
 
 interface UseVoiceReturn {
   isSupported: boolean
+  isStarting: boolean
   isListening: boolean
   transcript: string
   error: string | null
@@ -11,6 +12,7 @@ interface UseVoiceReturn {
 }
 
 export function useVoice(): UseVoiceReturn {
+  const [isStarting, setIsStarting] = useState(false)
   const [isListening, setIsListening] = useState(false)
   const [transcript, setTranscript] = useState("")
   const [error, setError] = useState<string | null>(null)
@@ -30,15 +32,29 @@ export function useVoice(): UseVoiceReturn {
       return
     }
 
+    // Abort any existing recognition
+    recognitionRef.current?.abort()
+
     setError(null)
     setTranscript("")
+    setIsStarting(true)
 
     const recognition = createRecognition()
-    if (!recognition) return
+    if (!recognition) {
+      setIsStarting(false)
+      return
+    }
 
     recognitionRef.current = recognition
 
     recognition.onstart = () => {
+      setIsStarting(false)
+      setIsListening(true)
+    }
+
+    recognition.onaudiostart = () => {
+      // Audio capture has started - we're definitely listening now
+      setIsStarting(false)
       setIsListening(true)
     }
 
@@ -59,6 +75,7 @@ export function useVoice(): UseVoiceReturn {
     }
 
     recognition.onerror = (event) => {
+      setIsStarting(false)
       if (event.error === "not-allowed") {
         setError("Microphone access denied")
       } else if (event.error !== "aborted") {
@@ -68,6 +85,7 @@ export function useVoice(): UseVoiceReturn {
     }
 
     recognition.onend = () => {
+      setIsStarting(false)
       setIsListening(false)
     }
 
@@ -76,11 +94,13 @@ export function useVoice(): UseVoiceReturn {
 
   const stopListening = useCallback(() => {
     recognitionRef.current?.stop()
+    setIsStarting(false)
     setIsListening(false)
   }, [])
 
   return {
     isSupported,
+    isStarting,
     isListening,
     transcript,
     error,

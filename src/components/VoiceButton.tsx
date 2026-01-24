@@ -2,6 +2,7 @@ import { Mic, MicOff } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface VoiceButtonProps {
+  isStarting: boolean
   isListening: boolean
   isSupported: boolean
   onClick: () => void
@@ -9,6 +10,7 @@ interface VoiceButtonProps {
 }
 
 export function VoiceButton({
+  isStarting,
   isListening,
   isSupported,
   onClick,
@@ -25,15 +27,18 @@ export function VoiceButton({
     )
   }
 
+  const isActive = isStarting || isListening
+
   return (
     <button
       onClick={onClick}
+      disabled={isStarting}
       className={cn(
         "w-32 h-32 rounded-full transition-all duration-200",
         "flex flex-col items-center justify-center gap-2",
         "shadow-lg shadow-primary/30",
         "active:scale-95",
-        isListening
+        isActive
           ? "bg-gradient-to-br from-secondary to-primary-dark animate-pulse"
           : "bg-gradient-to-br from-primary to-primary-dark hover:scale-105",
         className
@@ -41,10 +46,10 @@ export function VoiceButton({
     >
       <Mic className={cn(
         "w-12 h-12",
-        isListening ? "text-white" : "text-white/90"
+        isActive ? "text-white" : "text-white/90"
       )} />
       <span className="text-white text-sm font-medium">
-        {isListening ? "Listening..." : "Tap to ask"}
+        {isStarting ? "Starting..." : isListening ? "Listening..." : "Tap to ask"}
       </span>
     </button>
   )
