@@ -27,6 +27,7 @@ export function useVoice(): UseVoiceReturn {
   }, [])
 
   const startListening = useCallback(() => {
+    console.log("[Voice] startListening called")
     if (!isSupported) {
       setError("Speech recognition not supported")
       return
@@ -38,6 +39,7 @@ export function useVoice(): UseVoiceReturn {
     setError(null)
     setTranscript("")
     setIsStarting(true)
+    console.log("[Voice] calling recognition.start()")
 
     const recognition = createRecognition()
     if (!recognition) {
@@ -48,22 +50,27 @@ export function useVoice(): UseVoiceReturn {
     recognitionRef.current = recognition
 
     recognition.onstart = () => {
+      console.log("[Voice] onstart - recognition started")
       setIsStarting(false)
       setIsListening(true)
     }
 
     recognition.onaudiostart = () => {
+      console.log("[Voice] onaudiostart - audio capture started")
       // Audio capture has started - we're definitely listening now
       setIsStarting(false)
       setIsListening(true)
     }
 
     recognition.onresult = (event) => {
+      console.log("[Voice] onresult - resultIndex:", event.resultIndex, "results.length:", event.results.length)
+
       let finalTranscript = ""
       let interimTranscript = ""
 
-      for (let i = event.resultIndex; i < event.results.length; i++) {
+      for (let i = 0; i < event.results.length; i++) {
         const result = event.results[i]
+        console.log(`[Voice]   result[${i}]: isFinal=${result.isFinal}, transcript="${result[0].transcript}"`)
         if (result.isFinal) {
           finalTranscript += result[0].transcript
         } else {
@@ -71,10 +78,12 @@ export function useVoice(): UseVoiceReturn {
         }
       }
 
+      console.log("[Voice] finalTranscript:", finalTranscript, "interimTranscript:", interimTranscript)
       setTranscript(finalTranscript || interimTranscript)
     }
 
     recognition.onerror = (event) => {
+      console.log("[Voice] onerror:", event.error, event.message)
       setIsStarting(false)
       if (event.error === "not-allowed") {
         setError("Microphone access denied")
@@ -85,6 +94,7 @@ export function useVoice(): UseVoiceReturn {
     }
 
     recognition.onend = () => {
+      console.log("[Voice] onend - recognition ended")
       setIsStarting(false)
       setIsListening(false)
     }
