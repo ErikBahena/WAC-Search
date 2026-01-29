@@ -3,21 +3,24 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Copy, Share2, ChevronDown, ChevronUp, Check } from "lucide-react"
 import { cn } from "@/lib/utils"
-import type { WacSection } from "@/lib/search"
+import type { WacChunk } from "@/lib/search-qa"
 
 interface AnswerCardProps {
-  section: WacSection
+  chunk: WacChunk
   score: number
+  source?: "qa" | "content"
 }
 
-export function AnswerCard({ section, score }: AnswerCardProps) {
+export function AnswerCard({ chunk, score, source }: AnswerCardProps) {
   const [expanded, setExpanded] = useState(false)
   const [copied, setCopied] = useState(false)
 
-  const isLowConfidence = score < 0.5
+  // Adjust thresholds for EmbeddingGemma (scores tend to be higher)
+  const isLowConfidence = score < 0.70
+  const isVeryLowConfidence = score < 0.55
 
   const handleCopy = async () => {
-    await navigator.clipboard.writeText(section.url)
+    await navigator.clipboard.writeText(chunk.url)
     setCopied(true)
     setTimeout(() => setCopied(false), 1500)
   }
@@ -25,41 +28,53 @@ export function AnswerCard({ section, score }: AnswerCardProps) {
   const handleShare = async () => {
     if (navigator.share) {
       await navigator.share({
-        title: `WAC ${section.id}`,
-        text: section.title,
-        url: section.url,
+        title: `WAC ${chunk.id}`,
+        text: chunk.sectionTitle,
+        url: chunk.url,
       })
     } else {
       handleCopy()
     }
   }
 
-  // Extract key answer from content (first meaningful paragraph)
-  const keyAnswer = section.content
-    .split("\n")
-    .filter((line) => line.trim().length > 20)
-    .slice(0, 2)
-    .join(" ")
-    .substring(0, 300)
+  // The chunk content is already the specific answer
+  const displayPath = chunk.subsectionPath && chunk.subsectionPath !== "overview"
+    ? ` ${chunk.subsectionPath}`
+    : ""
 
   return (
     <Card className={cn(
       "bg-white border-l-4 shadow-lg shadow-primary/10",
-      isLowConfidence ? "border-l-warning" : "border-l-secondary"
+      isVeryLowConfidence ? "border-l-red-400" : isLowConfidence ? "border-l-warning" : "border-l-secondary"
     )}>
       <CardContent className="p-4 space-y-4">
-        {isLowConfidence && (
+        {isVeryLowConfidence ? (
+          <div className="text-sm text-red-600 font-medium bg-red-50 px-3 py-2 rounded-lg">
+            ⚠️ We couldn't find a strong match for your question. This is the closest result from the WAC regulations.
+          </div>
+        ) : isLowConfidence && (
           <div className="text-sm text-warning font-medium">
             This might not be an exact match
           </div>
         )}
 
+        <div className="flex items-center gap-2">
+          <div className="text-xs text-text-muted font-medium uppercase tracking-wide">
+            {chunk.sectionTitle}{displayPath}
+          </div>
+          {source === "content" && (
+            <span className="text-xs px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">
+              From regulations
+            </span>
+          )}
+        </div>
+
         <p className="text-text leading-relaxed">
-          {keyAnswer}...
+          {chunk.content}
         </p>
 
         <a
-          href={section.url}
+          href={chunk.url}
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
@@ -72,7 +87,7 @@ export function AnswerCard({ section, score }: AnswerCardProps) {
           <ExternalLink className="w-5 h-5 text-primary-dark" />
           <div>
             <div className="font-semibold text-primary-dark">View on WAC website</div>
-            <div className="text-sm text-text-muted">WAC {section.id}</div>
+            <div className="text-sm text-text-muted">WAC {chunk.id}</div>
           </div>
         </a>
 
@@ -110,12 +125,12 @@ export function AnswerCard({ section, score }: AnswerCardProps) {
           ) : (
             <ChevronDown className="w-4 h-4" />
           )}
-          {expanded ? "Hide" : "Show"} full regulation text
+          {expanded ? "Hide" : "Show"} full section
         </button>
 
         {expanded && (
           <div className="p-3 bg-background rounded-xl text-sm leading-relaxed whitespace-pre-wrap">
-            {section.content}
+            {chunk.fullContent}
           </div>
         )}
       </CardContent>

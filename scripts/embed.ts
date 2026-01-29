@@ -1,68 +1,96 @@
-import { readFileSync, writeFileSync } from "fs"
+import { readFileSync, createWriteStream, existsSync, unlinkSync, renameSync } from "fs"
 import { join } from "path"
+import { pipeline, type FeatureExtractionPipeline } from "@huggingface/transformers"
 
-interface WacSection {
+interface WacChunk {
   id: string
-  title: string
+  chunkId: string
+  sectionTitle: string
+  subsectionPath: string
   content: string
+  fullContent: string
   url: string
   category: string
+  embeddingText: string
 }
 
-interface EmbeddingResult {
-  id: string
-  embedding: number[]
-}
+// Use 256d for good balance of quality vs size (Matryoshka)
+const TRUNCATE_DIM = 256
 
-const OLLAMA_URL = "http://localhost:11434/api/embed"
-const MODEL = "twine/mxbai-embed-xsmall-v1"
+async function embedChunks(): Promise<void> {
+  const chunksPath = join(process.cwd(), "public", "data", "chunks.json")
+  const chunks: WacChunk[] = JSON.parse(readFileSync(chunksPath, "utf-8"))
 
-async function getEmbedding(text: string): Promise<number[]> {
-  const response = await fetch(OLLAMA_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model: MODEL,
-      input: text,
-    }),
-  })
+  console.log(`Loading EmbeddingGemma model...`)
 
-  if (!response.ok) {
-    throw new Error(`Ollama error: ${response.statusText}`)
-  }
+  // Use the same pipeline as the browser
+  const embedder = await pipeline(
+    "feature-extraction",
+    "onnx-community/embeddinggemma-300m-ONNX",
+    { dtype: "q8" }
+  ) as FeatureExtractionPipeline
 
-  const data = await response.json() as { embeddings: number[][] }
-  return data.embeddings[0]
-}
+  console.log(`Embedding ${chunks.length} chunks...`)
+  console.log(`Using ${TRUNCATE_DIM}d embeddings (Matryoshka truncation)`)
 
-async function embedSections(): Promise<void> {
-  const sectionsPath = join(process.cwd(), "public", "data", "sections.json")
-  const sections: WacSection[] = JSON.parse(readFileSync(sectionsPath, "utf-8"))
+  const outPath = join(process.cwd(), "public", "data", "embeddings.json")
+  const tempPath = outPath + ".tmp"
 
-  console.log(`Embedding ${sections.length} sections...`)
+  // Stream write to avoid memory buildup
+  if (existsSync(tempPath)) unlinkSync(tempPath)
+  const stream = createWriteStream(tempPath)
+  stream.write("[\n")
 
-  const results: EmbeddingResult[] = []
+  let written = 0
+  const startTime = Date.now()
 
-  for (let i = 0; i < sections.length; i++) {
-    const section = sections[i]
-    const text = `${section.title}\n\n${section.content}`.substring(0, 2000)
+  for (let i = 0; i < chunks.length; i++) {
+    const chunk = chunks[i]
 
     try {
-      const embedding = await getEmbedding(text)
-      results.push({ id: section.id, embedding })
+      // Use document prefix for content chunks
+      const prefixedText = `title: none | text: ${chunk.embeddingText}`
 
-      if ((i + 1) % 10 === 0) {
-        console.log(`  ${i + 1}/${sections.length}`)
+      const result = await embedder(prefixedText, {
+        pooling: "mean",
+        normalize: true,
+      })
+
+      const fullEmbedding = Array.from(result.data as Float32Array)
+      const embedding = fullEmbedding.slice(0, TRUNCATE_DIM)
+
+      const record = { chunkId: chunk.chunkId, embedding }
+
+      if (written > 0) stream.write(",\n")
+      stream.write(JSON.stringify(record))
+      written++
+
+      if ((i + 1) % 50 === 0) {
+        const elapsed = (Date.now() - startTime) / 1000
+        const rate = (i + 1) / elapsed
+        const remaining = (chunks.length - i - 1) / rate
+        console.log(`  ${i + 1}/${chunks.length} (${rate.toFixed(1)}/s, ~${remaining.toFixed(0)}s left)`)
       }
     } catch (error) {
-      console.error(`Failed to embed ${section.id}:`, error)
+      console.error(`Failed to embed chunk ${i} (${chunk.chunkId}):`, error)
     }
   }
 
-  const outPath = join(process.cwd(), "public", "data", "embeddings.json")
-  writeFileSync(outPath, JSON.stringify(results))
+  stream.write("\n]")
+  stream.end()
 
-  console.log(`Wrote ${results.length} embeddings to ${outPath}`)
+  // Wait for stream to finish
+  await new Promise<void>((resolve, reject) => {
+    stream.on("finish", resolve)
+    stream.on("error", reject)
+  })
+
+  // Rename temp to final
+  if (existsSync(outPath)) unlinkSync(outPath)
+  renameSync(tempPath, outPath)
+
+  const elapsed = ((Date.now() - startTime) / 1000).toFixed(1)
+  console.log(`\nWrote ${written} embeddings to ${outPath} in ${elapsed}s`)
 }
 
-embedSections().catch(console.error)
+embedChunks().catch(console.error)

@@ -1,0 +1,884 @@
+[
+  {
+    "question": "How long can a bottle sit out before I need to throw it away?",
+    "answer": "Formula must be thrown away within 1 hour if not fully consumed. Partially consumed bottles cannot be put back in the refrigerator.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Bottle preparation",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "When should I throw away formula?",
+    "answer": "Throw away any formula bottle not fully consumed within 1 hour. You cannot refrigerate a partially consumed bottle.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Bottle preparation",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "Can I put a half-finished bottle back in the fridge?",
+    "answer": "No. Partially consumed bottles must not be put back into the refrigerator. They must be thrown away within 1 hour.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Bottle preparation",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "How should I warm a baby bottle?",
+    "answer": "Warm bottles under running warm water, in a container of water, or in a bottle warmer. Never heat bottles in a microwave.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Bottle preparation",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "Can I microwave a baby bottle?",
+    "answer": "No. You must not heat a bottle in a microwave. Use warm running water, a container of water, or a bottle warmer instead.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Bottle preparation",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "How do I sanitize baby bottles?",
+    "answer": "Clean bottles and nipples with warm soapy water and a bottle brush, then sanitize by boiling in hot water for one minute.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Bottle preparation",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "What type of plastic bottles are safe?",
+    "answer": "Use plastic bottles labeled with \"1\", \"2\", \"4\", or \"5\" on the bottle. Bottles must not contain BPA (bisphenol-A) or phthalates. Glass or stainless steel bottles are also acceptable.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Bottle preparation",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "How long can leftover food be stored?",
+    "answer": "Refrigerated leftover food must be served within 48 hours of being prepared. Frozen leftovers must be served promptly after thawing and cooking.",
+    "sectionId": "110-300-0197",
+    "sectionTitle": "Safe food practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0197"
+  },
+  {
+    "question": "How long is puree good for after opening?",
+    "answer": "Leftover food, including purees, must be served within 48 hours of being prepared if refrigerated. The food must be labeled with the date it was opened or cooked.",
+    "sectionId": "110-300-0197",
+    "sectionTitle": "Safe food practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0197"
+  },
+  {
+    "question": "What temperature should the refrigerator be?",
+    "answer": "Foods requiring refrigeration must be kept at 41 degrees Fahrenheit or less. Foods required to be frozen must be at 10 degrees Fahrenheit or less.",
+    "sectionId": "110-300-0197",
+    "sectionTitle": "Safe food practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0197"
+  },
+  {
+    "question": "How cold should the daycare fridge be?",
+    "answer": "The refrigerator must be 41°F (or less) and the freezer must be 10°F (or less).",
+    "sectionId": "110-300-0197",
+    "sectionTitle": "Safe food practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0197"
+  },
+  {
+    "question": "How should leftover food be stored?",
+    "answer": "Leftover food must be labeled with the date it was opened or cooked before storing in the refrigerator or freezer. Store in original containers or clean, labeled, dated, airtight food-grade containers.",
+    "sectionId": "110-300-0197",
+    "sectionTitle": "Safe food practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0197"
+  },
+  {
+    "question": "Can expired food be served to children?",
+    "answer": "No. Food that is past the manufacturer's expiration or \"best served by\" date must not be served to enrolled children.",
+    "sectionId": "110-300-0197",
+    "sectionTitle": "Safe food practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0197"
+  },
+  {
+    "question": "What is the staff to child ratio for infants?",
+    "answer": "For infants (birth through 11 months): 1 staff to 4 children (1:4) with max group size of 8, or 1:3 with max group size of 9.",
+    "sectionId": "110-300-0356",
+    "sectionTitle": "Center capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0356"
+  },
+  {
+    "question": "What is the staff to child ratio for toddlers?",
+    "answer": "For toddlers (12-29 months): 1 staff to 7 children (1:7) with max group size of 14, or 1:5 with max group size of 15.",
+    "sectionId": "110-300-0356",
+    "sectionTitle": "Center capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0356"
+  },
+  {
+    "question": "What is the staff to child ratio for preschoolers?",
+    "answer": "For preschoolers (30 months through 6 years, not in kindergarten): 1 staff to 10 children (1:10) with a maximum group size of 20.",
+    "sectionId": "110-300-0356",
+    "sectionTitle": "Center capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0356"
+  },
+  {
+    "question": "What is the staff to child ratio for school-age kids?",
+    "answer": "For school-age children (5-12 years in kindergarten or elementary): 1 staff to 15 children (1:15) with a maximum group size of 30.",
+    "sectionId": "110-300-0356",
+    "sectionTitle": "Center capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0356"
+  },
+  {
+    "question": "How many kids can one teacher watch?",
+    "answer": "It depends on age: Infants 1:4, Toddlers 1:7, Preschoolers 1:10, School-age 1:15. The ratio must always be maintained during operating hours.",
+    "sectionId": "110-300-0356",
+    "sectionTitle": "Center capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0356"
+  },
+  {
+    "question": "What is the maximum group size for infants?",
+    "answer": "Maximum group size for infants is 8 children (with 1:4 ratio) or 9 children (with 1:3 ratio).",
+    "sectionId": "110-300-0356",
+    "sectionTitle": "Center capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0356"
+  },
+  {
+    "question": "When should staff wash their hands?",
+    "answer": "Staff must wash hands: when arriving at work, after toileting a child, before and after diapering, after personal toileting, after attending to an ill child, before and after preparing/serving/eating food, before preparing bottles, after handling raw meat, before and after giving medication, after handling animals, after handling bodily fluids, after using tobacco, after being outdoors, after gardening, and after handling garbage.",
+    "sectionId": "110-300-0200",
+    "sectionTitle": "Handwashing and hand sanitizer",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0200"
+  },
+  {
+    "question": "When should children wash their hands?",
+    "answer": "Children must wash hands: when arriving, after using the toilet, after diapering, after outdoor play, after gardening, after playing with animals, after touching body fluids or sneezing, and before and after eating or food activities.",
+    "sectionId": "110-300-0200",
+    "sectionTitle": "Handwashing and hand sanitizer",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0200"
+  },
+  {
+    "question": "How long should you wash hands for?",
+    "answer": "Hands must be washed for at least 20 seconds with soap and water.",
+    "sectionId": "110-300-0200",
+    "sectionTitle": "Handwashing and hand sanitizer",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0200"
+  },
+  {
+    "question": "Can children use hand sanitizer?",
+    "answer": "Hand sanitizer with alcohol may be used for children over 24 months old, only when proper handwashing isn't available and hands aren't visibly dirty. Children must be supervised to avoid ingestion. Sanitizer must contain 60-90% alcohol.",
+    "sectionId": "110-300-0200",
+    "sectionTitle": "Handwashing and hand sanitizer",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0200"
+  },
+  {
+    "question": "Who can give medication to children at daycare?",
+    "answer": "Only staff who have completed: orientation on medication policies, the department's standardized medication administration training with competency assessment, and (if applicable) parent training for special medical procedures.",
+    "sectionId": "110-300-0215",
+    "sectionTitle": "Medication",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0215"
+  },
+  {
+    "question": "What are the rules for giving medication to children?",
+    "answer": "Providers need written and signed consent from parents, must follow directions on the label, use cleaned/sanitized measuring devices, and document each dose given including time, amount, and any side effects.",
+    "sectionId": "110-300-0215",
+    "sectionTitle": "Medication",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0215"
+  },
+  {
+    "question": "How should medication be stored at daycare?",
+    "answer": "Medication must be stored as directed on the label (including refrigeration if required), inaccessible to children, and kept in a locked location for controlled substances.",
+    "sectionId": "110-300-0215",
+    "sectionTitle": "Medication",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0215"
+  },
+  {
+    "question": "Can daycare give my child melatonin or sleep medicine?",
+    "answer": "Providers must not give any medication to sedate a child unless it has been specifically prescribed for that child for that purpose by a qualified health care professional.",
+    "sectionId": "110-300-0215",
+    "sectionTitle": "Medication",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0215"
+  },
+  {
+    "question": "Does daycare need permission to apply sunscreen?",
+    "answer": "Yes. Parents must annually authorize the provider to apply sunscreen, diaper ointments, lip balm, lotion, hand sanitizer (for kids over 24 months), and fluoride toothpaste.",
+    "sectionId": "110-300-0215",
+    "sectionTitle": "Medication",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0215"
+  },
+  {
+    "question": "What are the diaper changing procedures?",
+    "answer": "Staff must: never leave child unattended on changing surface, not use safety belts on changing tables, post and follow diaper changing procedures at each station, and wash hands before and after each diaper change.",
+    "sectionId": "110-300-0221",
+    "sectionTitle": "Diaper changing areas, privacy, and disposal",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0221"
+  },
+  {
+    "question": "Where should the diaper changing area be located?",
+    "answer": "Diaper changing areas must be separate from areas where food is stored, prepared, or served, and have a sink with hot and cold running water not used for food preparation.",
+    "sectionId": "110-300-0221",
+    "sectionTitle": "Diaper changing areas, privacy, and disposal",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0221"
+  },
+  {
+    "question": "Can children be left alone on the changing table?",
+    "answer": "No. Providers must not leave children unattended on the diaper changing surface during the diaper changing process.",
+    "sectionId": "110-300-0221",
+    "sectionTitle": "Diaper changing areas, privacy, and disposal",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0221"
+  },
+  {
+    "question": "What are the requirements for cloth diapers?",
+    "answer": "Cloth diapers must not be rinsed, must be placed in a sealed moisture-proof bag, stored in a separate disposal container, and delivered to a laundry service or given to parents at least daily.",
+    "sectionId": "110-300-0221",
+    "sectionTitle": "Diaper changing areas, privacy, and disposal",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0221"
+  },
+  {
+    "question": "Do children have to take naps at daycare?",
+    "answer": "Providers must offer a supervised daily rest period for children preschool age and younger who remain in care for more than 6 hours, or who show a need for rest. Quiet activities must be provided for children who don't need rest.",
+    "sectionId": "110-300-0265",
+    "sectionTitle": "Sleep, rest, and equipment",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0265"
+  },
+  {
+    "question": "What are the requirements for nap mats and cots?",
+    "answer": "Mats and cots must be in good condition (no tears or tape repairs), cleaned and sanitized weekly (or after each use if shared), and floor mats must be at least 1 inch thick.",
+    "sectionId": "110-300-0265",
+    "sectionTitle": "Sleep, rest, and equipment",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0265"
+  },
+  {
+    "question": "How far apart should nap mats be spaced?",
+    "answer": "There must be at least 18 inches on each side between each floor mat, cot, or mattress. Children must be arranged head to toe or toe to toe.",
+    "sectionId": "110-300-0265",
+    "sectionTitle": "Sleep, rest, and equipment",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0265"
+  },
+  {
+    "question": "Can children sleep directly on the floor?",
+    "answer": "No. Providers must not place children directly on the floor to rest or sleep. They must use mats, cots, or other appropriate sleep equipment.",
+    "sectionId": "110-300-0265",
+    "sectionTitle": "Sleep, rest, and equipment",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0265"
+  },
+  {
+    "question": "Can babies use blankets in cribs at daycare?",
+    "answer": "No. Blankets, stuffed toys, pillows, crib bumpers, and similar items are not allowed inside a crib, bassinet, or other equipment if occupied by a sleeping infant.",
+    "sectionId": "110-300-0291",
+    "sectionTitle": "Infant safe sleep practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0291"
+  },
+  {
+    "question": "What position should babies sleep in?",
+    "answer": "Infants must be placed to sleep on their back. If an infant turns over while sleeping, the provider must return them to their back until the infant can independently roll both ways.",
+    "sectionId": "110-300-0291",
+    "sectionTitle": "Infant safe sleep practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0291"
+  },
+  {
+    "question": "How often should sleeping infants be checked?",
+    "answer": "Sleeping infants must be visibly checked every 15 minutes, and staff must be within sight and hearing range when an infant goes to sleep, is sleeping, or is waking up.",
+    "sectionId": "110-300-0291",
+    "sectionTitle": "Infant safe sleep practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0291"
+  },
+  {
+    "question": "What are the safe sleep requirements for infants?",
+    "answer": "Infants must sleep on their back, in a crib with no blankets/toys/bumpers, be checked every 15 minutes, with the room lit enough to observe skin color, and staff must monitor breathing patterns.",
+    "sectionId": "110-300-0291",
+    "sectionTitle": "Infant safe sleep practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0291"
+  },
+  {
+    "question": "Is first aid training required for daycare staff?",
+    "answer": "Yes. Family home licensees, center directors, assistant directors, program supervisors, lead teachers, assistant teachers, and any staff counted in ratio must have current pediatric and adult first-aid and CPR certification.",
+    "sectionId": "110-300-0230",
+    "sectionTitle": "First-aid—CPR certification and supplies",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0230"
+  },
+  {
+    "question": "Do daycare teachers need CPR certification?",
+    "answer": "Yes. All staff counted in staff-to-child ratio must have current pediatric and adult CPR certification, along with first-aid certification.",
+    "sectionId": "110-300-0230",
+    "sectionTitle": "First-aid—CPR certification and supplies",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0230"
+  },
+  {
+    "question": "What must be in a first aid kit at daycare?",
+    "answer": "Required items: disposable nonlatex gloves, bandages of various sizes, scissors, tweezers, elastic bandage, sterile gauze, ice packs, thermometer, sling/triangular bandage, adhesive tape, CPR barrier/mask, first-aid manual, and hand sanitizer.",
+    "sectionId": "110-300-0230",
+    "sectionTitle": "First-aid—CPR certification and supplies",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0230"
+  },
+  {
+    "question": "When should a sick child be sent home from daycare?",
+    "answer": "A child should be sent home if: illness prevents normal activities, requires more care than staff can provide, puts other children at risk, or the illness could spread to others.",
+    "sectionId": "110-300-0205",
+    "sectionTitle": "Child, staff, and household member illness",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0205"
+  },
+  {
+    "question": "What fever requires a child to be sent home?",
+    "answer": "Children over 2 months with fever of 101°F or higher (100.4°F for infants under 2 months) AND behavior changes or other symptoms (sore throat, earache, rash, vomiting, diarrhea) must be sent home.",
+    "sectionId": "110-300-0205",
+    "sectionTitle": "Child, staff, and household member illness",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0205"
+  },
+  {
+    "question": "Can a child with lice come to daycare?",
+    "answer": "No. Children with head lice must be excluded beginning at the end of the day lice was discovered. They may return after receiving the first treatment.",
+    "sectionId": "110-300-0205",
+    "sectionTitle": "Child, staff, and household member illness",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0205"
+  },
+  {
+    "question": "When can a child return to daycare after being sick?",
+    "answer": "For contagious diseases, a child may return with written permission from a health care provider or health jurisdiction stating they may safely return.",
+    "sectionId": "110-300-0205",
+    "sectionTitle": "Child, staff, and household member illness",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0205"
+  },
+  {
+    "question": "How many times can a child vomit before being sent home?",
+    "answer": "A child must be sent home if they have vomited two or more times in the previous 24 hours.",
+    "sectionId": "110-300-0205",
+    "sectionTitle": "Child, staff, and household member illness",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0205"
+  },
+  {
+    "question": "Can daycare take a child's temperature rectally?",
+    "answer": "No. Providers must not take ear or rectal temperatures. They must use developmentally appropriate methods like digital forehead scan thermometers or underarm methods for infants/toddlers.",
+    "sectionId": "110-300-0205",
+    "sectionTitle": "Child, staff, and household member illness",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0205"
+  },
+  {
+    "question": "How much outdoor play time is required?",
+    "answer": "The daily schedule must include morning or afternoon active outdoor play time. Outdoor space must promote age-appropriate active play including moderate and vigorous physical activity like running, jumping, skipping, and throwing.",
+    "sectionId": "110-300-0145",
+    "sectionTitle": "Outdoor early learning program space",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0145"
+  },
+  {
+    "question": "Do children have to play outside every day?",
+    "answer": "Yes. The daily schedule must include active outdoor play time requirements for morning or afternoon.",
+    "sectionId": "110-300-0360",
+    "sectionTitle": "Program and daily schedule",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0360"
+  },
+  {
+    "question": "Is TV allowed at daycare?",
+    "answer": "Television, video, and computer use must be age-appropriate, educational, and limited. Screen time should not replace physical activity, outdoor play, or hands-on learning experiences.",
+    "sectionId": "110-300-0155",
+    "sectionTitle": "Use of television, video, and computers",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0155"
+  },
+  {
+    "question": "Is timeout allowed at daycare?",
+    "answer": "Brief supervised separation may be used for children 3 years and older as a last resort, but it must be developmentally appropriate and time-limited. Harsh discipline, shaming, and physical punishment are prohibited.",
+    "sectionId": "110-300-0331",
+    "sectionTitle": "Prohibited behavior and discipline",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0331"
+  },
+  {
+    "question": "Can daycare workers yell at children?",
+    "answer": "No. Providers are prohibited from using harsh discipline including yelling, threatening, shaming, or using frightening or humiliating methods.",
+    "sectionId": "110-300-0331",
+    "sectionTitle": "Prohibited behavior and discipline",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0331"
+  },
+  {
+    "question": "Is spanking allowed at daycare?",
+    "answer": "No. Physical punishment including spanking, hitting, shaking, or any form of corporal punishment is strictly prohibited.",
+    "sectionId": "110-300-0331",
+    "sectionTitle": "Prohibited behavior and discipline",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0331"
+  },
+  {
+    "question": "Who can pick up my child from daycare?",
+    "answer": "Children can only be released to parents/guardians or individuals authorized in writing by the parent. Providers must verify identity before releasing a child to anyone other than the parent.",
+    "sectionId": "110-300-0450",
+    "sectionTitle": "Parent or guardian handbook and related policies",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0450"
+  },
+  {
+    "question": "What immunizations are required for daycare?",
+    "answer": "Children must have immunizations as required by the State Board of Health, with documentation on file. Exemptions are allowed for medical, religious, or philosophical reasons with proper documentation.",
+    "sectionId": "110-300-0210",
+    "sectionTitle": "Immunizations and exempt children",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0210"
+  },
+  {
+    "question": "Can unvaccinated children attend daycare?",
+    "answer": "Yes, with proper exemption documentation (medical, religious, or philosophical). However, exempt children may be excluded during disease outbreaks.",
+    "sectionId": "110-300-0210",
+    "sectionTitle": "Immunizations and exempt children",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0210"
+  },
+  {
+    "question": "How do I file a complaint about a daycare?",
+    "answer": "Contact the Washington State Department of Children, Youth, and Families (DCYF) to report concerns about a licensed childcare facility. Complaints can be filed online or by phone.",
+    "sectionId": "110-300-0475",
+    "sectionTitle": "Duty to protect children and report incidents",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0475"
+  },
+  {
+    "question": "What incidents must daycare report to parents?",
+    "answer": "Providers must report any illness, injury, or unusual incident to parents as soon as possible. Serious injuries must be reported to both parents and the department.",
+    "sectionId": "110-300-0475",
+    "sectionTitle": "Duty to protect children and report incidents",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0475"
+  },
+  {
+    "question": "Must children always be supervised at daycare?",
+    "answer": "Yes. Providers must supervise children at all times, keeping them within sight and hearing. Staff must be aware of each child's needs, whereabouts, and activities.",
+    "sectionId": "110-300-0345",
+    "sectionTitle": "Supervising children",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0345"
+  },
+  {
+    "question": "Can children be left alone at daycare?",
+    "answer": "No. Children must be supervised at all times. Staff must maintain visual and auditory supervision, being aware of each child's needs and activities.",
+    "sectionId": "110-300-0345",
+    "sectionTitle": "Supervising children",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0345"
+  },
+  {
+    "question": "What are the requirements for a fire drill at daycare?",
+    "answer": "Providers must conduct monthly fire drills and practice evacuation procedures. Evacuation routes must be posted, and drill records must be maintained.",
+    "sectionId": "110-300-0470",
+    "sectionTitle": "Emergency preparedness plan",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0470"
+  },
+  {
+    "question": "What do I do during a fire at daycare?",
+    "answer": "Follow the posted evacuation plan, evacuate all children to the designated safe meeting location, account for all children, and do not re-enter the building until cleared by fire authorities.",
+    "sectionId": "110-300-0470",
+    "sectionTitle": "Emergency preparedness plan",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0470"
+  },
+  {
+    "question": "Does daycare need an emergency plan?",
+    "answer": "Yes. Every licensed childcare must have a written emergency preparedness plan covering fire, earthquake, lockdown, and other emergencies, with procedures practiced regularly.",
+    "sectionId": "110-300-0470",
+    "sectionTitle": "Emergency preparedness plan",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0470"
+  },
+  {
+    "question": "How tall does a daycare fence need to be?",
+    "answer": "Outdoor play areas must be enclosed with a fence or barrier at least 4 feet (48 inches) high that children cannot climb over, under, or through.",
+    "sectionId": "110-300-0145",
+    "sectionTitle": "Outdoor early learning program space",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0145"
+  },
+  {
+    "question": "What background check is required for daycare workers?",
+    "answer": "All staff, volunteers, and household members (in family homes) must pass a background check through the Department of Children, Youth, and Families before having unsupervised access to children.",
+    "sectionId": "110-300-0100",
+    "sectionTitle": "General staff qualifications",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0100"
+  },
+  {
+    "question": "Do daycare workers need fingerprints?",
+    "answer": "Yes. Background checks include fingerprint-based checks through state and federal databases.",
+    "sectionId": "110-300-0100",
+    "sectionTitle": "General staff qualifications",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0100"
+  },
+  {
+    "question": "How old do you have to be to work at a daycare?",
+    "answer": "Staff must be at least 18 years old for unsupervised care. Individuals 16-17 may assist under direct supervision of qualified staff but cannot be counted in ratio.",
+    "sectionId": "110-300-0100",
+    "sectionTitle": "General staff qualifications",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0100"
+  },
+  {
+    "question": "What training is required for daycare workers?",
+    "answer": "Staff must complete preservice training (including child development, safety, health), ongoing in-service training hours annually, first aid/CPR certification, food handler's permit, and medication administration training if applicable.",
+    "sectionId": "110-300-0106",
+    "sectionTitle": "Training requirements",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0106"
+  },
+  {
+    "question": "How often do staff need training?",
+    "answer": "Staff must complete ten hours of annual in-service training after twelve months of cumulative employment. Directors and supervisors also need additional training in child development and leadership practices every thirty-six months.",
+    "sectionId": "110-300-0107",
+    "sectionTitle": "In-service training",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0107"
+  },
+  {
+    "question": "How many square feet per child is required?",
+    "answer": "Indoor space must provide at least 35 square feet of usable floor space per child. Outdoor space must provide at least 75 square feet per child.",
+    "sectionId": "110-300-0130",
+    "sectionTitle": "Indoor early learning program space",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0130"
+  },
+  {
+    "question": "Can babies share bottles or cups?",
+    "answer": "No. Providers must not allow infants or toddlers to share bottles or cups when in use.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Bottle preparation",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "How should breast milk be stored at daycare?",
+    "answer": "Breast milk must be labeled with the child's name and date, stored in the refrigerator or freezer, and handled according to safe food handling guidelines. It should never be microwaved.",
+    "sectionId": "110-300-0281",
+    "sectionTitle": "Breast milk",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0281"
+  },
+  {
+    "question": "Can daycare feed my baby formula without permission?",
+    "answer": "No. Providers must obtain parental consent before feeding infant formula to an otherwise breastfed infant.",
+    "sectionId": "110-300-0281",
+    "sectionTitle": "Breast milk",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0281"
+  },
+  {
+    "question": "What are the requirements for mixed age groups?",
+    "answer": "Mixed age groups must meet the ratio and square footage requirements for the youngest child present and meet the developmental needs of all ages in the group.",
+    "sectionId": "110-300-0357",
+    "sectionTitle": "Center mixed age group capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0357"
+  },
+  {
+    "question": "How far should bottle prep be from diaper changing?",
+    "answer": "Bottle preparation areas must be at least 8 feet from diaper changing tables, or physically separated by a barrier at least 24 inches high that is smooth, sealed, and moisture resistant.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Bottle preparation",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "What foods need to be refrigerated at daycare?",
+    "answer": "Foods subject to spoiling must be refrigerated, including: meats, cooked potatoes, cooked legumes, cooked rice, sprouts, cut melons, cut cantaloupes, milk, and cheese.",
+    "sectionId": "110-300-0197",
+    "sectionTitle": "Safe food practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0197"
+  },
+  {
+    "question": "Where should raw meat be stored?",
+    "answer": "Raw meat must be stored in the refrigerator or freezer below cooked or ready-to-eat foods to prevent contamination.",
+    "sectionId": "110-300-0197",
+    "sectionTitle": "Safe food practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0197"
+  },
+  {
+    "question": "Can kids use bunk beds at daycare?",
+    "answer": "No. Children less than 6 years old must not use loft-style beds or upper bunks of bunk beds.",
+    "sectionId": "110-300-0265",
+    "sectionTitle": "Sleep, rest, and equipment",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0265"
+  },
+  {
+    "question": "How often should bedding be washed at daycare?",
+    "answer": "Bedding must be laundered weekly or more often if soiled, or laundered daily if used by more than one child. Bedding must be stored separately unless cleaned between uses.",
+    "sectionId": "110-300-0265",
+    "sectionTitle": "Sleep, rest, and equipment",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0265"
+  },
+  {
+    "question": "Can infants use sleep positioners?",
+    "answer": "No. Sleep positioning devices are not allowed unless directed by the infant's health care provider in writing, which must be kept in the infant's file.",
+    "sectionId": "110-300-0291",
+    "sectionTitle": "Infant safe sleep practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0291"
+  },
+  {
+    "question": "What happens if my child gets hurt at daycare?",
+    "answer": "Providers must notify parents as soon as possible of any injury. Serious injuries must be documented and reported to the department. First aid must be administered by trained staff.",
+    "sectionId": "110-300-0475",
+    "sectionTitle": "Duty to protect children and report incidents",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0475"
+  },
+  {
+    "question": "Does daycare need to tell me about outbreaks?",
+    "answer": "Yes. Within 24 hours of learning about a contagious disease, providers must notify parents, the department, and the local health jurisdiction in writing.",
+    "sectionId": "110-300-0205",
+    "sectionTitle": "Child, staff, and household member illness",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0205"
+  },
+  {
+    "question": "Can I bring food from home for my child?",
+    "answer": "Yes. Parents may provide food from home. It must be labeled with the child's name and date, and stored/refrigerated properly. Providers must follow safe food handling practices.",
+    "sectionId": "110-300-0190",
+    "sectionTitle": "Parent or guardian provided food",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0190"
+  },
+  {
+    "question": "What if my child has food allergies?",
+    "answer": "Providers must have a written plan for children with food allergies, post allergy information where food is prepared, and ensure all staff are aware of each child's allergies and the emergency response plan.",
+    "sectionId": "110-300-0186",
+    "sectionTitle": "Food allergies and special dietary needs",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0186"
+  },
+  {
+    "question": "How small should food be cut for infants?",
+    "answer": "Soft foods offered to older infants should be cut into pieces one-quarter inch or smaller to prevent choking. Between 6-12 months, gradually increase food texture from strained, to mashed, to soft table foods.",
+    "sectionId": "110-300-0285",
+    "sectionTitle": "Infant and toddler nutrition and feeding",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0285"
+  },
+  {
+    "question": "What size food pieces are safe for babies?",
+    "answer": "Cut soft foods into pieces one-quarter inch or smaller to prevent choking for older infants. Always supervise infants and toddlers while eating.",
+    "sectionId": "110-300-0285",
+    "sectionTitle": "Infant and toddler nutrition and feeding",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0285"
+  },
+  {
+    "question": "Can infants drink juice?",
+    "answer": "No. Do not serve 100 percent juice or any sweetened beverages to infants less than 12 months old, unless a health care provider gives written consent. For children older than 12 months, offer juice only from a cup.",
+    "sectionId": "110-300-0285",
+    "sectionTitle": "Infant and toddler nutrition and feeding",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0285"
+  },
+  {
+    "question": "When can babies have juice?",
+    "answer": "Babies under 12 months should not have juice. After 12 months, juice may be offered from a cup (not bottle) to help prevent tooth decay.",
+    "sectionId": "110-300-0285",
+    "sectionTitle": "Infant and toddler nutrition and feeding",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0285"
+  },
+  {
+    "question": "What temperature should water be for children?",
+    "answer": "All water accessible to enrolled children must not be hotter than 120 degrees Fahrenheit to prevent scalding.",
+    "sectionId": "110-300-0165",
+    "sectionTitle": "Safety requirements",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0165"
+  },
+  {
+    "question": "What is the maximum water temperature allowed?",
+    "answer": "Safe water temperature requires all water accessible to children to be no hotter than 120 degrees Fahrenheit.",
+    "sectionId": "110-300-0165",
+    "sectionTitle": "Safety requirements",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0165"
+  },
+  {
+    "question": "What temperature should the room be at daycare?",
+    "answer": "Indoor early learning space must be between 68 and 82 degrees Fahrenheit. If the temperature is outside this range, climate control devices must be used.",
+    "sectionId": "110-300-0165",
+    "sectionTitle": "Safety requirements",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0165"
+  },
+  {
+    "question": "What indoor temperature is required?",
+    "answer": "The temperature of indoor licensed space must be between 68 and 82 degrees Fahrenheit.",
+    "sectionId": "110-300-0165",
+    "sectionTitle": "Safety requirements",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0165"
+  },
+  {
+    "question": "What are choking hazards for infants?",
+    "answer": "Objects with a diameter of 1.75 inches (one and three-quarter inches) or less are choking hazards for infants and toddlers and must be kept inaccessible. For food, cut soft foods into pieces one-quarter inch or smaller.",
+    "sectionId": "110-300-0165",
+    "sectionTitle": "Safety requirements",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0165"
+  },
+  {
+    "question": "What objects are choking hazards?",
+    "answer": "Any equipment, material, or object with a diameter of 1.75 inches or less is a choking hazard for infants and toddlers. Small parts that can detach from larger items are also hazards.",
+    "sectionId": "110-300-0165",
+    "sectionTitle": "Safety requirements",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0165"
+  },
+  {
+    "question": "What discipline methods are prohibited at daycare?",
+    "answer": "Prohibited discipline includes: corporal punishment, physical abuse, threatening or shaming, withholding food or rest, isolating children in dark areas, and any form of emotional abuse. Only positive guidance and brief supervised separation (for children 3+) are allowed.",
+    "sectionId": "110-300-0331",
+    "sectionTitle": "Prohibited behavior and discipline",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0331"
+  },
+  {
+    "question": "What punishment is not allowed at daycare?",
+    "answer": "Staff are prohibited from using corporal punishment, physical abuse, threats, shaming, withholding food/rest, or isolating children. Positive guidance techniques must be used instead.",
+    "sectionId": "110-300-0331",
+    "sectionTitle": "Prohibited behavior and discipline",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0331"
+  },
+  {
+    "question": "How long can breast milk sit out?",
+    "answer": "Breast milk must be labeled with the child's name and date, stored in the refrigerator or freezer, and never microwaved. Follow safe food handling guidelines for storage times.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Breast milk",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "How should breast milk be stored at daycare?",
+    "answer": "Breast milk must be labeled with the child's name and date, stored in the refrigerator or freezer, and handled according to safe food handling guidelines. It should never be microwaved.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Breast milk",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "What are the SIDS prevention requirements?",
+    "answer": "Infants must be placed on their back to sleep, in a crib with no blankets, toys, bumpers, or soft items. Staff must check sleeping infants every 15 minutes and monitor breathing patterns.",
+    "sectionId": "110-300-0291",
+    "sectionTitle": "Infant safe sleep practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0291"
+  },
+  {
+    "question": "Can babies sleep with stuffed animals?",
+    "answer": "No. Stuffed toys, blankets, pillows, crib bumpers, and similar soft items are not allowed inside a crib, bassinet, or other equipment if occupied by a sleeping infant.",
+    "sectionId": "110-300-0291",
+    "sectionTitle": "Infant safe sleep practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0291"
+  },
+  {
+    "question": "How long should you wash hands?",
+    "answer": "Hands must be washed for at least 20 seconds with soap and water.",
+    "sectionId": "110-300-0180",
+    "sectionTitle": "Handwashing and hand sanitizer",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0180"
+  },
+  {
+    "question": "What temperature is considered a fever for infants?",
+    "answer": "For infants under 2 months, a fever of 100.4°F or higher requires sending the child home. For children over 2 months, the threshold is 101°F combined with behavior changes or other symptoms.",
+    "sectionId": "110-300-0210",
+    "sectionTitle": "Child, staff, and household member illness",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0210"
+  },
+  {
+    "question": "What is the preschooler to staff ratio?",
+    "answer": "The staff to child ratio for preschoolers (30 months to 6 years) is 1:10. This ratio must be maintained at all times during operating hours.",
+    "sectionId": "110-300-0355",
+    "sectionTitle": "Center capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0355"
+  },
+  {
+    "question": "How many school-age children per staff?",
+    "answer": "The staff to child ratio for school-age children (5+ years) is 1:15. This ratio must be maintained at all times.",
+    "sectionId": "110-300-0355",
+    "sectionTitle": "Center capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0355"
+  },
+  {
+    "question": "How often should evacuation drills be practiced?",
+    "answer": "Fire drills and evacuation procedures must be practiced monthly. Evacuation routes must be posted and drill records maintained.",
+    "sectionId": "110-300-0470",
+    "sectionTitle": "Emergency preparedness plan",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0470"
+  },
+  {
+    "question": "Do children need to play outside every day?",
+    "answer": "Children must have daily outdoor play time, weather permitting. Outdoor play space must provide at least 75 square feet per child.",
+    "sectionId": "110-300-0145",
+    "sectionTitle": "Outdoor early learning program space",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0145"
+  },
+  {
+    "question": "Can children ever be left unsupervised?",
+    "answer": "No. Children must be supervised at all times, kept within sight and hearing of staff. Staff must be aware of each child's needs, whereabouts, and activities.",
+    "sectionId": "110-300-0345",
+    "sectionTitle": "Supervising children",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0345"
+  },
+  {
+    "question": "Can daycare staff give my child medicine?",
+    "answer": "Yes, with proper authorization. Medication requires written parent consent, must be in original container with prescription label, and stored in a locked location inaccessible to children.",
+    "sectionId": "110-300-0215",
+    "sectionTitle": "Medication",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0215"
+  },
+  {
+    "question": "What temperature should food be kept at?",
+    "answer": "Foods requiring refrigeration must be kept at 41 degrees Fahrenheit or less. Frozen foods must be at 10 degrees Fahrenheit or less.",
+    "sectionId": "110-300-0270",
+    "sectionTitle": "Safe food practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0270"
+  },
+  {
+    "question": "How long are leftovers safe to eat?",
+    "answer": "Refrigerated leftover food must be served within 48 hours of being prepared. Frozen leftovers must be served promptly after thawing and cooking.",
+    "sectionId": "110-300-0270",
+    "sectionTitle": "Safe food practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0270"
+  },
+  {
+    "question": "What is the formula disposal rule?",
+    "answer": "Formula must be thrown away within 1 hour if not fully consumed. Partially consumed bottles cannot be refrigerated.",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Bottle preparation",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "question": "What is the fence height requirement?",
+    "answer": "Outdoor play areas must be enclosed with a fence or barrier at least 4 feet (48 inches) high that children cannot climb over, under, or through.",
+    "sectionId": "110-300-0145",
+    "sectionTitle": "Outdoor early learning program space",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0145"
+  },
+  {
+    "question": "How should infants be put to sleep?",
+    "answer": "Infants must be placed to sleep on their back. If an infant turns over while sleeping, return them to their back until they can independently roll both ways.",
+    "sectionId": "110-300-0291",
+    "sectionTitle": "Infant safe sleep practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0291"
+  },
+  {
+    "question": "Are blankets allowed in cribs?",
+    "answer": "No. Blankets, stuffed toys, pillows, crib bumpers, and similar items are not allowed in cribs, bassinets, or other sleep equipment occupied by infants.",
+    "sectionId": "110-300-0291",
+    "sectionTitle": "Infant safe sleep practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0291"
+  },
+  {
+    "question": "What is the infant caregiver ratio?",
+    "answer": "The staff to child ratio for infants (birth to 12 months) is 1:4. This ratio must be maintained at all times during operating hours.",
+    "sectionId": "110-300-0355",
+    "sectionTitle": "Center capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0355"
+  },
+  {
+    "question": "What is the toddler caregiver ratio?",
+    "answer": "The staff to child ratio for toddlers (12-30 months) is 1:7. This ratio must always be maintained.",
+    "sectionId": "110-300-0355",
+    "sectionTitle": "Center capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0355"
+  },
+  {
+    "question": "Do daycare workers need background checks?",
+    "answer": "Yes. All staff must pass a background check through the Department of Children, Youth, and Families before having unsupervised access to children.",
+    "sectionId": "110-300-0100",
+    "sectionTitle": "General staff qualifications",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0100"
+  },
+  {
+    "question": "At what temperature should a child be sent home?",
+    "answer": "Children over 2 months with fever of 101°F or higher (100.4°F for infants under 2 months) AND behavior changes or other symptoms must be sent home.",
+    "sectionId": "110-300-0210",
+    "sectionTitle": "Child, staff, and household member illness",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0210"
+  },
+  {
+    "question": "When must staff wash their hands?",
+    "answer": "Staff must wash hands before and after handling food, after using the bathroom, after diaper changes, after helping children with toileting, after wiping noses, and after handling animals.",
+    "sectionId": "110-300-0180",
+    "sectionTitle": "Handwashing and hand sanitizer",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0180"
+  },
+  {
+    "question": "Where should medication be stored?",
+    "answer": "All medication must be stored in a locked container or cabinet inaccessible to children, in the original container with prescription label.",
+    "sectionId": "110-300-0215",
+    "sectionTitle": "Medication",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0215"
+  },
+  {
+    "question": "How much space per child indoors?",
+    "answer": "Indoor space must provide at least 35 square feet of usable floor space per child.",
+    "sectionId": "110-300-0140",
+    "sectionTitle": "Indoor early learning program space",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0140"
+  },
+  {
+    "question": "How much outdoor space is required per child?",
+    "answer": "Outdoor space must provide at least 75 square feet per child.",
+    "sectionId": "110-300-0145",
+    "sectionTitle": "Outdoor early learning program space",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0145"
+  },
+  {
+    "question": "How often must fire drills be practiced?",
+    "answer": "Fire drills must be conducted monthly. Evacuation routes must be posted and drill records maintained.",
+    "sectionId": "110-300-0470",
+    "sectionTitle": "Emergency preparedness plan",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0470"
+  },
+  {
+    "question": "Is physical punishment allowed?",
+    "answer": "No. Corporal punishment, physical abuse, and any form of physical discipline are strictly prohibited. Only positive guidance techniques are allowed.",
+    "sectionId": "110-300-0331",
+    "sectionTitle": "Prohibited behavior and discipline",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0331"
+  }
+]
