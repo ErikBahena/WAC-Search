@@ -34,6 +34,12 @@ export interface WacChunk {
 
 // EmbeddingGemma pipeline
 let embedder: FeatureExtractionPipeline | null = null
+let isInitializing = false
+let initPromise: Promise<void> | null = null
+
+// Module-level progress tracking (shared across React Strict Mode double-calls)
+const fileProgress = new Map<string, { loaded: number; total: number }>()
+let lastReportedProgress = 0
 
 let qaPairs: QAPair[] = []
 let qaEmbeddings: Map<string, number[]> = new Map()
@@ -63,6 +69,24 @@ async function getDevice(): Promise<"webgpu" | "wasm"> {
 }
 
 export async function initQASearch(
+  onProgress?: (progress: number) => void
+): Promise<void> {
+  // Prevent double initialization (React Strict Mode calls effects twice)
+  if (isInitializing && initPromise) {
+    return initPromise
+  }
+
+  isInitializing = true
+
+  // Reset progress tracking
+  fileProgress.clear()
+  lastReportedProgress = 0
+
+  initPromise = doInitQASearch(onProgress)
+  return initPromise
+}
+
+async function doInitQASearch(
   onProgress?: (progress: number) => void
 ): Promise<void> {
   // Load Q&A pairs
@@ -99,10 +123,10 @@ export async function initQASearch(
   // Load EmbeddingGemma pipeline
   const modelId = "onnx-community/embeddinggemma-300m-ONNX"
 
-  // Track progress per-file to calculate true overall progress
-  // HuggingFace downloads multiple files, each with its own 0-100 progress
-  const fileProgress = new Map<string, { loaded: number; total: number }>()
-  let lastReportedProgress = 0.2
+  // Model download is 75% of total progress (from 0.2 to 0.95)
+  // Progress tracking uses module-level state (shared across React Strict Mode)
+  lastReportedProgress = 0.2
+  onProgress?.(0.2)
 
   embedder = await pipeline("feature-extraction", modelId, {
     dtype: "q8",
@@ -110,25 +134,15 @@ export async function initQASearch(
     progress_callback: (p: unknown) => {
       const info = p as {
         status?: string
-        name?: string
         file?: string
-        progress?: number
         loaded?: number
         total?: number
       }
 
-      // Debug: log all callback data
-      console.log("Progress callback:", JSON.stringify(info))
-
-      // Handle progress updates - try loaded/total first, fall back to progress percentage
-      if (info.status === "progress" && info.file) {
-        if (typeof info.loaded === "number" && typeof info.total === "number" && info.total > 0) {
-          // Use byte-level tracking for accurate progress
-          fileProgress.set(info.file, { loaded: info.loaded, total: info.total })
-        } else if (typeof info.progress === "number") {
-          // Fallback: use progress percentage, estimate total as 100 units
-          fileProgress.set(info.file, { loaded: info.progress, total: 100 })
-        }
+      // Track progress per file using loaded/total bytes
+      if (info.status === "progress" && info.file &&
+          typeof info.loaded === "number" && typeof info.total === "number" && info.total > 0) {
+        fileProgress.set(info.file, { loaded: info.loaded, total: info.total })
 
         // Calculate overall progress across all files
         let totalLoaded = 0
@@ -140,11 +154,11 @@ export async function initQASearch(
 
         if (totalSize > 0) {
           const overallProgress = totalLoaded / totalSize
-          // Model download is 75% of total progress (from 0.2 to 0.95)
+          // Model download spans 0.2 to 0.95 (75% of total progress)
           const newProgress = 0.2 + overallProgress * 0.75
 
-          // Only update if progress increased (prevents any remaining flicker)
-          if (newProgress > lastReportedProgress) {
+          // Only update if progress increased (monotonic - prevents flicker)
+          if (newProgress > lastReportedProgress + 0.005) { // 0.5% threshold to reduce updates
             lastReportedProgress = newProgress
             onProgress?.(newProgress)
           }
