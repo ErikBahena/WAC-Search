@@ -110,15 +110,25 @@ export async function initQASearch(
     progress_callback: (p: unknown) => {
       const info = p as {
         status?: string
+        name?: string
         file?: string
         progress?: number
         loaded?: number
         total?: number
       }
 
-      // Track progress per file using loaded/total bytes
-      if (info.file && typeof info.loaded === "number" && typeof info.total === "number") {
-        fileProgress.set(info.file, { loaded: info.loaded, total: info.total })
+      // Debug: log all callback data
+      console.log("Progress callback:", JSON.stringify(info))
+
+      // Handle progress updates - try loaded/total first, fall back to progress percentage
+      if (info.status === "progress" && info.file) {
+        if (typeof info.loaded === "number" && typeof info.total === "number" && info.total > 0) {
+          // Use byte-level tracking for accurate progress
+          fileProgress.set(info.file, { loaded: info.loaded, total: info.total })
+        } else if (typeof info.progress === "number") {
+          // Fallback: use progress percentage, estimate total as 100 units
+          fileProgress.set(info.file, { loaded: info.progress, total: 100 })
+        }
 
         // Calculate overall progress across all files
         let totalLoaded = 0
