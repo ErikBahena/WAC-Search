@@ -99,21 +99,45 @@ export async function initQASearch(
   // Load EmbeddingGemma pipeline
   const modelId = "onnx-community/embeddinggemma-300m-ONNX"
 
-  // Track max progress to ensure it only goes up (HuggingFace reports per-file progress)
-  let maxProgress = 0.2
+  // Track progress per-file to calculate true overall progress
+  // HuggingFace downloads multiple files, each with its own 0-100 progress
+  const fileProgress = new Map<string, { loaded: number; total: number }>()
+  let lastReportedProgress = 0.2
 
   embedder = await pipeline("feature-extraction", modelId, {
     dtype: "q8",
     device: useDevice,
     progress_callback: (p: unknown) => {
-      const info = p as { progress?: number }
-      if (typeof info.progress === "number") {
-        // Model download is 75% of total progress (from 0.2 to 0.95)
-        const newProgress = 0.2 + (info.progress / 100) * 0.75
-        // Only update if progress increased (prevents flickering from multi-file downloads)
-        if (newProgress > maxProgress) {
-          maxProgress = newProgress
-          onProgress?.(maxProgress)
+      const info = p as {
+        status?: string
+        file?: string
+        progress?: number
+        loaded?: number
+        total?: number
+      }
+
+      // Track progress per file using loaded/total bytes
+      if (info.file && typeof info.loaded === "number" && typeof info.total === "number") {
+        fileProgress.set(info.file, { loaded: info.loaded, total: info.total })
+
+        // Calculate overall progress across all files
+        let totalLoaded = 0
+        let totalSize = 0
+        for (const { loaded, total } of fileProgress.values()) {
+          totalLoaded += loaded
+          totalSize += total
+        }
+
+        if (totalSize > 0) {
+          const overallProgress = totalLoaded / totalSize
+          // Model download is 75% of total progress (from 0.2 to 0.95)
+          const newProgress = 0.2 + overallProgress * 0.75
+
+          // Only update if progress increased (prevents any remaining flicker)
+          if (newProgress > lastReportedProgress) {
+            lastReportedProgress = newProgress
+            onProgress?.(newProgress)
+          }
         }
       }
     },
