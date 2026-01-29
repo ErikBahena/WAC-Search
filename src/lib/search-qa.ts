@@ -78,11 +78,6 @@ export async function initQASearch(
   }
 
   isInitializing = true
-
-  // Reset progress tracking
-  fileProgress.clear()
-  lastReportedProgress = 0
-
   initPromise = doInitQASearch(onProgress)
   return initPromise
 }
