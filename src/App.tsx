@@ -13,10 +13,10 @@ import { LoadingScreen } from "@/components/LoadingScreen"
 import { TopicNotFound } from "@/components/TopicNotFound"
 import { Hero } from "@/components/Hero"
 import { FeatureCards } from "@/components/FeatureCards"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, Loader2 } from "lucide-react"
 
 function App() {
-  const { isLoading, isReady, progress, results, confidence, topicCovered, correctedQuery, doSearch } = useSearch()
+  const { isLoading, isReady, isSearching, progress, results, confidence, topicCovered, correctedQuery, doSearch } = useSearch()
   const {
     isSupported,
     isStarting,
@@ -63,6 +63,17 @@ function App() {
 
   if (isLoading) {
     return <LoadingScreen progress={progress} />
+  }
+
+  // Searching state - show while query is processing
+  if (currentQuery && isSearching) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 gap-6">
+        <Loader2 className="w-8 h-8 text-primary animate-spin" />
+        <p className="text-text-muted italic">"{currentQuery}"</p>
+        <p className="text-sm text-text-muted">Searching...</p>
+      </div>
+    )
   }
 
   const primaryResult = selectedResult || results[0]
@@ -149,9 +160,9 @@ function App() {
           </p>
         )}
 
-        <SearchInput onSearch={handleSearch} disabled={!isReady} />
+        <SearchInput onSearch={handleSearch} disabled={!isReady || isSearching} />
 
-        <QuickQuestions onSelect={handleSearch} disabled={!isReady} />
+        <QuickQuestions onSelect={handleSearch} disabled={!isReady || isSearching} />
       </div>
 
       {showFullLanding && <FeatureCards />}
