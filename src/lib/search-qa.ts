@@ -39,7 +39,8 @@ let initPromise: Promise<void> | null = null
 
 // Module-level progress tracking (shared across React Strict Mode double-calls)
 const fileProgress = new Map<string, { loaded: number; total: number }>()
-let lastReportedProgress = 0
+let smoothedProgress = 0
+let lastUpdateTime = 0
 
 let qaPairs: QAPair[] = []
 let qaEmbeddings: Map<string, number[]> = new Map()
@@ -124,9 +125,21 @@ async function doInitQASearch(
   const modelId = "onnx-community/embeddinggemma-300m-ONNX"
 
   // Model download is 75% of total progress (from 0.2 to 0.95)
-  // Progress tracking uses module-level state (shared across React Strict Mode)
-  lastReportedProgress = 0.2
+  // Reset progress tracking state
+  fileProgress.clear()
+  smoothedProgress = 0.2
+  lastUpdateTime = Date.now()
   onProgress?.(0.2)
+
+  // Known file sizes for this model (prevents progress jumping when big file appears)
+  const knownFileSizes: Record<string, number> = {
+    "config.json": 1765,
+    "generation_config.json": 133,
+    "tokenizer_config.json": 1156830,
+    "tokenizer.json": 20323312,
+    "onnx/model_quantized.onnx": 567874,
+    "onnx/model_quantized.onnx_data": 308890624,
+  }
 
   embedder = await pipeline("feature-extraction", modelId, {
     dtype: "q8",
@@ -139,29 +152,40 @@ async function doInitQASearch(
         total?: number
       }
 
-      // Track progress per file using loaded/total bytes
-      if (info.status === "progress" && info.file &&
+      if (!info.file) return
+
+      // When a file is initiated, register it with known size (or estimate)
+      if (info.status === "initiate") {
+        const estimatedTotal = knownFileSizes[info.file] || 1000000 // 1MB default
+        fileProgress.set(info.file, { loaded: 0, total: estimatedTotal })
+      }
+
+      // Update progress when we get actual loaded/total
+      if (info.status === "progress" &&
           typeof info.loaded === "number" && typeof info.total === "number" && info.total > 0) {
         fileProgress.set(info.file, { loaded: info.loaded, total: info.total })
+      }
 
-        // Calculate overall progress across all files
-        let totalLoaded = 0
-        let totalSize = 0
-        for (const { loaded, total } of fileProgress.values()) {
-          totalLoaded += loaded
-          totalSize += total
-        }
+      // Calculate overall progress across all files
+      let totalLoaded = 0
+      let totalSize = 0
+      for (const { loaded, total } of fileProgress.values()) {
+        totalLoaded += loaded
+        totalSize += total
+      }
 
-        if (totalSize > 0) {
-          const overallProgress = totalLoaded / totalSize
-          // Model download spans 0.2 to 0.95 (75% of total progress)
-          const newProgress = 0.2 + overallProgress * 0.75
+      if (totalSize > 0) {
+        const overallProgress = totalLoaded / totalSize
+        // Model download spans 0.2 to 0.95 (75% of total progress)
+        const targetProgress = 0.2 + overallProgress * 0.75
 
-          // Only update if progress increased (monotonic - prevents flicker)
-          if (newProgress > lastReportedProgress + 0.005) { // 0.5% threshold to reduce updates
-            lastReportedProgress = newProgress
-            onProgress?.(newProgress)
-          }
+        // Throttle updates to every 100ms minimum
+        const now = Date.now()
+        if (now - lastUpdateTime > 100) {
+          lastUpdateTime = now
+          // Smooth toward target (exponential moving average)
+          smoothedProgress = smoothedProgress * 0.7 + targetProgress * 0.3
+          onProgress?.(smoothedProgress)
         }
       }
     },
