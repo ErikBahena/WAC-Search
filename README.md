@@ -1,73 +1,177 @@
-# React + TypeScript + Vite
+<p align="center">
+  <img src="public/favicon.svg" width="80" height="80" alt="WAC Search Logo">
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">WAC Search</h1>
 
-Currently, two official plugins are available:
+<p align="center">
+  <strong>Instant answers to Washington State child care regulation questions</strong>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <a href="https://wacsearch.com">Live Site</a> •
+  <a href="#features">Features</a> •
+  <a href="#tech-stack">Tech Stack</a> •
+  <a href="#getting-started">Getting Started</a>
+</p>
 
-## React Compiler
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" alt="React 19">
+  <img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" alt="Vite 7">
+  <img src="https://img.shields.io/badge/Tailwind-4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
+</p>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🌸 About
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+WAC Search helps child care providers, parents, and licensing specialists quickly find answers from Washington's WAC 110-300 regulations. Instead of scrolling through dense legal text, just ask a question in plain English.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+> *"Can I microwave a baby bottle?"*
+> *"What's the staff-to-child ratio for infants?"*
+> *"How long can formula sit out?"*
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Get clear, sourced answers in seconds.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## ✨ Features
+
+| | Feature | Description |
+|---|---------|-------------|
+| 🎤 | **Voice Search** | Tap and ask — perfect for busy caregivers |
+| 🧠 | **Semantic Search** | Understands questions, not just keywords |
+| 📱 | **Mobile-First** | Designed for on-the-go use |
+| 🔗 | **Source Links** | Every answer links to official WAC text |
+| ⚡ | **Instant Results** | Client-side ML — no server round-trips |
+| 🔒 | **Privacy-First** | All processing happens in your browser |
+| 🌐 | **SEO Optimized** | 126 pre-rendered pages for search engines |
+
+---
+
+## 🛠 Tech Stack
+
+```
+Frontend        React 19 + TypeScript + Tailwind CSS 4
+Build           Vite 7 + vite-react-ssg (Static Site Generation)
+Search          EmbeddingGemma-300m (ONNX) + Cosine Similarity
+Voice           Web Speech API
+Hosting         Vercel (Static)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js 20.19+
+- npm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/wac-search.git
+cd wac-search
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
+
+### Build
+
+```bash
+# Build for production (generates 126 static pages)
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/     # React components
+├── hooks/          # Custom hooks (useSearch, useVoice)
+├── lib/            # Utilities (search, speech, slug)
+├── pages/          # Page components for SSG
+└── routes.tsx      # Route configuration
+
+public/
+└── data/           # Pre-computed embeddings & Q&A pairs
+
+scripts/
+├── scrape.ts       # Scrape WAC regulations
+├── embed.ts        # Generate embeddings
+└── generate-sitemap.ts
+```
+
+---
+
+## 📊 How It Works
+
+```
+┌─────────────┐    ┌──────────────┐    ┌─────────────┐
+│  Your       │───▶│ EmbeddingGemma│───▶│  Cosine     │
+│  Question   │    │  (in-browser) │    │  Similarity │
+└─────────────┘    └──────────────┘    └──────┬──────┘
+                                              │
+┌─────────────┐    ┌──────────────┐           │
+│  Answer +   │◀───│  126 Pre-    │◀──────────┘
+│  Source     │    │  computed Q&A│
+└─────────────┘    └──────────────┘
+```
+
+1. **You ask** a question (voice or text)
+2. **EmbeddingGemma** converts it to a vector (in your browser)
+3. **Cosine similarity** finds the closest matching Q&A
+4. **You get** a clear answer with official WAC source
+
+---
+
+## 🌐 SEO
+
+This project generates **126 static HTML pages** at build time:
+
+- `/` — Home page with search
+- `/q/[slug]` — Individual Q&A pages (e.g., `/q/can-i-microwave-a-baby-bottle`)
+
+Each page includes:
+- Semantic HTML with proper headings
+- Meta tags (title, description, Open Graph, Twitter)
+- JSON-LD structured data (FAQPage schema)
+- Canonical URLs
+- XML sitemap
+
+---
+
+## 📜 Data Source
+
+All content is derived from [WAC 110-300](https://app.leg.wa.gov/wac/default.aspx?cite=110-300) — Washington State's official child care licensing regulations.
+
+**Disclaimer:** This is an unofficial resource. Not affiliated with or endorsed by the State of Washington. Always verify information at [leg.wa.gov](https://app.leg.wa.gov/wac/default.aspx?cite=110-300).
+
+---
+
+## 💝 Dedication
+
+<p align="center">
+  <em>
+    Built with love for <strong>Jessie</strong> — my fiancée and future wife.<br>
+    Your dedication to the children you care for inspires me every day.
+  </em>
+</p>
+
+---
+
+<p align="center">
+  Made with ☕ and 🌸 in Washington State
+</p>
