@@ -13,6 +13,8 @@ import { LoadingScreen } from "@/components/LoadingScreen"
 import { TopicNotFound } from "@/components/TopicNotFound"
 import { Hero } from "@/components/Hero"
 import { FeatureCards } from "@/components/FeatureCards"
+import { SEOHead } from "@/components/SEOHead"
+import { WebSiteSchema } from "@/components/StructuredData"
 import { ArrowLeft, Loader2 } from "lucide-react"
 
 function App() {
@@ -62,7 +64,13 @@ function App() {
   }
 
   if (isLoading) {
-    return <LoadingScreen progress={progress} />
+    return (
+      <>
+        <SEOHead />
+        <WebSiteSchema />
+        <LoadingScreen progress={progress} />
+      </>
+    )
   }
 
   // Searching state - show while query is processing
@@ -144,6 +152,8 @@ function App() {
   // Home/search view
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 gap-6">
+      <SEOHead />
+      <WebSiteSchema />
       <Hero showFullContent={showFullLanding} onLearnMore={revealFullLanding} />
 
       <div className="flex flex-col items-center gap-6 w-full">

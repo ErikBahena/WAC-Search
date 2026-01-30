@@ -1,4 +1,5 @@
 export function isSpeechSupported(): boolean {
+  if (typeof window === "undefined") return false
   return "webkitSpeechRecognition" in window || "SpeechRecognition" in window
 }
 

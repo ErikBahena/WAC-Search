@@ -3,14 +3,19 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite-react-ssg build",
+    "postbuild": "tsx scripts/generate-sitemap.ts",
     "lint": "eslint .",
     "preview": "vite preview",
     "scrape": "tsx scripts/scrape.ts",
     "embed": "tsx scripts/embed.ts",
-    "build:data": "tsx scripts/build-data.ts"
+    "build:data": "tsx scripts/build-data.ts",
+    "generate:og": "tsx scripts/generate-og-image.ts"
   },
   "dependencies": {
     "@huggingface/transformers": "^3.8.1",
@@ -22,7 +27,9 @@
     "lucide-react": "^0.563.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "tailwind-merge": "^3.4.0"
+    "react-router-dom": "^6.30.3",
+    "tailwind-merge": "^3.4.0",
+    "vite-react-ssg": "^0.8.9"
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.71.2",
@@ -40,6 +47,7 @@
     "globals": "^16.5.0",
     "node-fetch": "^2.7.0",
     "postcss": "^8.5.6",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.18",
     "tsx": "^4.21.0",
     "typescript": "~5.9.3",

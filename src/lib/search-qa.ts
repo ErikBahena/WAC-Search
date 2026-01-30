@@ -136,6 +136,7 @@ async function doInitQASearch(
     "onnx/model_quantized.onnx_data": 308890624,
   }
 
+  // @ts-expect-error - pipeline returns complex union type that TS can't represent
   embedder = await pipeline("feature-extraction", modelId, {
     dtype: "q8",
     device: useDevice,
@@ -451,7 +452,6 @@ export async function searchContent(query: string, topK = 10): Promise<{ chunk: 
 const CONFIDENCE_HIGH_THRESHOLD = 0.75
 const CONFIDENCE_MEDIUM_THRESHOLD = 0.65
 const CONFIDENCE_LOW_THRESHOLD = 0.55
-const TOPIC_COVERED_THRESHOLD = 0.60
 
 // Hybrid search: Q&A first, fallback to content when scores are low
 export async function hybridSearch(query: string, topK = 5): Promise<HybridSearchResponse> {
@@ -579,14 +579,11 @@ export async function hybridSearch(query: string, topK = 5): Promise<HybridSearc
 
   // Calculate confidence based on top result score and score distribution
   const topScore = finalResults[0]?.score ?? 0
-  const secondScore = finalResults[1]?.score ?? 0
   const thirdScore = finalResults[2]?.score ?? 0
-  const scoreGap = topScore - secondScore
 
   // Check if top results are from the same or similar topics (sections)
   const topSections = finalResults.slice(0, 3).map(r => r.chunk.sectionTitle)
   const uniqueSections = new Set(topSections).size
-  const topicsCluster = uniqueSections <= 2 // Results cluster around 1-2 topics
 
   // Debug logging
   console.log("=== SEARCH DEBUG ===")
