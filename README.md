@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://wacsearch.com">Live Site</a> •
+  <a href="https://wac-search.vercel.app">Live Site</a> •
   <a href="#features">Features</a> •
   <a href="#tech-stack">Tech Stack</a> •
   <a href="#getting-started">Getting Started</a>

@@ -6,6 +6,7 @@ import { SearchInput } from "@/components/SearchInput"
 import { Disclaimer } from "@/components/Disclaimer"
 import { QuestionSEOHead } from "@/components/SEOHead"
 import { FAQPageSchema } from "@/components/StructuredData"
+import { Analytics } from "@vercel/analytics/react"
 import { generateSlug, buildSlugMap } from "@/lib/slug"
 import type { QAPair } from "@/lib/search-qa"
 
@@ -66,6 +67,7 @@ export default function QuestionPage() {
         sectionId={currentQA.sectionId}
       />
       <FAQPageSchema question={currentQA.question} answer={currentQA.answer} />
+      <Analytics />
 
       {/* Header */}
       <header className="max-w-lg mx-auto mb-6">

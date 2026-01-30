@@ -1,6 +1,6 @@
 import { Head } from "vite-react-ssg"
 
-const SITE_URL = "https://wacsearch.com"
+const SITE_URL = "https://wac-search.vercel.app"
 const SITE_NAME = "WAC Search"
 const DEFAULT_DESCRIPTION = "Search Washington State child care regulations (WAC 110-300). Get quick answers about ratios, food safety, licensing requirements, and more."
 

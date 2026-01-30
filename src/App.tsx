@@ -15,6 +15,7 @@ import { Hero } from "@/components/Hero"
 import { FeatureCards } from "@/components/FeatureCards"
 import { SEOHead } from "@/components/SEOHead"
 import { WebSiteSchema } from "@/components/StructuredData"
+import { Analytics } from "@vercel/analytics/react"
 import { ArrowLeft, Loader2 } from "lucide-react"
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
       <>
         <SEOHead />
         <WebSiteSchema />
+        <Analytics />
         <LoadingScreen progress={progress} />
       </>
     )

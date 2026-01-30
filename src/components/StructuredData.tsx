@@ -1,6 +1,6 @@
 import { Head } from "vite-react-ssg"
 
-const SITE_URL = "https://wacsearch.com"
+const SITE_URL = "https://wac-search.vercel.app"
 
 /**
  * FAQPage schema for individual Q&A pages

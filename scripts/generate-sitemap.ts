@@ -37,7 +37,7 @@ function getAllSlugs(qaPairs: QAPair[]): string[] {
   return Array.from(slugSet)
 }
 
-const SITE_URL = "https://wacsearch.com"
+const SITE_URL = "https://wac-search.vercel.app"
 
 function generateSitemap(slugs: string[]): string {
   const today = new Date().toISOString().split("T")[0]
