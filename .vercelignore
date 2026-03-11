@@ -1,0 +1,8 @@
+.git/
+.gitignore
+.vercel/
+dist/
+node_modules/
+logs/
+*.log
+ml/
