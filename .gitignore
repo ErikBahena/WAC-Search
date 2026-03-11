@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ML artifacts
+ml/data/
+ml/artifacts/
+ml/.venv/

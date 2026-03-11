@@ -1,6 +1,11 @@
 import { useState, useEffect, useCallback } from "react"
-import { initQASearch, hybridSearch, isQAInitialized } from "@/lib/search-qa"
-import type { SearchResult } from "@/lib/search-qa"
+import {
+  getSearchTopicSuggestions,
+  initSearchEngine,
+  isSearchEngineReady,
+  runSearch,
+} from "@/lib/search-engine"
+import type { SearchDebugInfo, SearchResult, TopicSuggestion } from "@/lib/intent-types"
 
 interface UseSearchReturn {
   isLoading: boolean
@@ -12,6 +17,8 @@ interface UseSearchReturn {
   confidence: "high" | "medium" | "low" | "none"
   topicCovered: boolean
   correctedQuery: string | null
+  debug: SearchDebugInfo | null
+  topicSuggestions: TopicSuggestion[]
   doSearch: (query: string) => Promise<void>
 }
 
@@ -25,16 +32,20 @@ export function useSearch(): UseSearchReturn {
   const [confidence, setConfidence] = useState<"high" | "medium" | "low" | "none">("high")
   const [topicCovered, setTopicCovered] = useState(true)
   const [correctedQuery, setCorrectedQuery] = useState<string | null>(null)
+  const [debug, setDebug] = useState<SearchDebugInfo | null>(null)
+  const [topicSuggestions, setTopicSuggestions] = useState<TopicSuggestion[]>([])
 
   useEffect(() => {
-    if (isQAInitialized()) {
+    if (isSearchEngineReady()) {
+      setTopicSuggestions(getSearchTopicSuggestions())
       setIsReady(true)
       setIsLoading(false)
       return
     }
 
-    initQASearch(setProgress)
+    initSearchEngine(setProgress)
       .then(() => {
+        setTopicSuggestions(getSearchTopicSuggestions())
         setIsReady(true)
         setIsLoading(false)
       })
@@ -50,12 +61,13 @@ export function useSearch(): UseSearchReturn {
     try {
       setIsSearching(true)
       setError(null)
-      // Use hybrid search: Q&A + content fallback
-      const response = await hybridSearch(query, 5)
+      setDebug(null)
+      const response = await runSearch(query, 5)
       setResults(response.results)
       setConfidence(response.confidence)
       setTopicCovered(response.topicCovered)
       setCorrectedQuery(response.correctedQuery)
+      setDebug(response.debug || null)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Search failed")
     } finally {
@@ -73,6 +85,8 @@ export function useSearch(): UseSearchReturn {
     confidence,
     topicCovered,
     correctedQuery,
+    debug,
+    topicSuggestions,
     doSearch,
   }
 }

@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react"
-import type { SearchResult } from "@/lib/search-qa"
+import type { SearchResult } from "@/lib/intent-types"
 
 interface RelatedSectionsProps {
   results: SearchResult[]
@@ -11,22 +11,28 @@ export function RelatedSections({ results, onSelect }: RelatedSectionsProps) {
 
   return (
     <div className="space-y-2">
-      <p className="text-sm text-text-muted">Related:</p>
+      <p className="text-sm text-text-muted">Other matching questions:</p>
       <div className="space-y-1">
         {results.map((result) => {
           const displayPath = result.chunk.subsectionPath && result.chunk.subsectionPath !== "overview"
             ? ` ${result.chunk.subsectionPath}`
             : ""
+          const primaryLabel = result.question || `${result.chunk.sectionTitle}${displayPath}`
           return (
             <button
               key={result.chunk.chunkId}
               onClick={() => onSelect(result)}
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-white hover:bg-primary/5 transition-colors text-left"
+              className="w-full flex items-center justify-between rounded-xl bg-white p-3 text-left transition-colors hover:bg-primary/5"
             >
-              <span className="text-sm text-text truncate pr-2">
-                {result.chunk.sectionTitle}{displayPath}
-              </span>
-              <ChevronRight className="w-4 h-4 text-text-muted flex-shrink-0" />
+              <div className="min-w-0 pr-2">
+                <div className="text-sm text-text truncate">
+                  {primaryLabel}
+                </div>
+                <div className="text-xs text-text-muted truncate">
+                  {result.chunk.sectionTitle}{displayPath}
+                </div>
+              </div>
+              <ChevronRight className="h-4 w-4 flex-shrink-0 text-text-muted" />
             </button>
           )
         })}

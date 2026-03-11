@@ -2,26 +2,27 @@ import { useState, useEffect } from "react"
 
 const STORAGE_KEY = "wac-search-visited"
 
+function readReturningUser(): boolean {
+  try {
+    return localStorage.getItem(STORAGE_KEY) === "true"
+  } catch {
+    return false
+  }
+}
+
 export function useReturningUser() {
-  const [isReturningUser, setIsReturningUser] = useState<boolean | null>(null)
-  const [showFullLanding, setShowFullLanding] = useState(true)
+  const [isReturningUser] = useState<boolean>(() => readReturningUser())
+  const [showFullLanding, setShowFullLanding] = useState(() => !readReturningUser())
 
   useEffect(() => {
     try {
-      const visited = localStorage.getItem(STORAGE_KEY)
-      const returning = visited === "true"
-      setIsReturningUser(returning)
-      setShowFullLanding(!returning)
-
-      if (!returning) {
+      if (!isReturningUser) {
         localStorage.setItem(STORAGE_KEY, "true")
       }
     } catch {
-      // Treat as first-time user if localStorage unavailable
-      setIsReturningUser(false)
-      setShowFullLanding(true)
+      // Ignore storage failures and keep derived defaults.
     }
-  }, [])
+  }, [isReturningUser])
 
   const revealFullLanding = () => {
     setShowFullLanding(true)

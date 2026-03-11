@@ -1,4 +1,4 @@
-import type { QAPair } from "./search-qa"
+import type { QAPair } from "./intent-types"
 
 /**
  * Generate a URL-friendly slug from a question string.

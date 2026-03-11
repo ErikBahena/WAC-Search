@@ -1,0 +1,34 @@
+[
+  {
+    "label": "Bottle preparation",
+    "query": "How long can a bottle sit out before I need to throw it away?"
+  },
+  {
+    "label": "Safe food practices",
+    "query": "How long can leftover food be stored?"
+  },
+  {
+    "label": "Infant safe sleep practices",
+    "query": "Can babies use blankets in cribs at daycare?"
+  },
+  {
+    "label": "Child, staff, and household member illness",
+    "query": "When should a sick child be sent home from daycare?"
+  },
+  {
+    "label": "Medication",
+    "query": "Who can give medication to children at daycare?"
+  },
+  {
+    "label": "Center capacity, ratio, and group size",
+    "query": "What is the center staff to child ratio for infants?"
+  },
+  {
+    "label": "Sleep, rest, and equipment",
+    "query": "Do children have to take naps at daycare?"
+  },
+  {
+    "label": "Prohibited behavior and discipline",
+    "query": "Is timeout allowed at daycare?"
+  }
+]

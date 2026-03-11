@@ -8,7 +8,8 @@ import { QuestionSEOHead } from "@/components/SEOHead"
 import { FAQPageSchema } from "@/components/StructuredData"
 import { Analytics } from "@vercel/analytics/react"
 import { generateSlug, buildSlugMap } from "@/lib/slug"
-import type { QAPair } from "@/lib/search-qa"
+import { toDisplayAnswer } from "@/lib/answer-display"
+import type { QAPair } from "@/lib/intent-types"
 
 // Import QA data statically for SSG
 import qaPairs from "../../public/data/qa-pairs.json"
@@ -58,15 +59,17 @@ export default function QuestionPage() {
     )
   }
 
+  const displayAnswer = toDisplayAnswer(currentQA.question, currentQA.answer)
+
   return (
     <div className="min-h-screen bg-background p-4 pb-24">
       <QuestionSEOHead
         question={currentQA.question}
-        answer={currentQA.answer}
+        answer={displayAnswer}
         slug={slug!}
         sectionId={currentQA.sectionId}
       />
-      <FAQPageSchema question={currentQA.question} answer={currentQA.answer} />
+      <FAQPageSchema question={currentQA.question} answer={displayAnswer} />
       <Analytics />
 
       {/* Header */}
@@ -94,7 +97,7 @@ export default function QuestionPage() {
             </div>
 
             <p className="text-text leading-relaxed text-lg">
-              {currentQA.answer}
+              {displayAnswer}
             </p>
 
             <a

@@ -41,7 +41,7 @@ Get clear, sourced answers in seconds.
 | | Feature | Description |
 |---|---------|-------------|
 | 🎤 | **Voice Search** | Tap and ask — perfect for busy caregivers |
-| 🧠 | **Semantic Search** | Understands questions, not just keywords |
+| 🧠 | **Intent Search** | Precision-first ONNX intent matching in the browser |
 | 📱 | **Mobile-First** | Designed for on-the-go use |
 | 🔗 | **Source Links** | Every answer links to official WAC text |
 | ⚡ | **Instant Results** | Client-side ML — no server round-trips |
@@ -55,7 +55,7 @@ Get clear, sourced answers in seconds.
 ```
 Frontend        React 19 + TypeScript + Tailwind CSS 4
 Build           Vite 7 + vite-react-ssg (Static Site Generation)
-Search          EmbeddingGemma-300m (ONNX) + Cosine Similarity
+Search          ONNX intent classifier (browser-only)
 Voice           Web Speech API
 Hosting         Vercel (Static)
 ```
@@ -93,6 +93,44 @@ npm run build
 npm run preview
 ```
 
+### Intent Model Pipeline
+
+```bash
+# 1) Ensure grounded QA + intent assets are current
+npm run qa:ground
+npm run qa:verify
+npm run build:intent-assets
+
+# 2) Python deps
+python3 -m venv ml/.venv
+source ml/.venv/bin/activate
+pip install -r ml/requirements.txt
+
+# 3) Generate/train/export pipeline
+npm run ml:generate:in-scope
+npm run ml:generate:ood
+npm run ml:validate
+npm run ml:train
+npm run ml:calibrate
+npm run ml:evaluate
+npm run ml:export:onnx
+npm run ml:quantize
+npm run ml:evaluate:runtime
+```
+
+### Runtime Diagnostics
+
+- `npm run ml:evaluate:runtime`
+  - Runs the shipped ONNX runtime in Node against `ml/data/test.jsonl` and `ml/data/challenge.jsonl`
+  - Writes `/Users/erik/Developer/projects/wac-search/ml/artifacts/intent-runtime-evaluation.json`
+  - Reports latency, abstain-heavy sections, section-routing misses, and QA confusion pairs
+- In `npm run dev`, the search UI shows a dev-only debug panel with:
+  - normalized query
+  - predicted section
+  - confidence and margin
+  - top section scores
+  - top reranked QA candidates
+
 ---
 
 ## 📁 Project Structure
@@ -106,11 +144,13 @@ src/
 └── routes.tsx      # Route configuration
 
 public/
-└── data/           # Pre-computed embeddings & Q&A pairs
+├── data/           # Grounded chunks, QA pairs, answer bank, suggestions
+└── models/         # ONNX intent model assets
 
 scripts/
 ├── scrape.ts       # Scrape WAC regulations
-├── embed.ts        # Generate embeddings
+├── ground-qa.ts    # Ground QA pairs to regulation text
+├── verify-qa-grounding.ts
 └── generate-sitemap.ts
 ```
 
@@ -119,20 +159,19 @@ scripts/
 ## 📊 How It Works
 
 ```
-┌─────────────┐    ┌──────────────┐    ┌─────────────┐
-│  Your       │───▶│ EmbeddingGemma│───▶│  Cosine     │
-│  Question   │    │  (in-browser) │    │  Similarity │
-└─────────────┘    └──────────────┘    └──────┬──────┘
-                                              │
-┌─────────────┐    ┌──────────────┐           │
-│  Answer +   │◀───│  126 Pre-    │◀──────────┘
-│  Source     │    │  computed Q&A│
-└─────────────┘    └──────────────┘
+┌─────────────┐    ┌─────────────────────┐    ┌─────────────────────┐
+│  Your       │───▶│  Intent Engine      │───▶│  Answer Bank /      │
+│  Question   │    │  (intent_v1)        │    │  Regulation Chunks  │
+└─────────────┘    └─────────────────────┘    └──────────┬──────────┘
+                                                         │
+                                                ┌────────▼────────┐
+                                                │  Answer + Source│
+                                                └─────────────────┘
 ```
 
 1. **You ask** a question (voice or text)
-2. **EmbeddingGemma** converts it to a vector (in your browser)
-3. **Cosine similarity** finds the closest matching Q&A
+2. **Intent engine classifies** the question into a grounded QA section
+3. **Search reranks** the best local QA candidates in that section
 4. **You get** a clear answer with official WAC source
 
 ---

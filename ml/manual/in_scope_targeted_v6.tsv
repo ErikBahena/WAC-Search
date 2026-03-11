@@ -1,0 +1,32 @@
+# Exact-QA disambiguation tranche for runtime BM25 ranking.
+ab29c3fd0a03	expired food rule at daycare	can staff serve food after the use by date	expired snack prohibition for child care	is out of date food banned in daycare
+3014266b9b49	refrigerator temperature rule for daycare fridge	what temp must a child care fridge stay at	required fridge temperature for daycare food storage	daycare refrigerator must be at or below what temperature
+a2d376c14f91	how cold should the child care fridge be	fridge temp in daycare kitchen	correct fridge temperature in child care	center fridge temperature requirement
+56b91ebf1383	what temperature should hot and cold food be held at	food holding temperature in daycare kitchen	safe holding temp for prepared daycare food	how hot or cold must food stay before serving at child care
+36094ffa9ac8	fire drill procedure requirements for daycare	what has to be done and recorded during a daycare fire drill	fire drill steps and documentation in child care	what does a child care fire drill have to include
+f56986064923	parent notification for serious daycare incidents	what serious events must daycare report to parents immediately	reporting injuries deaths or poison calls to parents	child care parent notice after a serious incident
+e6a767be9cae	what happens when a child is seriously hurt in daycare	do they have to call the parent after an injury in care	emergency injury reporting for my child at daycare	my child was badly hurt at child care what must the provider do
+d41a1bfc7ddb	parent notice for disease outbreaks in daycare	does child care have to tell families about contagious outbreaks	when must families be notified about a communicable illness outbreak	outbreak reporting to parents in daycare
+0ec6a3acb3d7	breast milk labeling and storage at daycare	child name and date required on pumped milk	breast milk container labeling rule for child care	does pumped milk have to be refrigerated and labeled
+103103c39659	where should pumped milk be stored at daycare	keep expressed milk in the fridge during the day	storage location for breast milk in child care	where do providers put expressed breast milk after dropoff
+950da987738d	how long can breast milk stay out before daycare must chill it	room temperature breast milk rule in child care	thawed breast milk time limit at daycare	left out breast milk discard timing for providers
+312f6b345f7a	formula permission for a breastfed baby at daycare	can they switch a breastfed baby to formula without approval	parent consent before giving formula instead of breast milk	breastfed infant formula consent rule
+2892cfa92b87	how should a baby be placed down to sleep in daycare	put infants on their back for naps in child care	required infant sleep position when staff lay a baby down	proper way to place an infant to sleep
+eede0d24dd7d	full infant safe sleep rule for daycare	complete safe sleep requirements for babies in child care	overall infant safe sleep standards at daycare	safe sleep checklist for infants in care
+01e73db75939	sleep positioner rule for daycare babies	can a wedge or sleep positioner be used for an infant	positioner ban for sleeping babies in child care	are infant sleep wedges allowed at daycare
+9eb13075874c	floor sleeping rule in daycare	can children nap straight on the floor at child care	is direct floor sleeping allowed for children	are kids allowed to sleep directly on the floor
+220fdcf0b1c9	bunk bed rule for daycare naps	can children use bunk beds in child care	are bunk beds allowed at daycare	sleeping in bunk beds in a licensed program
+eac24d91ca2c	nap mat and cot requirements for daycare	standards for cots and nap mats in child care	what must daycare nap mats and cots be like	sleep equipment standards for nap mats and cots
+c46f964f5517	melatonin rule at daycare	can staff give a child melatonin or sleep medicine	sleep medication prohibition in child care	is melatonin allowed in daycare
+65d3b8c19725	giving a child prescribed medicine at daycare	can providers administer a child's medication with consent	medication administration by daycare staff	general rule for staff giving medicine to children
+ea00305ca2ac	daycare medication requirements	parent permission and label requirements for child medicine	what rules apply before daycare gives medication	medication paperwork and administration rules
+2069f9951360	yelling at kids in daycare	is screaming at children prohibited in child care	can daycare workers shout at children	yelling or hostile verbal treatment rule in daycare
+1d5d15984601	prohibited discipline methods in daycare	what kinds of discipline are banned in child care	disallowed punishment methods at daycare	which discipline practices are not allowed
+323ad16b0958	physical punishment rule at daycare	is corporal punishment allowed in child care	can staff spank or physically punish children	physical discipline prohibition in daycare
+4ac10461152a	how long can a prepared bottle sit out at daycare	room temperature bottle time limit in child care	prepared formula bottle discard timing	bottle left out on the counter how long is it good
+34ad3b646e16	formula disposal rule after one hour	one hour formula bottle rule at daycare	when must prepared formula be thrown away	formula discard timing after preparation
+2e430158ee7b	putting a partially used bottle back in the fridge	is it okay to refrigerate a bottle after the baby drank from it	unfinished formula bottle fridge rule	can staff save the rest of a used bottle
+5108eb006a56	family home infant ratio with two staff	family child care babies per caregiver	home daycare infant staffing ratio	when two adults are present how many infants can a family home take
+8307282bf05d	center infant teacher ratio	center classroom babies per teacher	infant room staffing ratio in a center	how many infants per teacher in child care center
+6e98e2bc67af	family home school age capacity	school age limit for one family home provider	home daycare school age children allowed with one provider	working alone with school age kids in family child care
+0cb3bf89aebc	center school age teacher ratio	school age ratio in a child care center	how many school age kids per teacher in a center	center classroom school age staffing rule

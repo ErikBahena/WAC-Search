@@ -1,10 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Search, HelpCircle, BookOpen } from "lucide-react"
+import type { TopicSuggestion } from "@/lib/intent-types"
 
 interface TopicNotFoundProps {
   query: string
   correctedQuery: string | null
+  topicSuggestions?: TopicSuggestion[]
   onBack: () => void
   onTryExample: (query: string) => void
 }
@@ -16,7 +18,20 @@ const EXAMPLE_TOPICS = [
   { label: "Health & safety", query: "What temperature for a fever?" },
 ]
 
-export function TopicNotFound({ query, correctedQuery, onBack, onTryExample }: TopicNotFoundProps) {
+export function TopicNotFound({
+  query,
+  correctedQuery,
+  topicSuggestions,
+  onBack,
+  onTryExample,
+}: TopicNotFoundProps) {
+  const suggestions = topicSuggestions && topicSuggestions.length > 0
+    ? topicSuggestions.map((topic) => ({
+      label: topic.label,
+      query: topic.query,
+    }))
+    : EXAMPLE_TOPICS
+
   return (
     <div className="min-h-screen bg-background p-4">
       <button
@@ -66,7 +81,7 @@ export function TopicNotFound({ query, correctedQuery, onBack, onTryExample }: T
               The WAC regulations cover childcare licensing requirements including:
             </p>
             <div className="grid grid-cols-2 gap-2">
-              {EXAMPLE_TOPICS.map((topic) => (
+              {suggestions.map((topic) => (
                 <button
                   key={topic.label}
                   onClick={() => onTryExample(topic.query)}

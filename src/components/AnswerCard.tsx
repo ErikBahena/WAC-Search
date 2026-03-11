@@ -3,21 +3,17 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Copy, Share2, ChevronDown, ChevronUp, Check } from "lucide-react"
 import { cn } from "@/lib/utils"
-import type { WacChunk } from "@/lib/search-qa"
+import type { WacChunk } from "@/lib/intent-types"
 
 interface AnswerCardProps {
   chunk: WacChunk
-  score: number
+  question?: string
   source?: "qa" | "content"
 }
 
-export function AnswerCard({ chunk, score, source }: AnswerCardProps) {
+export function AnswerCard({ chunk, question, source }: AnswerCardProps) {
   const [expanded, setExpanded] = useState(false)
   const [copied, setCopied] = useState(false)
-
-  // Adjust thresholds for EmbeddingGemma (scores tend to be higher)
-  const isLowConfidence = score < 0.70
-  const isVeryLowConfidence = score < 0.55
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(chunk.url)
@@ -45,19 +41,9 @@ export function AnswerCard({ chunk, score, source }: AnswerCardProps) {
   return (
     <Card className={cn(
       "bg-white border-l-4 shadow-lg shadow-primary/10",
-      isVeryLowConfidence ? "border-l-red-400" : isLowConfidence ? "border-l-warning" : "border-l-secondary"
+      "border-l-secondary"
     )}>
       <CardContent className="p-4 space-y-4">
-        {isVeryLowConfidence ? (
-          <div className="text-sm text-red-600 font-medium bg-red-50 px-3 py-2 rounded-lg">
-            ⚠️ We couldn't find a strong match for your question. This is the closest result from the WAC regulations.
-          </div>
-        ) : isLowConfidence && (
-          <div className="text-sm text-warning font-medium">
-            This might not be an exact match
-          </div>
-        )}
-
         <div className="flex items-center gap-2">
           <div className="text-xs text-text-muted font-medium uppercase tracking-wide">
             {chunk.sectionTitle}{displayPath}
@@ -68,6 +54,17 @@ export function AnswerCard({ chunk, score, source }: AnswerCardProps) {
             </span>
           )}
         </div>
+
+        {question && (
+          <div className="space-y-1">
+            <div className="text-xs font-medium uppercase tracking-wide text-text-muted">
+              Answering
+            </div>
+            <h2 className="text-lg font-semibold leading-tight text-text">
+              {question}
+            </h2>
+          </div>
+        )}
 
         <p className="text-text leading-relaxed">
           {chunk.content}

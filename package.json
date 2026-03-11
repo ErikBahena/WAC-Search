@@ -13,9 +13,21 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "scrape": "tsx scripts/scrape.ts",
-    "embed": "tsx scripts/embed.ts",
     "build:data": "tsx scripts/build-data.ts",
-    "generate:og": "tsx scripts/generate-og-image.ts"
+    "build:intent-assets": "tsx scripts/build-intent-assets.ts",
+    "generate:og": "tsx scripts/generate-og-image.ts",
+    "qa:ground": "tsx scripts/ground-qa.ts",
+    "qa:verify": "tsx scripts/verify-qa-grounding.ts",
+    "ml:evaluate:runtime": "tsx scripts/evaluate-intent-runtime.ts",
+    "ml:generate:in-scope": "python3 ml/generate_in_scope.py",
+    "ml:generate:ood": "python3 ml/generate_ood.py",
+    "ml:validate": "python3 ml/validate_dataset.py",
+    "ml:train": "python3 ml/train_intent.py --model-name prajjwal1/bert-mini --data-dir ml/data --out-dir ml/artifacts/intent-v1",
+    "ml:calibrate": "python3 ml/calibrate.py --model-dir ml/artifacts/intent-v1/model --val-file ml/data/val.jsonl --out-file ml/artifacts/intent-v1/calibration.json",
+    "ml:evaluate": "python3 ml/evaluate.py --model-dir ml/artifacts/intent-v1/model --calibration ml/artifacts/intent-v1/calibration.json --test-file ml/data/test.jsonl --challenge-file ml/data/challenge.jsonl --out-file ml/artifacts/intent-v1/evaluation.json",
+    "ml:export:onnx": "python3 ml/export_onnx.py --model-dir ml/artifacts/intent-v1/model --out-dir ml/artifacts/intent-v1/onnx",
+    "ml:quantize": "python3 ml/quantize_onnx.py --onnx-dir ml/artifacts/intent-v1/onnx --label-map ml/artifacts/intent-v1/label_map.json --calibration ml/artifacts/intent-v1/calibration.json --public-model-dir public/models/intent-v1 --max-size-mb 25",
+    "ml:full": "npm run ml:generate:in-scope && npm run ml:generate:ood && npm run ml:validate && npm run ml:train && npm run ml:calibrate && npm run ml:evaluate && npm run ml:export:onnx && npm run ml:quantize"
   },
   "dependencies": {
     "@huggingface/transformers": "^3.8.1",

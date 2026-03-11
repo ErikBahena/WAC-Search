@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useSearch } from "@/hooks/useSearch"
 import { useVoice } from "@/hooks/useVoice"
 import { useReturningUser } from "@/hooks/useReturningUser"
-import type { SearchResult } from "@/lib/search-qa"
+import type { SearchResult } from "@/lib/intent-types"
 import { VoiceButton } from "@/components/VoiceButton"
 import { SearchInput } from "@/components/SearchInput"
 import { AnswerCard } from "@/components/AnswerCard"
@@ -11,6 +11,7 @@ import { RelatedSections } from "@/components/RelatedSections"
 import { Disclaimer } from "@/components/Disclaimer"
 import { LoadingScreen } from "@/components/LoadingScreen"
 import { TopicNotFound } from "@/components/TopicNotFound"
+import { SearchDebugPanel } from "@/components/SearchDebugPanel"
 import { Hero } from "@/components/Hero"
 import { FeatureCards } from "@/components/FeatureCards"
 import { SEOHead } from "@/components/SEOHead"
@@ -19,7 +20,18 @@ import { Analytics } from "@vercel/analytics/react"
 import { ArrowLeft, Loader2 } from "lucide-react"
 
 function App() {
-  const { isLoading, isReady, isSearching, progress, results, confidence, topicCovered, correctedQuery, doSearch } = useSearch()
+  const {
+    isLoading,
+    isReady,
+    isSearching,
+    progress,
+    results,
+    topicCovered,
+    correctedQuery,
+    debug,
+    topicSuggestions,
+    doSearch,
+  } = useSearch()
   const {
     isSupported,
     isStarting,
@@ -31,29 +43,36 @@ function App() {
   const { showFullLanding, revealFullLanding } = useReturningUser()
 
   const [currentQuery, setCurrentQuery] = useState("")
-  const [selectedResult, setSelectedResult] = useState<SearchResult | null>(null)
+  const answerCardRef = useRef<HTMLDivElement | null>(null)
 
   // Auto-search when voice transcript is finalized
   useEffect(() => {
     if (transcript && !isListening) {
-      setCurrentQuery(transcript)
-      doSearch(transcript)
+      const frame = window.requestAnimationFrame(() => {
+        setCurrentQuery(transcript)
+        void doSearch(transcript)
+      })
+
+      return () => window.cancelAnimationFrame(frame)
     }
   }, [transcript, isListening, doSearch])
 
   const handleSearch = (query: string) => {
     setCurrentQuery(query)
-    setSelectedResult(null)
     doSearch(query)
   }
 
   const handleBack = () => {
     setCurrentQuery("")
-    setSelectedResult(null)
   }
 
   const handleSelectRelated = (result: SearchResult) => {
-    setSelectedResult(result)
+    const nextQuery = result.question || result.chunk.sectionTitle
+    setCurrentQuery(nextQuery)
+    doSearch(nextQuery)
+    window.requestAnimationFrame(() => {
+      answerCardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+    })
   }
 
   const toggleListening = () => {
@@ -86,10 +105,8 @@ function App() {
     )
   }
 
-  const primaryResult = selectedResult || results[0]
-  const relatedResults = selectedResult
-    ? results.filter((r) => r.chunk.chunkId !== selectedResult.chunk.chunkId)
-    : results.slice(1)
+  const primaryResult = results[0]
+  const relatedResults = results.slice(1)
 
   // Results view
   if (currentQuery && results.length > 0) {
@@ -112,24 +129,22 @@ function App() {
             </p>
           )}
 
-          {confidence === "low" && (
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 text-sm text-amber-800">
-              This topic may not be fully covered in the regulations. Results shown are the closest matches.
-            </div>
-          )}
-
           {primaryResult && (
-            <AnswerCard
-              chunk={primaryResult.chunk}
-              score={primaryResult.score}
-              source={primaryResult.source}
-            />
+            <div ref={answerCardRef}>
+              <AnswerCard
+                chunk={primaryResult.chunk}
+                question={primaryResult.question}
+                source={primaryResult.source}
+              />
+            </div>
           )}
 
           <RelatedSections
             results={relatedResults}
             onSelect={handleSelectRelated}
           />
+
+          <SearchDebugPanel debug={debug} />
         </div>
 
         <div className="fixed bottom-0 left-0 right-0 bg-background py-4">
@@ -142,12 +157,18 @@ function App() {
   // No results view - topic not covered
   if (currentQuery && (results.length === 0 || !topicCovered)) {
     return (
-      <TopicNotFound
-        query={currentQuery}
-        correctedQuery={correctedQuery}
-        onBack={handleBack}
-        onTryExample={handleSearch}
-      />
+      <>
+        <TopicNotFound
+          query={currentQuery}
+          correctedQuery={correctedQuery}
+          topicSuggestions={topicSuggestions}
+          onBack={handleBack}
+          onTryExample={handleSearch}
+        />
+        <div className="mx-auto mt-4 max-w-lg px-4">
+          <SearchDebugPanel debug={debug} />
+        </div>
+      </>
     )
   }
 
