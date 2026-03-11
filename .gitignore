@@ -27,3 +27,5 @@ dist-ssr
 ml/data/
 ml/artifacts/
 ml/.venv/
+__pycache__/
+*.pyc
