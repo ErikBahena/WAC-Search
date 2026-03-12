@@ -16,6 +16,7 @@ import { Hero } from "@/components/Hero"
 import { FeatureCards } from "@/components/FeatureCards"
 import { SEOHead } from "@/components/SEOHead"
 import { WebSiteSchema } from "@/components/StructuredData"
+import { ClarificationCard } from "@/components/ClarificationCard"
 import { Analytics } from "@vercel/analytics/react"
 import { ArrowLeft, Loader2 } from "lucide-react"
 
@@ -28,6 +29,7 @@ function App() {
     results,
     topicCovered,
     correctedQuery,
+    clarification,
     debug,
     topicSuggestions,
     doSearch,
@@ -151,6 +153,22 @@ function App() {
           <Disclaimer />
         </div>
       </div>
+    )
+  }
+
+  if (currentQuery && clarification) {
+    return (
+      <>
+        <ClarificationCard
+          query={currentQuery}
+          clarification={clarification}
+          onBack={handleBack}
+          onChoose={handleSearch}
+        />
+        <div className="mx-auto mt-4 max-w-lg px-4">
+          <SearchDebugPanel debug={debug} />
+        </div>
+      </>
     )
   }
 

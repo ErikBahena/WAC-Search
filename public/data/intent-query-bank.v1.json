@@ -28,7 +28,8 @@
       "how long can formula stay on the counter before it has to be thrown out",
       "when does a bottle stop being safe to refrigerate",
       "how long can a prepared bottle stay out before it cannot go back in the fridge",
-      "bottle sat out too long before refrigerating"
+      "bottle sat out too long before refrigerating",
+      "How long can a bottle sit out before I need to throw it away?"
     ]
   },
   {
@@ -47,7 +48,8 @@
       "when is prepared formula no longer safe to refrigerate",
       "how long is mixed formula good before you have to toss it",
       "formula on the counter when does it need to be discarded",
-      "when does prepared formula stop being usable"
+      "when does prepared formula stop being usable",
+      "When should I throw away formula?"
     ]
   },
   {
@@ -80,7 +82,8 @@
       "can daycare refrigerate a half drunk bottle after it sat on the counter",
       "can a bottle go back in the fridge after the baby already drank some of it",
       "is it too late to refrigerate a bottle after feeding",
-      "can you save a partially used bottle after it was sitting out"
+      "can you save a partially used bottle after it was sitting out",
+      "Can I put a half-finished bottle back in the fridge?"
     ]
   },
   {
@@ -94,7 +97,8 @@
       "bottle warmer versus running water rule",
       "how can staff warm a bottle safely",
       "safe bottle warming method",
-      "bottle heating rule for daycare staff"
+      "bottle heating rule for daycare staff",
+      "How should I warm a baby bottle?"
     ]
   },
   {
@@ -108,7 +112,8 @@
       "can formula bottles go in the microwave",
       "microwave rule for warming baby bottles",
       "microwaving infant bottle allowed or not",
-      "is microwave heating banned for baby bottles"
+      "is microwave heating banned for baby bottles",
+      "Can I microwave a baby bottle?"
     ]
   },
   {
@@ -122,7 +127,8 @@
       "bottle cleaning and sanitizing requirements",
       "how should staff sanitize bottles and nipples",
       "bottle sanitizing steps for daycare",
-      "staff cleaning and sanitizing bottles"
+      "staff cleaning and sanitizing bottles",
+      "How do I sanitize baby bottles?"
     ]
   },
   {
@@ -133,7 +139,8 @@
       "which plastic baby bottles are considered safe",
       "what bottles are safe plastic for infants",
       "safe bottle plastic type",
-      "which plastic baby bottles should we use"
+      "which plastic baby bottles should we use",
+      "What type of plastic bottles are safe?"
     ]
   },
   {
@@ -152,7 +159,8 @@
       "how many days may child care keep leftover food",
       "leftovers time limit in the fridge at daycare",
       "when are leftovers no longer okay to serve at child care",
-      "how long can prepared daycare food be saved"
+      "how long can prepared daycare food be saved",
+      "How long can leftover food be stored?"
     ]
   },
   {
@@ -163,7 +171,8 @@
       "after opening baby puree how long does it last",
       "opened puree how long is it still good",
       "opened puree shelf life at daycare",
-      "baby puree after opening how long can we keep it"
+      "baby puree after opening how long can we keep it",
+      "How long is puree good for after opening?"
     ]
   },
   {
@@ -181,7 +190,8 @@
       "refrigerator temperature rule for daycare fridge",
       "what temp must a child care fridge stay at",
       "required fridge temperature for daycare food storage",
-      "daycare refrigerator must be at or below what temperature"
+      "daycare refrigerator must be at or below what temperature",
+      "What temperature should the refrigerator be?"
     ]
   },
   {
@@ -196,7 +206,8 @@
       "how cold should the child care fridge be",
       "fridge temp in daycare kitchen",
       "correct fridge temperature in child care",
-      "center fridge temperature requirement"
+      "center fridge temperature requirement",
+      "How cold should the daycare fridge be?"
     ]
   },
   {
@@ -215,7 +226,8 @@
       "leftover food storage method for daycare meals",
       "do leftovers need to be covered and refrigerated at child care",
       "proper way to store remaining food in daycare kitchen",
-      "what is the correct storage method for daycare leftovers"
+      "what is the correct storage method for daycare leftovers",
+      "How should leftover food be stored?"
     ]
   },
   {
@@ -238,13 +250,41 @@
       "expired food rule at daycare",
       "can staff serve food after the use by date",
       "expired snack prohibition for child care",
-      "is out of date food banned in daycare"
+      "is out of date food banned in daycare",
+      "Can expired food be served to children?"
     ]
   },
   {
     "qaId": "856ef7863411",
     "sectionId": "110-300-0356",
     "queries": [
+      "what is the center staff to child ratio for infants?",
+      "how many infants can one teacher supervise in a center",
+      "center infant classroom ratio requirement",
+      "center infant room ratio requirement",
+      "infant classroom ratio in a center",
+      "how many infants per teacher in a center",
+      "center infant staff ratio washington",
+      "one center teacher for how many infants",
+      "center infant classroom ratio how many babies per teacher",
+      "what is the infant ratio in a child care center",
+      "center rule for staff to infant ratio",
+      "in a center how many infants can one teacher supervise",
+      "infant room ratio for licensed centers",
+      "center infant ratio not family home",
+      "center classroom infant ratio one to four or one to three",
+      "licensed center babies per teacher rule",
+      "center infant staffing requirement for classroom",
+      "how many infants per teacher in a center room",
+      "in a center infant room how many babies can one teacher have",
+      "center classroom infant ratio per teacher",
+      "licensed center baby room staffing rule",
+      "how many infants can a center caregiver supervise at once",
+      "center infant teacher ratio not family home",
+      "center infant teacher ratio",
+      "center classroom babies per teacher",
+      "infant room staffing ratio in a center",
+      "how many infants per teacher in child care center",
       "What is the center staff to child ratio for infants?"
     ]
   },
@@ -252,7 +292,12 @@
     "qaId": "9d1e4cc88116",
     "sectionId": "110-300-0356",
     "queries": [
-      "What is the center staff to child ratio for toddlers?"
+      "what is the staff to child ratio for toddlers?",
+      "how many toddlers per teacher are allowed",
+      "toddler room ratio what is the rule",
+      "toddler staff ratio washington",
+      "one teacher for how many toddlers",
+      "What is the staff to child ratio for toddlers?"
     ]
   },
   {
@@ -263,13 +308,35 @@
       "how many preschool children can one teacher have",
       "preschool classroom ratio requirement",
       "preschool ratio washington",
-      "one teacher for how many preschoolers"
+      "one teacher for how many preschoolers",
+      "What is the staff to child ratio for preschoolers?"
     ]
   },
   {
     "qaId": "6f52446f0b05",
     "sectionId": "110-300-0356",
     "queries": [
+      "what is the center staff to child ratio for school-age kids?",
+      "how many school age kids can one teacher supervise in a center",
+      "center school age ratio requirement",
+      "center ratio for school age classroom",
+      "how many school age kids per teacher in a center",
+      "school age classroom ratio one to fifteen",
+      "center school age ratio washington",
+      "one teacher for how many school age children in a center",
+      "center school age ratio how many children per teacher",
+      "in a center what is the school age ratio",
+      "licensed center rule for school age staff ratio",
+      "how many school age kids can one center teacher supervise",
+      "center school age one to fifteen rule",
+      "in a center program how many school age children can one teacher watch",
+      "center school age classroom ratio rule",
+      "licensed center teacher limit for school age kids",
+      "school age center ratio per teacher not family home",
+      "how many elementary age children per teacher in a center",
+      "center school age teacher ratio",
+      "school age ratio in a child care center",
+      "center classroom school age staffing rule",
       "What is the center staff to child ratio for school-age kids?"
     ]
   },
@@ -286,14 +353,47 @@
       "daycare center teacher child ratio in general",
       "center staffing rule how many kids per teacher",
       "licensed center classroom capacity per teacher",
-      "center teacher supervision limit not home daycare"
+      "center teacher supervision limit not home daycare",
+      "How many kids can one teacher watch?"
     ]
   },
   {
     "qaId": "95c854ea56e3",
     "sectionId": "110-300-0356",
     "queries": [
+      "what is the maximum group size for infants in a center?",
+      "how large can a center infant group be",
+      "max infant group size in a child care center",
+      "what is the infant maximum group size in a center",
+      "how many infants can be in one center group",
+      "center infant group size cap",
+      "center infant group size limit",
+      "how many infants can be grouped together in one center room",
+      "what is the largest infant group allowed in a center",
+      "how many infants can be in one center classroom together",
+      "center infant room size limit",
+      "max babies in a center infant group",
+      "licensed center infant group cap",
       "What is the maximum group size for infants in a center?"
+    ]
+  },
+  {
+    "qaId": "bb56ec118ee1",
+    "sectionId": "110-300-0356",
+    "queries": [
+      "what are the center staffing and ratio requirements",
+      "what are the staffing rules for a child care center",
+      "what are the center ratio and group size rules",
+      "what are the general classroom ratio requirements for centers",
+      "what does a center have to follow for staffing and capacity",
+      "what are the overall center licensing ratios",
+      "what are the center staff to child requirements",
+      "what are the staff to child ratios",
+      "what are the daycare staff to child ratios",
+      "what are the classroom ratios at daycare",
+      "what are the child to staff ratios in a center",
+      "how many children per staff member are allowed in a center",
+      "what are the center ratios for each age group"
     ]
   },
   {
@@ -317,7 +417,8 @@
       "when do caregivers have to wash their hands at daycare",
       "what moments require staff handwashing in child care",
       "staff handwashing times for providers",
-      "when must daycare staff wash up"
+      "when must daycare staff wash up",
+      "When should staff wash their hands?"
     ]
   },
   {
@@ -331,7 +432,8 @@
       "what times are kids directed to wash hands",
       "do children wash hands after outdoor play and before meals",
       "children handwashing moments",
-      "when do daycare kids need to wash up"
+      "when do daycare kids need to wash up",
+      "When should children wash their hands?"
     ]
   },
   {
@@ -341,11 +443,17 @@
       "how long should you wash hands for?",
       "how many seconds should handwashing last",
       "required handwashing length in seconds",
+      "how long should you wash hands?",
+      "how many seconds do you wash hands for at daycare",
+      "handwashing how long is required",
       "how long is the required handwashing scrub time",
       "minimum seconds for soap and water handwashing",
       "wash hands for twenty seconds or longer",
       "handwashing seconds required",
-      "exact handwashing duration rule"
+      "exact handwashing duration rule",
+      "how many seconds for handwashing",
+      "exact wash time requirement",
+      "How long should you wash hands for?"
     ]
   },
   {
@@ -359,7 +467,8 @@
       "hand sanitizer rules for children over two",
       "is sanitizer only allowed when hands are not visibly dirty",
       "kids using sanitizer okay",
-      "is hand sanitizer allowed instead of soap for kids"
+      "is hand sanitizer allowed instead of soap for kids",
+      "Can children use hand sanitizer?"
     ]
   },
   {
@@ -373,7 +482,8 @@
       "who is authorized to give a dose to a child",
       "at daycare who can give medicine to children",
       "authorized medication staff",
-      "who is approved to administer medicine"
+      "who is approved to administer medicine",
+      "Who can give medication to children at daycare?"
     ]
   },
   {
@@ -391,7 +501,8 @@
       "daycare medication requirements",
       "parent permission and label requirements for child medicine",
       "what rules apply before daycare gives medication",
-      "medication paperwork and administration rules"
+      "medication paperwork and administration rules",
+      "What are the rules for giving medication to children?"
     ]
   },
   {
@@ -405,7 +516,8 @@
       "medication storage safety requirements",
       "where should internal and external medications be kept",
       "medicine storage method",
-      "how to keep medication safe at daycare"
+      "how to keep medication safe at daycare",
+      "How should medication be stored at daycare?"
     ]
   },
   {
@@ -425,7 +537,8 @@
       "melatonin rule at daycare",
       "can staff give a child melatonin or sleep medicine",
       "sleep medication prohibition in child care",
-      "is melatonin allowed in daycare"
+      "is melatonin allowed in daycare",
+      "Can daycare give my child melatonin or sleep medicine?"
     ]
   },
   {
@@ -444,7 +557,8 @@
       "does daycare need yearly parent permission for sunscreen",
       "can staff apply sunscreen only if i authorize it",
       "must parents approve sunscreen at child care",
-      "do i have to sign off before sunscreen can be used"
+      "do i have to sign off before sunscreen can be used",
+      "Does daycare need permission to apply sunscreen?"
     ]
   },
   {
@@ -455,7 +569,8 @@
       "what steps must staff follow during diaper changes",
       "daycare diaper changing process what is required",
       "diaper change step by step",
-      "required diapering procedure in child care"
+      "required diapering procedure in child care",
+      "What are the diaper changing procedures?"
     ]
   },
   {
@@ -466,7 +581,8 @@
       "where does the diaper changing station need to be placed",
       "location requirements for diaper changing area",
       "where should diaper station be",
-      "setup rule for diaper changing area"
+      "setup rule for diaper changing area",
+      "Where should the diaper changing area be located?"
     ]
   },
   {
@@ -477,7 +593,8 @@
       "is it okay to step away while a child is on the changing table",
       "can a child ever be unattended on a changing table",
       "unattended child on changing table",
-      "can staff walk away during diapering"
+      "can staff walk away during diapering",
+      "Can children be left alone on the changing table?"
     ]
   },
   {
@@ -488,7 +605,8 @@
       "what are the daycare rules for cloth diapers",
       "cloth diaper policy requirements",
       "cloth diaper daycare rules",
-      "what does daycare require for cloth diapers"
+      "what does daycare require for cloth diapers",
+      "What are the requirements for cloth diapers?"
     ]
   },
   {
@@ -499,7 +617,24 @@
       "are kids required to nap during daycare",
       "do children have to sleep at rest time",
       "required naps at daycare",
-      "can a child stay awake during rest time"
+      "can a child stay awake during rest time",
+      "Do children have to take naps at daycare?"
+    ]
+  },
+  {
+    "qaId": "7daa64f60444",
+    "sectionId": "110-300-0265",
+    "queries": [
+      "what are the requirements for nap time and sleep",
+      "what are the rules for nap time and sleep at daycare",
+      "what are the nap and sleep requirements in child care",
+      "nap time and sleep rules for daycare",
+      "what does daycare have to do for nap time and sleep",
+      "what are the general nap time requirements at daycare",
+      "rest time and sleep requirements for children in care",
+      "what are the sleep and rest rules for daycare",
+      "what are the overall nap and rest requirements",
+      "what rules apply to nap time rest and sleeping at daycare"
     ]
   },
   {
@@ -514,7 +649,18 @@
       "nap mat and cot requirements for daycare",
       "standards for cots and nap mats in child care",
       "what must daycare nap mats and cots be like",
-      "sleep equipment standards for nap mats and cots"
+      "sleep equipment standards for nap mats and cots",
+      "What are the requirements for nap mats and cots?"
+    ]
+  },
+  {
+    "qaId": "b32c842f4300",
+    "sectionId": "110-300-0265",
+    "queries": [
+      "how thick do nap mats need to be",
+      "how thick do daycare nap mats have to be",
+      "how thick do nap mats and mattresses need to be",
+      "minimum thickness for daycare nap mats"
     ]
   },
   {
@@ -525,7 +671,8 @@
       "how much distance is needed between nap mats",
       "sleep mats how far apart do they go",
       "sleep mat spacing rule",
-      "required distance between cots and mats"
+      "required distance between cots and mats",
+      "How far apart should nap mats be spaced?"
     ]
   },
   {
@@ -545,7 +692,8 @@
       "floor sleeping rule in daycare",
       "can children nap straight on the floor at child care",
       "is direct floor sleeping allowed for children",
-      "are kids allowed to sleep directly on the floor"
+      "are kids allowed to sleep directly on the floor",
+      "Can children sleep directly on the floor?"
     ]
   },
   {
@@ -555,11 +703,19 @@
       "can babies use blankets in cribs at daycare?",
       "are blankets allowed for infants in daycare cribs",
       "can an infant have a blanket in the crib",
+      "are blankets allowed in cribs?",
+      "can a blanket be kept in an infant crib",
+      "crib blanket rule for babies",
       "can an infant have a blanket in the crib during nap time",
       "are crib blankets banned for sleeping babies",
       "do cribs have to stay free of blankets",
+      "blanket in an infant crib allowed yes or no",
+      "crib bedding rule for babies",
+      "are loose blankets prohibited in infant sleep spaces",
       "infant crib blanket rule",
       "can a baby have bedding in a crib",
+      "blanket in crib allowed or banned",
+      "do infant cribs have to stay free of blankets",
       "can a five month old nap with a blanket in the crib",
       "are blankets ever allowed in an infant sleep space at daycare",
       "is loose bedding allowed for sleeping babies in child care",
@@ -569,7 +725,8 @@
       "blanket allowed for a sleeping infant in child care",
       "is there ever a blanket exception for babies in cribs",
       "do providers have to keep blankets out of infant cribs",
-      "can my baby nap with a blanket at daycare"
+      "can my baby nap with a blanket at daycare",
+      "Can babies use blankets in cribs at daycare?"
     ]
   },
   {
@@ -579,11 +736,29 @@
       "what position should babies sleep in?",
       "how are infants supposed to be placed for sleep",
       "what sleep position is required for babies",
+      "how should infants be put to sleep?",
+      "how must a baby be placed to sleep at daycare",
+      "proper sleep placement for infants",
       "do babies have to be laid on their backs",
       "back sleeping requirement for infants",
       "proper infant sleep position in child care",
+      "how should staff place a baby down for sleep",
+      "put baby on back or another position",
+      "required placement when laying infants down",
       "infant sleep position rule",
-      "do babies have to be placed on their backs"
+      "do babies have to be placed on their backs",
+      "put infants to sleep how",
+      "required way to lay a baby down to sleep",
+      "how should staff lay an infant down to sleep in daycare",
+      "what is the required way to place a baby for sleep in child care",
+      "do providers have to put babies on their backs for naps",
+      "how are infants supposed to be positioned when laid down to sleep",
+      "proper infant sleep placement rule at daycare",
+      "how should a baby be placed down to sleep in daycare",
+      "put infants on their back for naps in child care",
+      "required infant sleep position when staff lay a baby down",
+      "proper way to place an infant to sleep",
+      "What position should babies sleep in?"
     ]
   },
   {
@@ -597,7 +772,8 @@
       "fifteen minute infant sleep checks required",
       "sleeping baby monitoring interval",
       "sleeping baby check frequency",
-      "staff infant nap checks how often"
+      "staff infant nap checks how often",
+      "How often should sleeping infants be checked?"
     ]
   },
   {
@@ -615,7 +791,8 @@
       "full infant safe sleep rule for daycare",
       "complete safe sleep requirements for babies in child care",
       "overall infant safe sleep standards at daycare",
-      "safe sleep checklist for infants in care"
+      "safe sleep checklist for infants in care",
+      "What are the safe sleep requirements for infants?"
     ]
   },
   {
@@ -625,25 +802,37 @@
       "is first aid training required for daycare staff?",
       "do daycare workers have to be trained in first aid",
       "is first aid certification required for staff",
+      "do daycare teachers need cpr certification?",
+      "do child care staff need cpr certification",
+      "is cpr required for daycare teachers",
       "do all ratio staff need first aid and cpr training",
       "is pediatric first aid part of required certification",
       "first aid requirement for child care staff counted in ratio",
+      "do teachers need current cpr cards for child care",
+      "is pediatric cpr certification mandatory for staff",
+      "cpr certificate requirement for daycare teachers",
       "first aid certification needed for staff",
-      "do all caregivers need first aid training"
+      "do all caregivers need first aid training",
+      "cpr needed for daycare staff",
+      "are teachers required to know infant cpr",
+      "Is first aid training required for daycare staff?"
     ]
   },
   {
     "qaId": "0ed88af8e1ec",
     "sectionId": "110-300-0230",
     "queries": [
-      "do daycare teachers need cpr certification?",
-      "do child care staff need cpr certification",
-      "is cpr required for daycare teachers",
+      "Do daycare teachers need CPR certification?",
+      "do child care staff need CPR certification",
+      "is CPR required for daycare teachers",
       "do teachers need current cpr cards for child care",
       "is pediatric cpr certification mandatory for staff",
       "cpr certificate requirement for daycare teachers",
       "cpr needed for daycare staff",
-      "are teachers required to know infant cpr"
+      "are teachers required to know infant cpr",
+      "do daycare teachers need cpr certs",
+      "do daycare teachers need cpr certificates",
+      "do daycare staff need cpr certs"
     ]
   },
   {
@@ -657,7 +846,8 @@
       "required contents list for child care first aid",
       "box items needed in the daycare first aid kit",
       "required first aid kit contents",
-      "what supplies have to be in the first aid kit"
+      "what supplies have to be in the first aid kit",
+      "What must be in a first aid kit at daycare?"
     ]
   },
   {
@@ -671,7 +861,8 @@
       "does a child get sent home for illness signs",
       "send home rules for sick kids in care",
       "sick child exclusion rule",
-      "when must daycare exclude a sick child"
+      "when must daycare exclude a sick child",
+      "When should a sick child be sent home from daycare?"
     ]
   },
   {
@@ -689,7 +880,8 @@
       "what fever gets a kid sent home from childcare",
       "what temperature means a child has to go home from daycare",
       "what fever reading triggers send home from daycare",
-      "daycare send home fever threshold for kids"
+      "daycare send home fever threshold for kids",
+      "What fever requires a child to be sent home?"
     ]
   },
   {
@@ -700,7 +892,8 @@
       "are children with head lice allowed to attend",
       "can a kid stay in daycare with lice",
       "head lice daycare attendance rule",
-      "is lice an automatic send-home issue"
+      "is lice an automatic send-home issue",
+      "Can a child with lice come to daycare?"
     ]
   },
   {
@@ -714,7 +907,8 @@
       "return to care after contagious illness",
       "when can daycare readmit a child after sickness",
       "return after illness daycare rule",
-      "when can a child come back after being sick"
+      "when can a child come back after being sick",
+      "When can a child return to daycare after being sick?"
     ]
   },
   {
@@ -743,7 +937,8 @@
       "daycare vomiting twice send home rule",
       "when does repeat vomiting mean a child cannot stay in care",
       "child threw up more than once does the provider have to exclude them",
-      "how many vomiting episodes in a day get a child sent home"
+      "how many vomiting episodes in a day get a child sent home",
+      "How many times can a child vomit before being sent home?"
     ]
   },
   {
@@ -757,23 +952,36 @@
       "can staff take a rectal temp on a toddler",
       "what kind of temperature method should daycare use instead of rectal",
       "rectal thermometer rule",
-      "can daycare staff use rectal temps"
+      "can daycare staff use rectal temps",
+      "Can daycare take a child's temperature rectally?"
     ]
   },
   {
     "qaId": "07c78450a210",
     "sectionId": "110-300-0145",
     "queries": [
-      "What must outdoor play areas support?"
+      "outdoor play area activity requirements",
+      "what kinds of active play must the outdoor area support",
+      "what kinds of active play must the outdoor area allow",
+      "does the outdoor play area have to support running and climbing",
+      "what physical activity does licensing expect in outdoor play space",
+      "outdoor play area activity requirements for daycare",
+      "does the playground have to support moderate and vigorous activity"
     ]
   },
   {
     "qaId": "183c78dc9649",
     "sectionId": "110-300-0360",
     "queries": [
+      "do children have to play outside every day",
+      "how long do children need outdoor play each day",
+      "required amount of outdoor play time",
       "do children have to play outside every day?",
       "do kids need daily outdoor play in daycare",
       "is outside time required every day",
+      "do children need to play outside every day?",
+      "are children required to go outside daily",
+      "must daycare include outdoor play every day",
       "outside every day requirement",
       "is daily outdoor play mandatory",
       "do kids have to go outside every day",
@@ -781,6 +989,9 @@
       "must child care include outside play daily",
       "do children need daily outdoor time in daycare",
       "does the schedule have to include outside play every day",
+      "do kids need outside time every day",
+      "is daily outdoor play required at daycare",
+      "must daycare include outdoor play each day",
       "does child care have to schedule outdoor play every day",
       "is daily outside play part of the daycare schedule",
       "must daycare provide active outdoor play each day",
@@ -795,7 +1006,24 @@
       "is outdoor time required each day in child care",
       "do children have to go outside daily at daycare",
       "must child care schedule outdoor play every day",
-      "daily outside requirement for children in care"
+      "daily outside requirement for children in care",
+      "do children need to play outside",
+      "Do children have to play outside every day?",
+      "Do children need to play outside every day?"
+    ]
+  },
+  {
+    "qaId": "e963fac310d6",
+    "sectionId": "110-300-0360",
+    "queries": [
+      "how much outdoor play time is required",
+      "how much outdoor time do kids need at daycare",
+      "how much active outdoor play is required",
+      "what is the required outdoor play time for children in care",
+      "how many minutes of outdoor play does daycare need to provide",
+      "what are the outdoor play time requirements",
+      "what is the outdoor play schedule requirement at daycare",
+      "how much outdoor play is required by licensing"
     ]
   },
   {
@@ -806,7 +1034,8 @@
       "can daycare use television with children",
       "is screen tv time permitted at daycare",
       "television use rule at daycare",
-      "can kids watch tv in child care"
+      "can kids watch tv in child care",
+      "Is TV allowed at daycare?"
     ]
   },
   {
@@ -822,7 +1051,8 @@
       "is timeout allowed in daycare",
       "can staff separate a child to calm down",
       "is a cool down break allowed in child care",
-      "can a preschooler be separated from the group to regain control"
+      "can a preschooler be separated from the group to regain control",
+      "Is timeout allowed at daycare?"
     ]
   },
   {
@@ -842,18 +1072,22 @@
       "yelling at kids in daycare",
       "is screaming at children prohibited in child care",
       "can daycare workers shout at children",
-      "yelling or hostile verbal treatment rule in daycare"
+      "yelling or hostile verbal treatment rule in daycare",
+      "Can daycare workers yell at children?"
     ]
   },
   {
     "qaId": "e1c320f4659e",
     "sectionId": "110-300-0331",
     "queries": [
-      "is spanking allowed at daycare?",
+      "Is spanking allowed at daycare?",
       "can daycare staff spank a child",
       "is corporal punishment allowed in daycare",
       "spanking in daycare allowed",
-      "corporal punishment daycare rule"
+      "corporal punishment daycare rule",
+      "is spanking allowed at daycare",
+      "can daycare spank a child",
+      "is corporal punishment allowed at daycare"
     ]
   },
   {
@@ -864,7 +1098,8 @@
       "who is allowed to pick up a child from daycare",
       "can anyone pick up my child or only approved people",
       "authorized pickup adults",
-      "who can be listed for child pickup"
+      "who can be listed for child pickup",
+      "Who can pick up my child from daycare?"
     ]
   },
   {
@@ -880,7 +1115,12 @@
       "which vaccines are required before starting child care",
       "immunization list for daycare enrollment",
       "required shot records for daycare entry",
-      "what vaccine paperwork is needed for daycare"
+      "what vaccine paperwork is needed for daycare",
+      "What immunizations are required for daycare?",
+      "what shots are required for daycare",
+      "what shots do kids need for daycare",
+      "which shots are required before starting daycare",
+      "shot requirements for daycare enrollment"
     ]
   },
   {
@@ -908,7 +1148,8 @@
       "does washington let daycare take a kid with a vaccine catch up plan",
       "can a daycare accept a child who is missing shots for now",
       "child admission rule when shots are missing",
-      "can daycare accept a child who is behind on vaccines"
+      "can daycare accept a child who is behind on vaccines",
+      "Can unvaccinated children attend daycare?"
     ]
   },
   {
@@ -919,7 +1160,8 @@
       "where do i report a daycare complaint",
       "how can i submit a complaint against a child care program",
       "report daycare to licensing",
-      "where do parents complain about a daycare"
+      "where do parents complain about a daycare",
+      "How do I file a complaint about a daycare?"
     ]
   },
   {
@@ -949,7 +1191,8 @@
       "what parent notices are required after a daycare incident",
       "which incidents require parent notification from a daycare",
       "center reporting duties to parents after an event",
-      "what events does child care have to report to guardians"
+      "what events does child care have to report to guardians",
+      "What incidents must daycare report to parents?"
     ]
   },
   {
@@ -960,7 +1203,8 @@
       "do kids have to be supervised at all times",
       "can daycare ever leave children without supervision",
       "continuous supervision rule",
-      "do staff have to watch children at all times"
+      "do staff have to watch children at all times",
+      "Must children always be supervised at daycare?"
     ]
   },
   {
@@ -971,7 +1215,8 @@
       "can a child ever be unsupervised in daycare",
       "is it allowed to leave kids alone",
       "leaving children alone rule",
-      "unsupervised children allowed or not"
+      "unsupervised children allowed or not",
+      "Can children be left alone at daycare?"
     ]
   },
   {
@@ -996,7 +1241,8 @@
       "fire drill procedure requirements for daycare",
       "what has to be done and recorded during a daycare fire drill",
       "fire drill steps and documentation in child care",
-      "what does a child care fire drill have to include"
+      "what does a child care fire drill have to include",
+      "What are the requirements for a fire drill at daycare?"
     ]
   },
   {
@@ -1007,7 +1253,8 @@
       "what should staff do if there is a fire at daycare",
       "fire response steps at child care",
       "fire emergency procedure daycare",
-      "what should staff do in a daycare fire"
+      "what should staff do in a daycare fire",
+      "What do I do during a fire at daycare?"
     ]
   },
   {
@@ -1018,7 +1265,8 @@
       "is an emergency preparedness plan required for daycare",
       "does a child care center need a written emergency plan",
       "written emergency plan required",
-      "does child care need a disaster plan"
+      "does child care need a disaster plan",
+      "Does daycare need an emergency plan?"
     ]
   },
   {
@@ -1028,8 +1276,17 @@
       "how tall does a daycare fence need to be?",
       "how high does the outdoor daycare fence have to be",
       "required fence height for child care playground",
+      "what is the fence height requirement?",
+      "required height for a daycare fence",
+      "how tall does the child care fence need to be",
       "playground fence height rule",
-      "how high must the outdoor fence be"
+      "how high must the outdoor fence be",
+      "fence height for outdoor child care",
+      "required playground fence height",
+      "How tall does a daycare fence need to be?",
+      "how tall does the playground fence need to be",
+      "how tall does the fence around the daycare playground need to be",
+      "playground fence height requirement at daycare"
     ]
   },
   {
@@ -1039,25 +1296,42 @@
       "what background check is required for daycare workers?",
       "what kind of background screening do daycare staff need",
       "required background check for child care employees",
+      "do daycare workers need fingerprints?",
+      "are fingerprints required for daycare staff",
+      "do child care workers have to be fingerprinted",
+      "do daycare workers need background checks?",
+      "do child care employees need background checks",
+      "are background checks mandatory for daycare workers",
       "are child care employees required to clear a background check",
       "do staff need chapter 110 06 screening",
       "before working must daycare staff pass a background check",
+      "are fingerprints part of daycare hiring screening",
+      "do child care hires get fingerprint based screening",
+      "fingerprint requirement for daycare staff clearance",
       "required background screening staff",
-      "child care employee background check rule"
+      "child care employee background check rule",
+      "fingerprinting rule for staff",
+      "do child care hires need fingerprints",
+      "background checks mandatory for staff",
+      "do daycare employees all need background checks",
+      "What background check is required for daycare workers?"
     ]
   },
   {
     "qaId": "bd828572bbcf",
     "sectionId": "110-300-0100",
     "queries": [
-      "do daycare workers need fingerprints?",
+      "Do daycare workers need fingerprints?",
       "are fingerprints required for daycare staff",
       "do child care workers have to be fingerprinted",
       "are fingerprints part of daycare hiring screening",
       "do child care hires get fingerprint based screening",
       "fingerprint requirement for daycare staff clearance",
       "fingerprinting rule for staff",
-      "do child care hires need fingerprints"
+      "do child care hires need fingerprints",
+      "do daycare employees need fingerprints",
+      "do daycare staff need fingerprints",
+      "are fingerprints required for daycare employees"
     ]
   },
   {
@@ -1072,7 +1346,8 @@
       "how old do you have to be to work at a daycare",
       "what is the minimum age for daycare workers",
       "can a 14 year old work in child care",
-      "how old must someone be before working in a daycare"
+      "how old must someone be before working in a daycare",
+      "How old do you have to be to work at a daycare?"
     ]
   },
   {
@@ -1086,7 +1361,12 @@
       "required classes and certificates for daycare workers",
       "preservice and required training for child care staff",
       "required staff trainings daycare",
-      "what classes must daycare staff take"
+      "what classes must daycare staff take",
+      "What training is required for daycare workers?",
+      "what training do daycare workers need",
+      "what training do child care workers need",
+      "what training does daycare staff need",
+      "what classes do daycare workers have to take"
     ]
   },
   {
@@ -1104,7 +1384,8 @@
       "training frequency requirement for child care",
       "how often does staff in service training have to happen",
       "required annual training frequency for daycare staff",
-      "child care continuing training schedule rule"
+      "child care continuing training schedule rule",
+      "How often do staff need training?"
     ]
   },
   {
@@ -1115,7 +1396,8 @@
       "how much indoor square footage is required per child",
       "space requirement per child indoors",
       "indoor square feet rule",
-      "per child indoor space requirement"
+      "per child indoor space requirement",
+      "How many square feet per child is required?"
     ]
   },
   {
@@ -1126,13 +1408,45 @@
       "is it okay for infants to share bottles or cups",
       "can babies use the same cup or bottle",
       "shared cups or bottles infants allowed",
-      "can babies drink from each others bottles"
+      "can babies drink from each others bottles",
+      "Can babies share bottles or cups?"
     ]
   },
   {
     "qaId": "f5f79758696e",
     "sectionId": "110-300-0281",
     "queries": [
+      "how should breast milk be labeled and stored at daycare?",
+      "what is the correct way to label and store breast milk at daycare",
+      "breast milk labeling and storage rules in child care",
+      "does breast milk need the child's name and received date on it",
+      "breast milk labeling and refrigeration rules",
+      "how should expressed milk be labeled and stored",
+      "breast milk daycare labeling and storage rule",
+      "how should expressed milk be labeled handled and stored",
+      "how is breast milk supposed to be stored once i bring it in",
+      "do they refrigerate expressed milk right away at daycare",
+      "does my breast milk need my baby's name and the date on it",
+      "where should daycare keep pumped milk during the day",
+      "what are the breast milk storage rules for child care",
+      "does expressed milk need the baby's name and the date on it",
+      "how should daycare label frozen breast milk",
+      "what information has to go on a breast milk container",
+      "breast milk labeling rule for child care",
+      "do providers refrigerate or freeze breast milk right away",
+      "what has to be written on a breast milk bottle at daycare",
+      "do providers need the baby's full name and date on expressed milk",
+      "breast milk labeling requirements in child care",
+      "how should a center mark and refrigerate pumped milk",
+      "what are the labeling and storage steps for breast milk in care",
+      "breast milk labeling and storage at daycare",
+      "child name and date required on pumped milk",
+      "breast milk container labeling rule for child care",
+      "does pumped milk have to be refrigerated and labeled",
+      "breast mlki bottle labeling at daycare",
+      "pumped milk label requirement in child care",
+      "child name and date on breast milk bottles",
+      "do providers have to label breast milk containers",
       "How should breast milk be labeled and stored at daycare?"
     ]
   },
@@ -1153,7 +1467,8 @@
       "formula permission for a breastfed baby at daycare",
       "can they switch a breastfed baby to formula without approval",
       "parent consent before giving formula instead of breast milk",
-      "breastfed infant formula consent rule"
+      "breastfed infant formula consent rule",
+      "Can daycare feed my baby formula without permission?"
     ]
   },
   {
@@ -1167,7 +1482,8 @@
       "rule for combining different age groups",
       "rules for having different ages together in one class",
       "multi age grouping requirements in child care",
-      "what happens when a daycare group has mixed ages"
+      "what happens when a daycare group has mixed ages",
+      "What are the requirements for mixed age groups?"
     ]
   },
   {
@@ -1181,7 +1497,8 @@
       "bottle prep separation from changing table",
       "eight foot rule for bottle area",
       "bottle prep near diaper table rule",
-      "separation between formula prep and diaper area"
+      "separation between formula prep and diaper area",
+      "How far should bottle prep be from diaper changing?"
     ]
   },
   {
@@ -1195,7 +1512,8 @@
       "what items cannot be left out on the counter",
       "what daycare foods must stay cold",
       "refrigerated foods list daycare",
-      "which daycare foods must stay cold"
+      "which daycare foods must stay cold",
+      "What foods need to be refrigerated at daycare?"
     ]
   },
   {
@@ -1209,7 +1527,8 @@
       "raw meat shelf placement in fridge",
       "where should uncooked meat be kept",
       "raw meat fridge placement",
-      "where does raw meat go in storage"
+      "where does raw meat go in storage",
+      "Where should raw meat be stored?"
     ]
   },
   {
@@ -1223,7 +1542,8 @@
       "can children use bunk beds in care",
       "can children use bunk beds in child care",
       "are bunk beds allowed at daycare",
-      "sleeping in bunk beds in a licensed program"
+      "sleeping in bunk beds in a licensed program",
+      "Can kids use bunk beds at daycare?"
     ]
   },
   {
@@ -1234,7 +1554,8 @@
       "how often does daycare need to wash bedding",
       "bedding laundry frequency in child care",
       "bedding wash schedule",
-      "how often must child care bedding be laundered"
+      "how often must child care bedding be laundered",
+      "How often should bedding be washed at daycare?"
     ]
   },
   {
@@ -1256,7 +1577,8 @@
       "sleep positioner rule for daycare babies",
       "can a wedge or sleep positioner be used for an infant",
       "positioner ban for sleeping babies in child care",
-      "are infant sleep wedges allowed at daycare"
+      "are infant sleep wedges allowed at daycare",
+      "Can infants use sleep positioners?"
     ]
   },
   {
@@ -1285,7 +1607,8 @@
       "if a child has a serious injury do they have to call the parent right away",
       "parent notification after serious injury in child care",
       "serious injury call to parent rule at daycare",
-      "do they have to contact guardians immediately after a major injury"
+      "do they have to contact guardians immediately after a major injury",
+      "What happens if my child gets hurt at daycare?"
     ]
   },
   {
@@ -1308,7 +1631,8 @@
       "parent notice for disease outbreaks in daycare",
       "does child care have to tell families about contagious outbreaks",
       "when must families be notified about a communicable illness outbreak",
-      "outbreak reporting to parents in daycare"
+      "outbreak reporting to parents in daycare",
+      "Does daycare need to tell me about outbreaks?"
     ]
   },
   {
@@ -1324,7 +1648,8 @@
       "can i pack lunch from home for daycare",
       "do parents get to provide their child's meals at daycare",
       "may i bring my own food for my kid in child care",
-      "can families send meals from home instead of daycare food"
+      "can families send meals from home instead of daycare food",
+      "Can I bring food from home for my child?"
     ]
   },
   {
@@ -1335,7 +1660,12 @@
       "how does daycare handle a child's food allergies",
       "what rules apply when a child has food allergies",
       "food allergy plan daycare",
-      "how should daycare handle child food allergies"
+      "how should daycare handle child food allergies",
+      "What if my child has food allergies?",
+      "what if my kid has a food allergy",
+      "what if my child has a food allergy",
+      "how should daycare handle my kid's food allergy",
+      "food allergy rules for my child at daycare"
     ]
   },
   {
@@ -1351,7 +1681,8 @@
       "what size should staff cut food into for babies",
       "how small do baby food pieces need to be to prevent choking",
       "infant finger food size rule in child care",
-      "how should food be cut up for infants in care"
+      "how should food be cut up for infants in care",
+      "How small should food be cut for infants?"
     ]
   },
   {
@@ -1367,7 +1698,8 @@
       "safe bite size for infants at daycare",
       "providers need to cut baby food into what size pieces",
       "how big can food pieces be for infants in child care",
-      "baby choking prevention food size requirement"
+      "baby choking prevention food size requirement",
+      "What size food pieces are safe for babies?"
     ]
   },
   {
@@ -1378,7 +1710,8 @@
       "is juice allowed for infants at daycare",
       "can babies under one have juice",
       "juice for infants allowed",
-      "can babies under twelve months have juice"
+      "can babies under twelve months have juice",
+      "Can infants drink juice?"
     ]
   },
   {
@@ -1389,7 +1722,21 @@
       "at what age can babies be given juice",
       "when is juice allowed for babies",
       "age for juice babies",
-      "when is juice okay for babies"
+      "when is juice okay for babies",
+      "When can babies have juice?"
+    ]
+  },
+  {
+    "qaId": "c10bc88b0b32",
+    "sectionId": "110-300-0285",
+    "queries": [
+      "what are the infant feeding rules at daycare",
+      "what feeding rules apply to infants in child care",
+      "what are the general baby feeding rules at daycare",
+      "what does daycare have to follow for infant feeding",
+      "what are the overall infant and toddler feeding requirements",
+      "what does licensing require for feeding babies at daycare",
+      "what are the bottle food and juice rules for infants in child care"
     ]
   },
   {
@@ -1400,7 +1747,8 @@
       "how hot can the water be for children",
       "safe water temperature for children",
       "safe water temperature for kids",
-      "how hot can sink water be for children"
+      "how hot can sink water be for children",
+      "What temperature should water be for children?"
     ]
   },
   {
@@ -1411,7 +1759,8 @@
       "what is the hottest water temperature permitted",
       "max allowed water temperature in child care",
       "max hot water temperature rule",
-      "highest water temp allowed in daycare"
+      "highest water temp allowed in daycare",
+      "What is the maximum water temperature allowed?"
     ]
   },
   {
@@ -1422,7 +1771,8 @@
       "what room temperature should daycare maintain",
       "how warm or cool should the daycare room be",
       "daycare room temperature rule",
-      "how warm should the classroom be"
+      "how warm should the classroom be",
+      "What temperature should the room be at daycare?"
     ]
   },
   {
@@ -1437,7 +1787,8 @@
       "how warm or cool must the room inside daycare stay",
       "indoor temperature rule for licensed child care",
       "temperature indoors in a daycare building",
-      "inside daycare room temperature requirement"
+      "inside daycare room temperature requirement",
+      "What indoor temperature is required?"
     ]
   },
   {
@@ -1448,7 +1799,8 @@
       "what items count as choking hazards for infants",
       "infant choking hazards what is not allowed",
       "infant choking hazard examples",
-      "what cannot be around infants because of choking"
+      "what cannot be around infants because of choking",
+      "What are choking hazards for infants?"
     ]
   },
   {
@@ -1459,22 +1811,42 @@
       "which objects are considered choking hazards",
       "choking hazard objects at daycare",
       "choking hazard object list",
-      "what objects are too small for kids"
+      "what objects are too small for kids",
+      "What objects are choking hazards?"
+    ]
+  },
+  {
+    "qaId": "388676c1d293",
+    "sectionId": "110-300-0165",
+    "queries": [
+      "what are the general safety requirements at daycare",
+      "what safety rules does daycare have to follow overall",
+      "what are the basic licensing safety requirements for child care",
+      "what are the general hazard prevention rules at daycare",
+      "what are the overall child care safety requirements",
+      "what does licensing require to keep a daycare safe",
+      "what are the general health and safety rules for daycare"
     ]
   },
   {
     "qaId": "1d5d15984601",
     "sectionId": "110-300-0331",
     "queries": [
+      "is spanking allowed at daycare?",
+      "can daycare staff spank a child",
+      "is corporal punishment allowed in daycare",
       "what discipline methods are prohibited at daycare?",
       "which discipline methods are not allowed in daycare",
       "prohibited ways to discipline children",
+      "spanking in daycare allowed",
+      "corporal punishment daycare rule",
       "banned discipline methods",
       "what discipline methods does licensing prohibit",
       "prohibited discipline methods in daycare",
       "what kinds of discipline are banned in child care",
       "disallowed punishment methods at daycare",
-      "which discipline practices are not allowed"
+      "which discipline practices are not allowed",
+      "What discipline methods are prohibited at daycare?"
     ]
   },
   {
@@ -1485,13 +1857,33 @@
       "what kinds of punishment are forbidden in child care",
       "daycare punishment rules what is banned",
       "forbidden punishment at daycare",
-      "what punishment cannot be used on children"
+      "what punishment cannot be used on children",
+      "What punishment is not allowed at daycare?"
     ]
   },
   {
     "qaId": "92002c97b6e4",
     "sectionId": "110-300-0281",
     "queries": [
+      "how long can breast milk sit out?",
+      "how long is breast milk good at room temperature",
+      "breast milk left out when does it need to be discarded",
+      "breast milk left out time limit",
+      "room temp breast milk discard timing",
+      "can pumped breast milk stay on the counter at daycare",
+      "does breast milk have to go straight into the fridge at child care",
+      "if frozen breast milk is thawed how long can daycare keep it",
+      "how long after thawing can a daycare use breast milk",
+      "left out breast milk rule in child care",
+      "does breast milk have to be refrigerated right away if it was left out at dropoff",
+      "left on the counter breast milk at daycare how long is it usable",
+      "once breast milk is thawed how long can child care keep it",
+      "room temperature breast milk rule for daycare providers",
+      "can daycare keep thawed breast milk until tomorrow",
+      "how long can breast milk stay out before daycare must chill it",
+      "room temperature breast milk rule in child care",
+      "thawed breast milk time limit at daycare",
+      "left out breast milk discard timing for providers",
       "How long can breast milk sit out?"
     ]
   },
@@ -1499,7 +1891,46 @@
     "qaId": "b2fcc7f36904",
     "sectionId": "110-300-0281",
     "queries": [
-      "Where should expressed breast milk be kept during the day?"
+      "where should expressed breast milk be kept at daycare",
+      "how does daycare store breast milk properly",
+      "what is the proper storage setup for breast milk at daycare",
+      "where do staff keep expressed breast milk during the day",
+      "breast milk storage handling at child care",
+      "proper breast milk storage in daycare",
+      "pumped milk storage at child care",
+      "where should staff keep breast milk during the day",
+      "where does daycare keep pumped milk during the day",
+      "is expressed breast milk stored in the refrigerator or freezer at child care",
+      "what place should staff keep breast milk while my child is there",
+      "where should providers put breast milk after dropoff",
+      "daycare storage location for pumped milk",
+      "where exactly should daycare keep pumped milk during the day",
+      "is expressed milk supposed to stay in the refrigerator at child care",
+      "what storage location is required for breast milk after dropoff",
+      "do providers keep breast milk chilled while my child is there",
+      "where should pumped breast milk be placed in daycare",
+      "where should pumped milk be stored at daycare",
+      "keep expressed milk in the fridge during the day",
+      "storage location for breast milk in child care",
+      "where do providers put expressed breast milk after dropoff",
+      "where does expressed milk stay after dropoff in daycare",
+      "where should staff keep pumped breast milk while caring for the baby",
+      "daycare storage spot for pumped milk during the day",
+      "where is expressed milk supposed to be kept in care",
+      "what location should providers use for expressed milk storage"
+    ]
+  },
+  {
+    "qaId": "f18266dcfe9b",
+    "sectionId": "110-300-0281",
+    "queries": [
+      "what are the breast milk rules at daycare",
+      "what are the general breast milk rules in child care",
+      "how does daycare have to handle breast milk",
+      "what breast milk storage and labeling rules apply at daycare",
+      "what are the overall daycare rules for expressed milk",
+      "what does licensing require for breast milk handling",
+      "what are the child care rules for storing thawing and discarding breast milk"
     ]
   },
   {
@@ -1510,7 +1941,8 @@
       "what rules help prevent sids at daycare",
       "sids prevention requirements for infants",
       "sids prevention daycare rules",
-      "what does daycare require to reduce sids risk"
+      "what does daycare require to reduce sids risk",
+      "What are the SIDS prevention requirements?"
     ]
   },
   {
@@ -1524,14 +1956,15 @@
       "can babies sleep with toys in the crib",
       "crib toy prohibition for sleeping infants",
       "stuffed toy in crib allowed",
-      "can infants sleep with stuffed animals"
+      "can infants sleep with stuffed animals",
+      "Can babies sleep with stuffed animals?"
     ]
   },
   {
     "qaId": "4f0a94b127c2",
     "sectionId": "110-300-0180",
     "queries": [
-      "how long should you wash hands?",
+      "How long should you wash hands?",
       "how many seconds do you wash hands for at daycare",
       "handwashing how long is required",
       "how many seconds for handwashing",
@@ -1542,6 +1975,21 @@
     "qaId": "359aa55bab97",
     "sectionId": "110-300-0205",
     "queries": [
+      "what temperature is considered a fever for infants?",
+      "what temperature counts as a fever in an infant",
+      "infant fever threshold at daycare",
+      "infant fever definition",
+      "what temp counts as fever in a baby",
+      "what temp counts as a fever for an infant",
+      "infant fever definition for daycare",
+      "wath temperature counts as a fever in an infant",
+      "what is considered a fever for a baby under two months in child care",
+      "what fever reading for a young infant matters for exclusion",
+      "what fever counts for a baby younger than two months",
+      "infant under two months fever cutoff in daycare",
+      "100 point 4 for a young infant at daycare is that a fever",
+      "baby under two months fever number for exclusion",
+      "infant fever rule versus older child fever rule",
       "What temperature is considered a fever for infants?"
     ]
   },
@@ -1549,6 +1997,31 @@
     "qaId": "325653ed7f4c",
     "sectionId": "110-300-0355",
     "queries": [
+      "how many children ages three to twelve can a family home provider care for when working alone?",
+      "family home working alone capacity for ages three to twelve",
+      "how many older children can one family home provider have",
+      "family home ages three to twelve capacity",
+      "working alone family home older child capacity",
+      "working alone in family home how many ages three to twelve can i have",
+      "family child care capacity for older kids with one provider",
+      "max older children in a family home with one staff",
+      "one family home provider ages three through twelve capacity",
+      "family home child care working alone ten child rule",
+      "one family home provider with only older children how many can they watch",
+      "family home ages three through twelve capacity when solo",
+      "how many non school age under three are allowed if provider is working alone with older kids",
+      "family home ten child limit for ages three to twelve",
+      "working alone family child care capacity for ages three and up",
+      "in a family home with one provider how many ages three through twelve are allowed",
+      "home daycare working alone limit for children three to twelve",
+      "maximum older child capacity for one family home caregiver",
+      "family child care ages three to twelve how many can one person watch",
+      "how many noninfant children can a solo family home provider care for",
+      "how many older children can one family home provider watch",
+      "how many ages three through twelve can one home daycare provider care for",
+      "older child capacity for one family child care provider",
+      "family home children ages three to twelve limit",
+      "how many older kids can a home daycare take with one provider",
       "How many children ages three to twelve can a family home provider care for when working alone?"
     ]
   },
@@ -1556,6 +2029,39 @@
     "qaId": "a73b41e65610",
     "sectionId": "110-300-0355",
     "queries": [
+      "how many school-age children can one family home provider care for?",
+      "how many school age children can a family home provider have",
+      "family home school age capacity",
+      "family home school age capacity when working alone",
+      "how many school age children can one home provider have",
+      "max school age kids in family home care",
+      "family home school age children capacity",
+      "school age kids allowed in family home care",
+      "how many school age kids can one staff member have in family home care",
+      "family home provider school age child limit when working alone",
+      "one home child care staff how many school agers can they supervise",
+      "max school age children for one provider in family child care",
+      "school age capacity for a family home provider working alone",
+      "working alone in family child care how many school age kids can i care for",
+      "family home school age only capacity rule",
+      "max school agers for one family home provider",
+      "one family home provider school age children only limit",
+      "family home twelve school age children rule",
+      "if i run a family home with school age kids only how many can i have",
+      "family child care school age only limit for one provider",
+      "one family home provider how many school agers when working alone",
+      "max school age enrollment for a solo family home provider",
+      "working alone school age only family home capacity",
+      "if i run family child care by myself how many school agers can i keep",
+      "home daycare school age only limit with one provider",
+      "solo family home provider max school age enrollment",
+      "family child care working alone with only school age kids how many are allowed",
+      "one home daycare provider school age capacity rule",
+      "school age limit for one family home provider",
+      "home daycare school age children allowed with one provider",
+      "working alone with school age kids in family child care",
+      "family child care school age only",
+      "max school age children for one family home provider",
       "How many school-age children can one family home provider care for?"
     ]
   },
@@ -1567,14 +2073,25 @@
       "how frequently does daycare need evacuation drills",
       "evacuation drill frequency requirement",
       "evacuation drill frequency",
-      "how often should daycare practice evacuations"
+      "how often should daycare practice evacuations",
+      "How often should evacuation drills be practiced?"
     ]
   },
   {
     "qaId": "830e456a6465",
     "sectionId": "110-300-0145",
     "queries": [
-      "How much outdoor play space is required per child?"
+      "outdoor play space requirement per child",
+      "required outdoor square footage per child",
+      "how much outdoor space does daycare need per child",
+      "on the playground how many square feet per child are required",
+      "required outdoor square footage for each child in care",
+      "daycare outdoor play area space per child",
+      "outdoor licensed usable space requirement per child",
+      "outdoor play area space requirement for children",
+      "required outdoor square footage per child at daycare",
+      "how much outdoor room does each child need in care",
+      "minimum outdoor play space requirement in child care"
     ]
   },
   {
@@ -1585,7 +2102,8 @@
       "is unsupervised time ever allowed for children",
       "can kids ever be without staff supervision",
       "ever okay to leave kids unsupervised",
-      "can children ever be without direct supervision"
+      "can children ever be without direct supervision",
+      "Can children ever be left unsupervised?"
     ]
   },
   {
@@ -1608,13 +2126,36 @@
       "giving a child prescribed medicine at daycare",
       "can providers administer a child's medication with consent",
       "medication administration by daycare staff",
-      "general rule for staff giving medicine to children"
+      "general rule for staff giving medicine to children",
+      "Can daycare staff give my child medicine?"
     ]
   },
   {
     "qaId": "9a9bf74f7af6",
     "sectionId": "110-300-0197",
     "queries": [
+      "what temperature should food be kept at?",
+      "what temperature range is safe for holding food",
+      "food holding temperature requirement",
+      "what temperature should cold food storage stay at",
+      "required temp for refrigerated food in care",
+      "how cold does stored daycare food need to be",
+      "food holding temp rule",
+      "required temperature for keeping food safe",
+      "what temperature does hot or cold food have to be held at",
+      "food holding temperature rule for daycare meals",
+      "safe holding temperature requirement for food in child care",
+      "how warm or cold must prepared food stay before serving",
+      "temperature rule for holding food safely at daycare",
+      "what temperature should hot and cold food be held at",
+      "food holding temperature in daycare kitchen",
+      "safe holding temp for prepared daycare food",
+      "how hot or cold must food stay before serving at child care",
+      "food temperature in daycare kitchen",
+      "serving temperature rule for food at child care",
+      "how hot or cold does daycare food have to stay",
+      "holding temperature requirement for child care meals",
+      "food must be kept at what temperature in daycare",
       "What temperature should food be kept at?"
     ]
   },
@@ -1622,7 +2163,28 @@
     "qaId": "4a164f3995eb",
     "sectionId": "110-300-0197",
     "queries": [
+      "how long are leftovers safe to eat?",
+      "how long can leftovers be kept before they are unsafe",
+      "leftovers safe for how many days",
+      "when are leftovers no longer safe to serve",
+      "leftover safe to eat deadline in daycare",
+      "how long until leftovers have to be discarded",
+      "leftovers safe storage length",
+      "how long can stored leftovers still be eaten",
       "How long are leftovers safe to eat?"
+    ]
+  },
+  {
+    "qaId": "eb55a8ec1b5e",
+    "sectionId": "110-300-0197",
+    "queries": [
+      "what are the food safety requirements at daycare",
+      "what are the general food safety rules in child care",
+      "what food handling rules does daycare have to follow",
+      "what are the kitchen safety and food storage requirements at daycare",
+      "what does licensing require for safe food practices in child care",
+      "what are the overall food safety rules for daycare meals",
+      "what food temperature and storage rules apply at daycare"
     ]
   },
   {
@@ -1640,14 +2202,28 @@
       "formula disposal rule after one hour",
       "one hour formula bottle rule at daycare",
       "when must prepared formula be thrown away",
-      "formula discard timing after preparation"
+      "formula discard timing after preparation",
+      "What is the formula disposal rule?"
+    ]
+  },
+  {
+    "qaId": "0daa30f65382",
+    "sectionId": "110-300-0280",
+    "queries": [
+      "what are the bottle preparation rules at daycare",
+      "what are the general bottle rules in child care",
+      "how does daycare have to handle bottles",
+      "what bottle prep and handling rules apply at daycare",
+      "what are the overall formula bottle rules for child care",
+      "what does licensing require for preparing infant bottles",
+      "what are the daycare rules for bottle storage warming and disposal"
     ]
   },
   {
     "qaId": "0654aba74e14",
     "sectionId": "110-300-0145",
     "queries": [
-      "what is the fence height requirement?",
+      "What is the fence height requirement?",
       "required height for a daycare fence",
       "how tall does the child care fence need to be",
       "fence height for outdoor child care",
@@ -1658,7 +2234,7 @@
     "qaId": "2892cfa92b87",
     "sectionId": "110-300-0291",
     "queries": [
-      "how should infants be put to sleep?",
+      "How should infants be put to sleep?",
       "how must a baby be placed to sleep at daycare",
       "proper sleep placement for infants",
       "how should staff place a baby down for sleep",
@@ -1681,7 +2257,7 @@
     "qaId": "90b6c091301d",
     "sectionId": "110-300-0291",
     "queries": [
-      "are blankets allowed in cribs?",
+      "Are blankets allowed in cribs?",
       "can a blanket be kept in an infant crib",
       "crib blanket rule for babies",
       "blanket in an infant crib allowed yes or no",
@@ -1695,6 +2271,36 @@
     "qaId": "988e33a5553d",
     "sectionId": "110-300-0355",
     "queries": [
+      "what is the infant caregiver ratio in family home child care?",
+      "family home infant ratio with two staff present",
+      "how many infants can a family home provider care for with two staff",
+      "how many infants can a home caregiver watch",
+      "family home caregiver ratio for infants",
+      "family home infants per caregiver ratio",
+      "required family home infant staffing ratio",
+      "family home infant ratio when two staff are present",
+      "how many babies can a family home provider watch with a helper",
+      "in family child care with two staff what is the infant ratio",
+      "one family home licensee plus assistant how many infants",
+      "family home birth to twenty four months ratio",
+      "family child care infant ratio with two caregivers present",
+      "home daycare babies ratio when there are two staff",
+      "in a family home with two providers how many infants per caregiver",
+      "licensed family home birth to twenty four months one to four ratio",
+      "family home infant room ratio not center",
+      "what is the family child care infant ratio with two providers",
+      "home daycare baby ratio when two adults are staffing",
+      "how many infants per caregiver are allowed in a family home setting",
+      "family home child care birth to twenty four months ratio with two staff",
+      "licensed family home infant staffing ratio not center classroom",
+      "family home infant ratio with two staff",
+      "family child care babies per caregiver",
+      "home daycare infant staffing ratio",
+      "when two adults are present how many infants can a family home take",
+      "how many infants can a family home have",
+      "home daycare baby ratio when two staff are present",
+      "home daycare babies ratio when there is a helper",
+      "family daycare infant ratio with helper",
       "What is the infant caregiver ratio in family home child care?"
     ]
   },
@@ -1702,31 +2308,113 @@
     "qaId": "4693066ac8c8",
     "sectionId": "110-300-0355",
     "queries": [
+      "when are two staff required in family home child care?",
+      "when does a family home need a second staff person",
+      "what child mix requires two staff in family home care",
+      "family home second staff rule",
+      "when must family child care have two staff",
+      "when does family child care need a second staff member",
+      "how many children trigger two staff in a family home",
+      "if there are babies in care when is a second provider required",
+      "family home staffing rule for child mix",
+      "when must two staff be present in family child care",
+      "when does a family home daycare need a second adult helper",
+      "what child mix makes two staff mandatory in family child care",
+      "home daycare second staff trigger rule",
+      "when must another provider be present in a family child care home",
+      "family home staffing requirement once babies and other children are together",
+      "when does a family home daycare need a second staff person",
+      "when are two adults required in family child care",
+      "when does a family home provider need help on site",
+      "two staff trigger for family home child care",
+      "when is a second caregiver required in a family home",
       "When are two staff required in family home child care?"
+    ]
+  },
+  {
+    "qaId": "77dbff83beac",
+    "sectionId": "110-300-0355",
+    "queries": [
+      "what are the family home staffing and ratio requirements",
+      "what are the staffing rules for family home daycare",
+      "what are the family home ratio and capacity rules",
+      "what does a family child care home have to follow for staffing",
+      "what are the general ratio requirements for a home daycare",
+      "what are the overall family home licensing ratios",
+      "what are the family child care staffing requirements",
+      "what are the family home staff to child ratios",
+      "what are the ratios in family home daycare",
+      "what are the home daycare staff to child ratios",
+      "what are the family child care ratios by age"
     ]
   },
   {
     "qaId": "dadc57d79f4a",
     "sectionId": "110-300-0100",
     "queries": [
-      "do daycare workers need background checks?",
+      "Do daycare workers need background checks?",
       "do child care employees need background checks",
       "are background checks mandatory for daycare workers",
       "background checks mandatory for staff",
-      "do daycare employees all need background checks"
+      "do daycare employees all need background checks",
+      "do daycare workers need background checks",
+      "do daycare staff need background checks",
+      "are background checks required for daycare staff"
+    ]
+  },
+  {
+    "qaId": "12f46ed71d4a",
+    "sectionId": "110-300-0100",
+    "queries": [
+      "what are the staff qualification requirements at daycare",
+      "what qualifications do daycare workers need",
+      "what are the general staff requirements for child care workers",
+      "what does someone need before working at a daycare",
+      "what are the overall qualifications for licensed child care staff",
+      "what education age and background check rules apply to daycare staff",
+      "what staffing qualifications does licensing require for child care workers"
     ]
   },
   {
     "qaId": "e1d133422fd1",
     "sectionId": "110-300-0205",
     "queries": [
+      "at what temperature should a child be sent home?",
+      "what temperature means a child must go home from daycare",
+      "send home temperature for a child",
+      "kid has a fever what temp means send home",
+      "daycare exclusion temperature for a child",
+      "what thermometer reading means they cannot stay",
+      "send home temperature child",
+      "what temperature means a child cannot stay",
       "At what temperature should a child be sent home?"
+    ]
+  },
+  {
+    "qaId": "0f2a5aa81d48",
+    "sectionId": "110-300-0205",
+    "queries": [
+      "what are the illness and exclusion rules at daycare",
+      "what sickness rules does daycare have to follow",
+      "when do children have to be sent home from daycare in general",
+      "what are the general sick child and exclusion rules in child care",
+      "what illness policies apply at daycare",
+      "what are the overall rules for fever vomiting and exclusion at daycare",
+      "what does licensing require when children get sick in care"
     ]
   },
   {
     "qaId": "057f0b501f88",
     "sectionId": "110-300-0200",
     "queries": [
+      "when must staff wash their hands?",
+      "when are staff required to wash hands at daycare",
+      "mandatory staff handwashing times",
+      "what are the mandatory staff handwashing times",
+      "staff handwashing triggers in daycare",
+      "when exactly do providers have to wash their hands",
+      "staff handwashing required times",
+      "when exactly must staff wash hands",
       "When must staff wash their hands?"
     ]
   },
@@ -1738,7 +2426,21 @@
       "where does daycare need to keep medicine",
       "medication storage location at daycare",
       "medication storage location rule",
-      "where must medicine be kept in daycare"
+      "where must medicine be kept in daycare",
+      "Where should medication be stored?"
+    ]
+  },
+  {
+    "qaId": "1f6bb29967fd",
+    "sectionId": "110-300-0215",
+    "queries": [
+      "what are the medication rules at daycare",
+      "how does medication work in child care",
+      "what are the general rules for giving medicine at daycare",
+      "what medication policies does daycare have to follow",
+      "what are the overall medicine rules for licensed child care",
+      "what does daycare need in order to give medication",
+      "what are the medication handling requirements in child care"
     ]
   },
   {
@@ -1749,7 +2451,8 @@
       "how much indoor space is required for each child",
       "indoor square footage per child rule",
       "indoor space per child rule",
-      "how much inside space does each child need"
+      "how much inside space does each child need",
+      "How much space per child indoors?"
     ]
   },
   {
@@ -1760,7 +2463,8 @@
       "how much outdoor play space is needed for each child",
       "outdoor square footage required per child",
       "outdoor space per child rule",
-      "how much playground space is required per child"
+      "how much playground space is required per child",
+      "How much outdoor space is required per child?"
     ]
   },
   {
@@ -1780,7 +2484,21 @@
       "fire drill frequency requirement for licensed daycare",
       "is the fire evacuation drill monthly at child care",
       "how many times each year must daycare do fire drills",
-      "do providers need to practice fire drills every month"
+      "do providers need to practice fire drills every month",
+      "How often must fire drills be practiced?"
+    ]
+  },
+  {
+    "qaId": "5ecea85aa164",
+    "sectionId": "110-300-0470",
+    "queries": [
+      "what are the emergency preparedness requirements at daycare",
+      "what emergency plan rules does daycare have to follow",
+      "what are the general emergency preparedness rules for child care",
+      "what does licensing require for daycare emergency planning",
+      "what emergency drill and planning requirements apply to daycare",
+      "what are the emergency response requirements for child care",
+      "what has to be in a daycare emergency plan"
     ]
   },
   {
@@ -1795,7 +2513,21 @@
       "physical punishment rule at daycare",
       "is corporal punishment allowed in child care",
       "can staff spank or physically punish children",
-      "physical discipline prohibition in daycare"
+      "physical discipline prohibition in daycare",
+      "Is physical punishment allowed?"
+    ]
+  },
+  {
+    "qaId": "2f9b52db907b",
+    "sectionId": "110-300-0331",
+    "queries": [
+      "what are the discipline rules at daycare",
+      "what discipline rules does child care have to follow",
+      "what behavior management rules apply at daycare",
+      "what punishment and discipline are allowed in child care",
+      "what are the general discipline requirements for daycare",
+      "what does licensing say about discipline in child care",
+      "what are the overall daycare rules on behavior and punishment"
     ]
   }
 ]

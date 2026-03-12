@@ -48,7 +48,7 @@ b22d5554cac7	head lice daycare attendance rule	is lice an automatic send-home is
 7a7150017d25	return after illness daycare rule	when can a child come back after being sick
 ab741bbed5a1	vomiting send home threshold	how many times can a child throw up at daycare
 8c03e650cc2d	rectal thermometer rule	can daycare staff use rectal temps
-7522459dfed7	outdoor play area activity requirements	what kinds of active play must the outdoor area support
+07c78450a210	outdoor play area activity requirements	what kinds of active play must the outdoor area support
 183c78dc9649	outside every day requirement	is daily outdoor play mandatory
 5af4ea5828b2	television use rule at daycare	can kids watch tv in child care
 783d1f915823	timeout discipline rule	is timeout considered allowed discipline
@@ -106,7 +106,7 @@ fd51cd1e952e	infant fever definition	what temp counts as fever in a baby
 41543a55523a	family home ages three to twelve capacity	working alone family home older child capacity
 6e98e2bc67af	family home school age children capacity	school age kids allowed in family home care
 6d9f62809ee7	evacuation drill frequency	how often should daycare practice evacuations
-853b9bb5954f	outdoor play space requirement per child	required outdoor square footage per child
+830e456a6465	outdoor play space requirement per child	required outdoor square footage per child
 08dd0ecc0f97	ever okay to leave kids unsupervised	can children ever be without direct supervision
 65d3b8c19725	daycare staff giving medicine rule	can daycare administer a child's medication
 56b91ebf1383	food holding temp rule	required temperature for keeping food safe

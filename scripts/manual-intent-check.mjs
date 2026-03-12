@@ -48,11 +48,13 @@ function softmax(values, temperature){ const t=temperature<=0?1:temperature; con
 function parseLabel(label, manifest){ if(manifest.labels.includes(label)) return label; const m=label.match(/(\d+)$/); if(!m) return label; const idx=Number.parseInt(m[1],10); return manifest.labels[idx]||label }
 function canonicalizeQaId(id){ return CANONICAL_QA_BY_ID[id] || id }
 function shouldOverrideLowMarginAbstain(confidence, topCandidates){
-  if(confidence < 0.22 || topCandidates.length===0) return false
+  if(topCandidates.length===0) return false
   const topScore=topCandidates[0]?.score ?? 0
   const secondScore=topCandidates[1]?.score ?? 0
   const gap=topScore-secondScore
   const ratio=secondScore>0 ? topScore/secondScore : Number.POSITIVE_INFINITY
+  if(topScore >= 7.5 && gap >= 3) return true
+  if(confidence < 0.22) return false
   if(topCandidates.length===1) return topScore >= 2.5
   if(topScore >= 7 && gap >= 3) return true
   if(topScore >= 5 && ratio >= 2.5) return true
@@ -64,17 +66,22 @@ function inferHintedSections(normalizedQuery){
   const push=(sectionId)=>{ if(!hints.includes(sectionId)) hints.push(sectionId) }
   if(/\bmixed age\b/.test(normalizedQuery)) push('110-300-0357')
   if(/\b(unvaccinated|vaccin|immuniz|shot record|shots required|exempt)\b/.test(normalizedQuery)) push('110-300-0210')
+  if(/\b(food safety|safe food|food handling|kitchen safety|leftovers?|refrigerat(?:e|ion)|raw meat|expired food|food temp(?:erature)?|holding temperature)\b/.test(normalizedQuery)) push('110-300-0197')
   if(/\b(breast milk|expressed milk|pumped milk)\b/.test(normalizedQuery)) push('110-300-0281')
   if(/\b(formula|bottle|sanitize bottle|half finished bottle|warm bottle|microwave bottle|shared bottle|discard formula|throw away formula)\b/.test(normalizedQuery)) push('110-300-0280')
-  if(/\b(play outside every day|go outside every day|outside every day|daily outdoor|outdoor time required|outside each day)\b/.test(normalizedQuery)) push('110-300-0360')
+  if(/\b(play outside every day|go outside every day|outside every day|daily outdoor|outdoor time required|outdoor play time|required outdoor play|active outdoor play|outside each day)\b/.test(normalizedQuery)) push('110-300-0360')
   if(/\b(outdoor space|outdoor play space|play area|square feet outside|required per child outside)\b/.test(normalizedQuery)) push('110-300-0145')
   if(/\b(notify parents|tell me|tell parents|report to parents|contact the parent|serious injury|injury|hurt at daycare|accident|incident)\b/.test(normalizedQuery)) push('110-300-0475')
   if(/\b(outbreak|fever|vomit|throwing up|throw up|sick child|lice|return to daycare|send home|rectally)\b/.test(normalizedQuery)) push('110-300-0205')
   if(/\b(wash hands|hand sanitizer)\b/.test(normalizedQuery)) push('110-300-0200')
   if(/\b(indoor temperature|room temperature|inside daycare|inside child care|temperature inside|temperature indoors|water temperature)\b/.test(normalizedQuery)) push('110-300-0165')
+  if(/\b(general safety|safety requirements|safety rules|hazard|hazards|choking hazard|safe environment)\b/.test(normalizedQuery)) push('110-300-0165')
+  if(/\b(infant feeding|feeding plan|feeding rules|feeding infants|feeding babies|feed babies|feed infants|solid foods?|high chair|juice)\b/.test(normalizedQuery)) push('110-300-0285')
   if(/\b(medication|medicine|melatonin|sunscreen|prescription)\b/.test(normalizedQuery)) push('110-300-0215')
-  if(/\b(family home|family child care|home daycare|family daycare|family provider|provider working alone|working alone)\b/.test(normalizedQuery) && /\b(ratio|capacity|group size|school age|infant|children|kids|staff|care for)\b/.test(normalizedQuery)) push('110-300-0355')
-  if(/\b(center|classroom|teacher|staff member)\b/.test(normalizedQuery) && /\b(ratio|capacity|group size|school age|toddler|infant|preschool|kids)\b/.test(normalizedQuery)) push('110-300-0356')
+  if(/\b(emergency preparedness|emergency plan|disaster plan|evacuation drill|evacuation plan|lockdown|shelter in place|fire drill)\b/.test(normalizedQuery)) push('110-300-0470')
+  if(/\b(staff qualification|staff qualifications|worker qualifications|qualifications do daycare workers need|background checks?|fingerprints?|preservice|work at a daycare|work at daycare)\b/.test(normalizedQuery)) push('110-300-0100')
+  if(/\b(family home|family child care|home daycare|family daycare|family provider|provider working alone|working alone)\b/.test(normalizedQuery) && /\b(ratio|capacity|group size|school age|infant|children|kids|staff|staffing|care for)\b/.test(normalizedQuery)) push('110-300-0355')
+  if(/\b(center|classroom|teacher|staff member)\b/.test(normalizedQuery) && /\b(ratio|capacity|group size|school age|toddler|infant|preschool|kids|staffing)\b/.test(normalizedQuery)) push('110-300-0356')
   if(/\b(how often do staff need training|training frequency|in service training)\b/.test(normalizedQuery)) push('110-300-0107')
   return hints
 }
@@ -84,6 +91,7 @@ const answerBank=JSON.parse(await fs.readFile(path.join(DATA_DIR,'intent-answer-
 const queryBank=JSON.parse(await fs.readFile(path.join(DATA_DIR,'intent-query-bank.v1.json'),'utf8'))
 const answerByQaId=new Map(answerBank.map(r=>[r.qaId,r]))
 const queriesByQaId=new Map(queryBank.map(r=>[r.qaId,r.queries]))
+const exactQueries=new Map()
 const sectionIndexes=new Map()
 for(const record of answerBank){
   const canonicalQaId=canonicalizeQaId(record.qaId)
@@ -98,9 +106,19 @@ for(const record of answerBank){
 }
 for(const [sectionId, grouped] of sectionIndexes){
   const records=Array.from(grouped.values()).map(({record,queries})=>({record,queries:[...queries]}))
+  for (const entry of records){
+    for (const query of entry.queries){
+      const normalized=normalizeQuery(query)
+      if(!normalized) continue
+      const existingQaId=exactQueries.get(normalized)
+      if(existingQaId===undefined) exactQueries.set(normalized, entry.record.qaId)
+      else if(existingQaId!==entry.record.qaId) exactQueries.set(normalized, null)
+    }
+  }
   const index=new BM25Index(); index.index(records.map(r=>r.queries.join(' ')))
   sectionIndexes.set(sectionId,{index,records})
 }
+const exactQueryQaIds=new Map([...exactQueries.entries()].filter(([,qaId]) => Boolean(qaId)))
 
 function getTopCandidatesForSection(sectionId, normalizedQuery){
   const section=sectionIndexes.get(sectionId)
@@ -113,7 +131,6 @@ function getTopCandidatesForSection(sectionId, normalizedQuery){
 }
 
 function maybeApplyHintedSectionOverride(normalizedQuery, sectionId, ranked, matched){
-  if(sectionId===NOT_COVERED) return { sectionId, ranked, overridden:false }
   const hintedSections=inferHintedSections(normalizedQuery).filter((hint)=>hint!==sectionId)
   if(hintedSections.length===0) return { sectionId, ranked, overridden:false }
   const currentTopScore=ranked[0]?.score ?? 0
@@ -147,6 +164,25 @@ const classify=await pipeline('text-classification', MODEL_DIR, { local_files_on
 
 async function runQuery(text){
   const normalized=normalizeQuery(text)
+  const exactQaId=exactQueryQaIds.get(normalized)
+  if(exactQaId){
+    const exactRecord=answerByQaId.get(exactQaId)
+    const ranked=exactRecord ? getTopCandidatesForSection(exactRecord.sectionId, normalized) : []
+    const top=ranked[0] || (exactRecord ? { record: exactRecord, score: 1 } : null)
+    if(top){
+      return {
+        outcome:'matched',
+        confidence:1,
+        margin:1,
+        section:exactRecord?.sectionId || 'UNKNOWN',
+        qaId:top.record.qaId,
+        question:top.record.question,
+        answer:top.record.answer,
+        url:top.record.url,
+        topCandidates: ranked.map(r=>({question:r.record.question, score:Number(r.score.toFixed(3))}))
+      }
+    }
+  }
   const raw=await classify(normalized,{ top_k:5 })
   const parsed=raw.map(item=>({label:parseLabel(item.label,manifest),score:item.score}))
   const probs=softmax(parsed.map(i=>i.score), manifest.temperature || 1)
@@ -154,8 +190,6 @@ async function runQuery(text){
   const top2=probs[1] || 0
   const margin=top1-top2
   let label=parsed[0]?.label || NOT_COVERED
-  const section=sectionIndexes.get(label)
-  if(!section) return { outcome:'abstain', reason:'no_candidates', confidence:top1, margin, section:label }
   let ranked=getTopCandidatesForSection(label, normalized)
   let reason = label===NOT_COVERED ? 'ood' : top1 < (manifest.thresholds?.minConfidence ?? 0.1) ? 'low_confidence' : margin < (manifest.thresholds?.minMargin ?? 0.12) ? 'low_margin' : 'matched'
   const hinted=maybeApplyHintedSectionOverride(normalized, label, ranked, reason==='matched')
@@ -165,6 +199,7 @@ async function runQuery(text){
     reason='matched'
   }
   if(reason==='low_margin' && shouldOverrideLowMarginAbstain(top1, ranked)) reason='matched'
+  if(ranked.length===0) return { outcome:'abstain', reason:'no_candidates', confidence:top1, margin, section:label }
   if(reason!=='matched') return {
     outcome:'abstain',
     reason,

@@ -2,8 +2,10 @@ import { env, pipeline, type TextClassificationPipeline } from "@huggingface/tra
 import intentAliases from "./intent-aliases.json"
 import type {
   AnswerBankRecord,
+  ClarificationOption,
   IntentResult,
   QueryBankRecord,
+  SearchClarification,
   SearchDebugCandidate,
   SearchResponse,
   SearchResult,
@@ -32,12 +34,17 @@ const DEFAULT_MATCH_THRESHOLD = 0.1
 const DEFAULT_MARGIN_THRESHOLD = 0.15
 const NOT_COVERED = "NOT_COVERED"
 const CANONICAL_QA_BY_ID = intentAliases.canonicalByQaId as Record<string, string>
+const EXPLICIT_CENTER_PATTERN =
+  /\b(center|child care center|childcare center|daycare center|center daycare|center child care|center childcare)\b/
+const EXPLICIT_FAMILY_HOME_PATTERN =
+  /\b(family home|family child care|family childcare|home daycare|home child care|home childcare|in home daycare|in-home daycare)\b/
 
 let classifier: TextClassificationPipeline | null = null
 let manifest: IntentManifest | null = null
 let answerBank: AnswerBankRecord[] = []
 let topicSuggestions: TopicSuggestion[] = []
 let queryBank: QueryBankRecord[] = []
+let exactQueryQaIds = new Map<string, string>()
 let sectionIndexes = new Map<
   string,
   {
@@ -164,6 +171,180 @@ function normalizeQuery(query: string): string {
     .trim()
 }
 
+function toClarificationOption(
+  id: string,
+  label: string,
+  query: string,
+  description?: string
+): ClarificationOption {
+  return { id, label, query, description }
+}
+
+function hasAnyPattern(value: string, patterns: RegExp[]): boolean {
+  return patterns.some((pattern) => pattern.test(value))
+}
+
+function isRatioClarificationQuery(normalizedQuery: string): boolean {
+  if (EXPLICIT_CENTER_PATTERN.test(normalizedQuery) || EXPLICIT_FAMILY_HOME_PATTERN.test(normalizedQuery)) {
+    return false
+  }
+
+  return hasAnyPattern(normalizedQuery, [
+    /\bratio\b/,
+    /\bratios\b/,
+    /\bstaff to child\b/,
+    /\bchild to staff\b/,
+    /\bchildren per staff\b/,
+    /\bkids per staff\b/,
+    /\bstaffing requirements?\b/,
+    /\bgroup size\b/,
+    /\bcapacity\b/,
+    /\bhow many (children|kids|infants|toddlers|preschoolers|school age)\b/,
+  ])
+}
+
+function isOutdoorClarificationQuery(normalizedQuery: string): boolean {
+  if (!/\b(outdoor|outside|playground)\b/.test(normalizedQuery)) {
+    return false
+  }
+
+  if (/\b(fence|gate|barrier|support|climb|running|equipment|surface|hazard)\b/.test(normalizedQuery)) {
+    return false
+  }
+
+  const explicitTime = hasAnyPattern(normalizedQuery, [
+    /\bminutes?\b/,
+    /\bhours?\b/,
+    /\bplay time\b/,
+    /\boutdoor time\b/,
+    /\bdaily outdoor play\b/,
+    /\boutside every day\b/,
+    /\bgo outside every day\b/,
+    /\boutdoor play each day\b/,
+    /\bper day\b/,
+  ])
+  const explicitSpace = hasAnyPattern(normalizedQuery, [
+    /\bspace\b/,
+    /\bsquare feet\b/,
+    /\bsquare footage\b/,
+    /\bsq ft\b/,
+    /\busable space\b/,
+    /\bper child\b/,
+  ])
+
+  if (explicitTime || explicitSpace) {
+    return false
+  }
+
+  return hasAnyPattern(normalizedQuery, [
+    /\bhow much\b/,
+    /\bwhat (are|is) the\b/,
+    /\brequired\b/,
+    /\brequirements?\b/,
+    /\bneed(?:ed)?\b/,
+    /\bmust\b/,
+    /\bhave to\b/,
+    /\bplay\b/,
+  ])
+}
+
+function isMilkClarificationQuery(normalizedQuery: string): boolean {
+  if (!/\bmilk\b/.test(normalizedQuery)) {
+    return false
+  }
+
+  if (/\b(breast|expressed|formula|bottle)\b/.test(normalizedQuery)) {
+    return false
+  }
+
+  return hasAnyPattern(normalizedQuery, [
+    /\bstore\b/,
+    /\bstorage\b/,
+    /\bsit out\b/,
+    /\bsitting out\b/,
+    /\bwarm\b/,
+    /\bwarming\b/,
+    /\blabel\b/,
+    /\bhandle\b/,
+    /\brules?\b/,
+    /\brefrigerat(?:e|ion)\b/,
+    /\bfridge\b/,
+    /\bdiscard\b/,
+    /\bthrow away\b/,
+  ])
+}
+
+function detectClarification(normalizedQuery: string): SearchClarification | null {
+  if (isRatioClarificationQuery(normalizedQuery)) {
+    return {
+      rule: "ratio_scope",
+      question: "Do you mean child care center ratios or family home child care ratios?",
+      options: [
+        toClarificationOption(
+          "center_ratio",
+          "Center child care",
+          "What are the center staffing and ratio requirements?",
+          "Ratios and group sizes for licensed child care centers."
+        ),
+        toClarificationOption(
+          "family_home_ratio",
+          "Family home child care",
+          "What are the family home staffing and ratio requirements?",
+          "Capacity and staffing rules for licensed family home child care."
+        ),
+      ],
+    }
+  }
+
+  if (isOutdoorClarificationQuery(normalizedQuery)) {
+    return {
+      rule: "outdoor_scope",
+      question: "Are you asking about outdoor play time or outdoor space requirements?",
+      options: [
+        toClarificationOption(
+          "outdoor_time",
+          "Outdoor play time",
+          "How much outdoor play time is required?",
+          "Minutes and daily activity requirements."
+        ),
+        toClarificationOption(
+          "outdoor_space",
+          "Outdoor space per child",
+          "How much outdoor space is required per child?",
+          "Square-footage and usable play-space requirements."
+        ),
+      ],
+    }
+  }
+
+  if (isMilkClarificationQuery(normalizedQuery)) {
+    return {
+      rule: "milk_type",
+      question: "Are you asking about formula bottles or breast milk?",
+      options: [
+        toClarificationOption(
+          "bottle_rules",
+          "Formula and bottles",
+          "What are the bottle preparation rules at daycare?",
+          "Bottle prep, warming, storage, and disposal rules."
+        ),
+        toClarificationOption(
+          "breast_milk_rules",
+          "Breast milk",
+          "What are the breast milk rules at daycare?",
+          "Storage, labeling, thawing, and discard rules for breast milk."
+        ),
+      ],
+    }
+  }
+
+  return null
+}
+
+export function getClarificationForQuery(query: string): SearchClarification | null {
+  return detectClarification(normalizeQuery(query))
+}
+
 function parseLabel(label: string): string {
   if (!manifest) return label
 
@@ -250,7 +431,7 @@ function shouldOverrideLowMarginAbstain(
   confidence: number,
   topCandidates: SearchDebugCandidate[]
 ): boolean {
-  if (confidence < 0.22 || topCandidates.length === 0) {
+  if (topCandidates.length === 0) {
     return false
   }
 
@@ -258,6 +439,14 @@ function shouldOverrideLowMarginAbstain(
   const secondScore = topCandidates[1]?.score ?? 0
   const gap = topScore - secondScore
   const ratio = secondScore > 0 ? topScore / secondScore : Number.POSITIVE_INFINITY
+
+  if (topScore >= 7.5 && gap >= 3) {
+    return true
+  }
+
+  if (confidence < 0.22) {
+    return false
+  }
 
   if (topCandidates.length === 1) {
     return topScore >= 2.5
@@ -290,6 +479,14 @@ function inferHintedSections(normalizedQuery: string): string[] {
     push("110-300-0210")
   }
 
+  if (
+    /\b(food safety|safe food|food handling|kitchen safety|leftovers?|refrigerat(?:e|ion)|raw meat|expired food|food temp(?:erature)?|holding temperature)\b/.test(
+      normalizedQuery
+    )
+  ) {
+    push("110-300-0197")
+  }
+
   if (/\b(breast milk|expressed milk|pumped milk)\b/.test(normalizedQuery)) {
     push("110-300-0281")
   }
@@ -303,7 +500,7 @@ function inferHintedSections(normalizedQuery: string): string[] {
   }
 
   if (
-    /\b(play outside every day|go outside every day|outside every day|daily outdoor|outdoor time required|outside each day)\b/.test(
+    /\b(play outside every day|go outside every day|outside every day|daily outdoor|outdoor time required|outdoor play time|required outdoor play|active outdoor play|outside each day)\b/.test(
       normalizedQuery
     )
   ) {
@@ -346,15 +543,47 @@ function inferHintedSections(normalizedQuery: string): string[] {
     push("110-300-0165")
   }
 
+  if (
+    /\b(general safety|safety requirements|safety rules|hazard|hazards|choking hazard|safe environment)\b/.test(
+      normalizedQuery
+    )
+  ) {
+    push("110-300-0165")
+  }
+
+  if (
+    /\b(infant feeding|feeding plan|feeding rules|feeding infants|feeding babies|feed babies|feed infants|solid foods?|high chair|juice)\b/.test(
+      normalizedQuery
+    )
+  ) {
+    push("110-300-0285")
+  }
+
   if (/\b(medication|medicine|melatonin|sunscreen|prescription)\b/.test(normalizedQuery)) {
     push("110-300-0215")
+  }
+
+  if (
+    /\b(emergency preparedness|emergency plan|disaster plan|evacuation drill|evacuation plan|lockdown|shelter in place|fire drill)\b/.test(
+      normalizedQuery
+    )
+  ) {
+    push("110-300-0470")
+  }
+
+  if (
+    /\b(staff qualification|staff qualifications|worker qualifications|qualifications do daycare workers need|background checks?|fingerprints?|preservice|work at a daycare|work at daycare)\b/.test(
+      normalizedQuery
+    )
+  ) {
+    push("110-300-0100")
   }
 
   if (
     /\b(family home|family child care|home daycare|family daycare|family provider|provider working alone|working alone)\b/.test(
       normalizedQuery
     ) &&
-    /\b(ratio|capacity|group size|school age|infant|children|kids|staff|care for)\b/.test(
+    /\b(ratio|capacity|group size|school age|infant|children|kids|staff|staffing|care for)\b/.test(
       normalizedQuery
     )
   ) {
@@ -363,7 +592,9 @@ function inferHintedSections(normalizedQuery: string): string[] {
 
   if (
     /\b(center|classroom|teacher|staff member)\b/.test(normalizedQuery) &&
-    /\b(ratio|capacity|group size|school age|toddler|infant|preschool|kids)\b/.test(normalizedQuery)
+    /\b(ratio|capacity|group size|school age|toddler|infant|preschool|kids|staffing)\b/.test(
+      normalizedQuery
+    )
   ) {
     push("110-300-0356")
   }
@@ -402,10 +633,6 @@ function maybeApplyHintedSectionOverride(
   topCandidates: SearchDebugCandidate[],
   decision: IntentResult
 ): { topLabel: string; topCandidates: SearchDebugCandidate[]; overridden: boolean } {
-  if (topLabel === NOT_COVERED) {
-    return { topLabel, topCandidates, overridden: false }
-  }
-
   const hintedSections = inferHintedSections(normalizedQuery).filter((sectionId) => sectionId !== topLabel)
   if (hintedSections.length === 0) {
     return { topLabel, topCandidates, overridden: false }
@@ -448,6 +675,7 @@ function maybeApplyHintedSectionOverride(
 function buildSectionIndexes(): void {
   const answerByQaId = new Map(answerBank.map((record) => [record.qaId, record]))
   const queriesByQaId = new Map(queryBank.map((record) => [record.qaId, record.queries]))
+  const exactQueries = new Map<string, string | null>()
   const bySection = new Map<
     string,
     Map<string, { record: AnswerBankRecord; queries: Set<string> }>
@@ -481,6 +709,18 @@ function buildSectionIndexes(): void {
       record: entry.record,
       queries: Array.from(entry.queries),
     }))
+    for (const entry of records) {
+      for (const query of entry.queries) {
+        const normalizedQuery = normalizeQuery(query)
+        if (!normalizedQuery) continue
+        const existingQaId = exactQueries.get(normalizedQuery)
+        if (existingQaId === undefined) {
+          exactQueries.set(normalizedQuery, entry.record.qaId)
+        } else if (existingQaId !== entry.record.qaId) {
+          exactQueries.set(normalizedQuery, null)
+        }
+      }
+    }
     const docs = records.map((entry) => {
       return [entry.record.question, entry.record.answer, entry.record.sectionTitle, ...entry.queries].join(" ")
     })
@@ -488,6 +728,10 @@ function buildSectionIndexes(): void {
     index.index(docs)
     sectionIndexes.set(sectionId, { index, records })
   }
+
+  exactQueryQaIds = new Map(
+    Array.from(exactQueries.entries()).filter((entry): entry is [string, string] => Boolean(entry[1]))
+  )
 }
 
 export async function initIntentSearch(
@@ -638,6 +882,62 @@ export async function searchWithIntent(query: string, topK = 5): Promise<SearchR
     }
   }
 
+  const clarification = detectClarification(normalized)
+  if (clarification) {
+    return {
+      results: [],
+      correctedQuery: null,
+      confidence: "none",
+      topicCovered: false,
+      outcome: "clarify",
+      clarification,
+      debug: {
+        engine: "intent_v1",
+        normalizedQuery: normalized,
+        reason: "clarify",
+        clarification,
+      },
+    }
+  }
+
+  const exactQaId = exactQueryQaIds.get(normalized)
+  if (exactQaId) {
+    const exactRecord = answerBank.find((row) => row.qaId === exactQaId)
+    if (exactRecord) {
+      const exactCandidates = getTopCandidatesForSection(exactRecord.sectionId, normalized)
+      const topCandidates =
+        exactCandidates.length > 0
+          ? exactCandidates
+          : [toDebugCandidate(exactRecord, 1)]
+      const activeRanked = topCandidates
+        .map((candidate) => ({
+          record: answerBank.find((row) => row.qaId === candidate.qaId) || exactRecord,
+          score: candidate.score,
+        }))
+        .filter((row) => row.record)
+      const results: SearchResult[] = activeRanked
+        .slice(0, topK)
+        .map((row, index) => toResult(row.record, index === 0 ? 1 : Math.max(0.01, 1 - index * 0.08)))
+
+      return {
+        results,
+        correctedQuery: null,
+        confidence: "high",
+        topicCovered: true,
+        outcome: "matched",
+        debug: {
+          engine: "intent_v1",
+          normalizedQuery: normalized,
+          topLabel: exactRecord.sectionId,
+          confidence: 1,
+          margin: 1,
+          topSections: [{ label: exactRecord.sectionId, confidence: 1 }],
+          topCandidates,
+        },
+      }
+    }
+  }
+
   const raw = (await classifier(normalized, {
     top_k: Math.max(topK, 3),
   })) as unknown
@@ -687,27 +987,6 @@ export async function searchWithIntent(query: string, topK = 5): Promise<SearchR
     minConfidence: manifest.thresholds?.minConfidence ?? DEFAULT_MATCH_THRESHOLD,
     minMargin: manifest.thresholds?.minMargin ?? DEFAULT_MARGIN_THRESHOLD,
   }
-  const section = sectionIndexes.get(topLabel)
-  if (!section) {
-    return {
-      results: [],
-      correctedQuery: null,
-      confidence: "none",
-      topicCovered: false,
-      outcome: "abstain",
-      debug: {
-        engine: "intent_v1",
-        normalizedQuery: normalized,
-        topLabel,
-        confidence: top1,
-        margin,
-        reason: "no_candidates",
-        topSections,
-        topCandidates: [],
-      },
-    }
-  }
-
   const ranked = getTopCandidatesForSection(topLabel, normalized).map((candidate) => ({
     record: answerBank.find((row) => row.qaId === candidate.qaId)!,
     score: candidate.score,
@@ -733,6 +1012,26 @@ export async function searchWithIntent(query: string, topK = 5): Promise<SearchR
     decision.outcome = "matched"
     decision.qaId = activeTopLabel
     delete decision.reason
+  }
+
+  if (topCandidates.length === 0) {
+    return {
+      results: [],
+      correctedQuery: null,
+      confidence: "none",
+      topicCovered: false,
+      outcome: "abstain",
+      debug: {
+        engine: "intent_v1",
+        normalizedQuery: normalized,
+        topLabel: activeTopLabel,
+        confidence: top1,
+        margin,
+        reason: "no_candidates",
+        topSections,
+        topCandidates: [],
+      },
+    }
   }
 
   if (decision.outcome === "abstain") {

@@ -3,11 +3,22 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from common import ML_DATA_DIR, dedupe_rows, load_answer_bank, normalize_text, write_jsonl
+from common import (
+    ML_DATA_DIR,
+    dedupe_rows,
+    load_answer_bank,
+    load_intent_aliases,
+    normalize_text,
+    write_jsonl,
+)
 
 
 def load_manual_rows(paths: list[Path]) -> list[dict[str, str]]:
-    answer_bank = {row.qaId: row for row in load_answer_bank()}
+    aliases = load_intent_aliases()
+    answer_bank: dict[str, object] = {}
+    for row in load_answer_bank():
+        canonical_qa_id = aliases.get(row.qaId, row.qaId)
+        answer_bank[canonical_qa_id] = row
     rows: list[dict[str, str]] = []
     seen_labels: set[str] = set()
     for path in paths:
@@ -26,7 +37,8 @@ def load_manual_rows(paths: list[Path]) -> list[dict[str, str]]:
                         "Each in-scope line must be: qaId<TAB>example1<TAB>example2..."
                     )
 
-                qa_id = parts[0]
+                raw_qa_id = parts[0]
+                qa_id = aliases.get(raw_qa_id, raw_qa_id)
                 if qa_id not in answer_bank:
                     raise SystemExit(f"Unknown qaId in manual in-scope file: {qa_id}")
 

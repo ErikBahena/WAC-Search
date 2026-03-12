@@ -47,7 +47,14 @@ export async function runSearch(query: string, topK = 5): Promise<SearchResponse
     const intent = await loadIntentModule()
     const response = await intent.searchWithIntent(query, topK)
 
-    trackSearchEvent(response.outcome === "matched" ? "search_matched" : "search_abstain", {
+    const eventName =
+      response.outcome === "matched"
+        ? "search_matched"
+        : response.outcome === "clarify"
+          ? "search_clarify"
+          : "search_abstain"
+
+    trackSearchEvent(eventName, {
       engine: "intent_v1",
       confidence: response.confidence,
       results: response.results.length,

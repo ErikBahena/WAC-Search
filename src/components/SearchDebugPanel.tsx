@@ -78,6 +78,23 @@ export function SearchDebugPanel({ debug }: SearchDebugPanelProps) {
           </div>
         </div>
       ) : null}
+
+      {debug.clarification ? (
+        <div className="mt-3">
+          <p className="font-semibold text-slate-900">Clarification</p>
+          <div className="mt-2 rounded-md bg-white px-3 py-3">
+            <p className="font-medium text-slate-900">{debug.clarification.question}</p>
+            <div className="mt-2 space-y-2">
+              {debug.clarification.options.map((option) => (
+                <div key={option.id} className="rounded-md border border-slate-200 px-2 py-2">
+                  <p className="font-medium text-slate-800">{option.label}</p>
+                  <p className="mt-1 break-all text-[11px] text-slate-500">{option.query}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   )
 }

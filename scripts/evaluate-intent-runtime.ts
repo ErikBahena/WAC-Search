@@ -228,7 +228,7 @@ function shouldOverrideLowMarginAbstain(
   confidence: number,
   topCandidates: Array<{ qaId: string; sectionId: string; question: string; score: number }>
 ) {
-  if (confidence < 0.22 || topCandidates.length === 0) {
+  if (topCandidates.length === 0) {
     return false
   }
 
@@ -236,6 +236,14 @@ function shouldOverrideLowMarginAbstain(
   const secondScore = topCandidates[1]?.score ?? 0
   const gap = topScore - secondScore
   const ratio = secondScore > 0 ? topScore / secondScore : Number.POSITIVE_INFINITY
+
+  if (topScore >= 7.5 && gap >= 3) {
+    return true
+  }
+
+  if (confidence < 0.22) {
+    return false
+  }
 
   if (topCandidates.length === 1) {
     return topScore >= 2.5
@@ -268,6 +276,14 @@ function inferHintedSections(normalizedQuery: string): string[] {
     push("110-300-0210")
   }
 
+  if (
+    /\b(food safety|safe food|food handling|kitchen safety|leftovers?|refrigerat(?:e|ion)|raw meat|expired food|food temp(?:erature)?|holding temperature)\b/.test(
+      normalizedQuery
+    )
+  ) {
+    push("110-300-0197")
+  }
+
   if (/\b(breast milk|expressed milk|pumped milk)\b/.test(normalizedQuery)) {
     push("110-300-0281")
   }
@@ -281,7 +297,7 @@ function inferHintedSections(normalizedQuery: string): string[] {
   }
 
   if (
-    /\b(play outside every day|go outside every day|outside every day|daily outdoor|outdoor time required|outside each day)\b/.test(
+    /\b(play outside every day|go outside every day|outside every day|daily outdoor|outdoor time required|outdoor play time|required outdoor play|active outdoor play|outside each day)\b/.test(
       normalizedQuery
     )
   ) {
@@ -324,15 +340,47 @@ function inferHintedSections(normalizedQuery: string): string[] {
     push("110-300-0165")
   }
 
+  if (
+    /\b(general safety|safety requirements|safety rules|hazard|hazards|choking hazard|safe environment)\b/.test(
+      normalizedQuery
+    )
+  ) {
+    push("110-300-0165")
+  }
+
+  if (
+    /\b(infant feeding|feeding plan|feeding rules|feeding infants|feeding babies|feed babies|feed infants|solid foods?|high chair|juice)\b/.test(
+      normalizedQuery
+    )
+  ) {
+    push("110-300-0285")
+  }
+
   if (/\b(medication|medicine|melatonin|sunscreen|prescription)\b/.test(normalizedQuery)) {
     push("110-300-0215")
+  }
+
+  if (
+    /\b(emergency preparedness|emergency plan|disaster plan|evacuation drill|evacuation plan|lockdown|shelter in place|fire drill)\b/.test(
+      normalizedQuery
+    )
+  ) {
+    push("110-300-0470")
+  }
+
+  if (
+    /\b(staff qualification|staff qualifications|worker qualifications|qualifications do daycare workers need|background checks?|fingerprints?|preservice|work at a daycare|work at daycare)\b/.test(
+      normalizedQuery
+    )
+  ) {
+    push("110-300-0100")
   }
 
   if (
     /\b(family home|family child care|home daycare|family daycare|family provider|provider working alone|working alone)\b/.test(
       normalizedQuery
     ) &&
-    /\b(ratio|capacity|group size|school age|infant|children|kids|staff|care for)\b/.test(
+    /\b(ratio|capacity|group size|school age|infant|children|kids|staff|staffing|care for)\b/.test(
       normalizedQuery
     )
   ) {
@@ -341,7 +389,9 @@ function inferHintedSections(normalizedQuery: string): string[] {
 
   if (
     /\b(center|classroom|teacher|staff member)\b/.test(normalizedQuery) &&
-    /\b(ratio|capacity|group size|school age|toddler|infant|preschool|kids)\b/.test(normalizedQuery)
+    /\b(ratio|capacity|group size|school age|toddler|infant|preschool|kids|staffing)\b/.test(
+      normalizedQuery
+    )
   ) {
     push("110-300-0356")
   }
@@ -434,6 +484,7 @@ async function main() {
   )
   const sectionTitleById = new Map(answerBank.map((record) => [record.sectionId, record.sectionTitle]))
   const queriesByQaId = new Map(queryBank.map((record) => [record.qaId, record.queries]))
+  const exactQueries = new Map<string, string | null>()
   const bySection = new Map<
     string,
     Map<string, { record: AnswerBankRecord; queries: Set<string> }>
@@ -467,6 +518,18 @@ async function main() {
       record: entry.record,
       queries: Array.from(entry.queries),
     }))
+    for (const entry of records) {
+      for (const query of entry.queries) {
+        const normalized = normalizeQuery(query)
+        if (!normalized) continue
+        const existingQaId = exactQueries.get(normalized)
+        if (existingQaId === undefined) {
+          exactQueries.set(normalized, entry.record.qaId)
+        } else if (existingQaId !== entry.record.qaId) {
+          exactQueries.set(normalized, null)
+        }
+      }
+    }
     const docs = records.map((entry) =>
       [entry.record.question, entry.record.answer, entry.record.sectionTitle, ...entry.queries].join(" ")
     )
@@ -474,6 +537,9 @@ async function main() {
     index.index(docs)
     sectionIndexes.set(sectionId, { index, records })
   }
+  const exactQueryQaIds = new Map(
+    Array.from(exactQueries.entries()).filter((entry): entry is [string, string] => Boolean(entry[1]))
+  )
 
   function getTopCandidatesForSection(sectionId: string, normalizedQuery: string, topK = 5) {
     const section = sectionIndexes.get(sectionId)
@@ -499,10 +565,6 @@ async function main() {
     topCandidates: Array<{ qaId: string; sectionId: string; question: string; score: number }>,
     matched: boolean
   ) {
-    if (predictedSectionId === "NOT_COVERED") {
-      return { predictedSectionId, topCandidates, overridden: false }
-    }
-
     const hintedSections = inferHintedSections(normalizedQuery).filter(
       (sectionId) => sectionId !== predictedSectionId
     )
@@ -567,6 +629,30 @@ async function main() {
     if (cached) return cached
 
     const normalizedQuery = normalizeQuery(text)
+    const exactQaId = exactQueryQaIds.get(normalizedQuery)
+    if (exactQaId) {
+      const exactRecord = qaById.get(exactQaId)
+      const topCandidates = exactRecord
+        ? getTopCandidatesForSection(exactRecord.sectionId, normalizedQuery)
+        : []
+      const trace: InferenceTrace = {
+        text,
+        normalizedQuery,
+        trueQaId,
+        trueSectionId: qaToSection.get(trueQaId) || (trueQaId === "NOT_COVERED" ? "NOT_COVERED" : "UNKNOWN"),
+        predictedSectionId: exactRecord?.sectionId || "UNKNOWN",
+        predictedQaId: exactQaId,
+        top1: 1,
+        margin: 1,
+        matched: true,
+        reason: "matched",
+        topSections: exactRecord ? [{ label: exactRecord.sectionId, confidence: 1 }] : [],
+        topCandidates,
+      }
+      inferenceCache.set(cacheKey, trace)
+      return trace
+    }
+
     const raw = (await classifier(normalizedQuery, { top_k: 5 })) as unknown
     const flat: ClassifierOutput[] = []
     const rawArray = Array.isArray(raw) ? raw : [raw]

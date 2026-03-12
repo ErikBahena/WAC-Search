@@ -5,7 +5,7 @@ import {
   isSearchEngineReady,
   runSearch,
 } from "@/lib/search-engine"
-import type { SearchDebugInfo, SearchResult, TopicSuggestion } from "@/lib/intent-types"
+import type { SearchClarification, SearchDebugInfo, SearchResult, TopicSuggestion } from "@/lib/intent-types"
 
 interface UseSearchReturn {
   isLoading: boolean
@@ -17,6 +17,7 @@ interface UseSearchReturn {
   confidence: "high" | "medium" | "low" | "none"
   topicCovered: boolean
   correctedQuery: string | null
+  clarification: SearchClarification | null
   debug: SearchDebugInfo | null
   topicSuggestions: TopicSuggestion[]
   doSearch: (query: string) => Promise<void>
@@ -32,6 +33,7 @@ export function useSearch(): UseSearchReturn {
   const [confidence, setConfidence] = useState<"high" | "medium" | "low" | "none">("high")
   const [topicCovered, setTopicCovered] = useState(true)
   const [correctedQuery, setCorrectedQuery] = useState<string | null>(null)
+  const [clarification, setClarification] = useState<SearchClarification | null>(null)
   const [debug, setDebug] = useState<SearchDebugInfo | null>(null)
   const [topicSuggestions, setTopicSuggestions] = useState<TopicSuggestion[]>([])
 
@@ -62,11 +64,13 @@ export function useSearch(): UseSearchReturn {
       setIsSearching(true)
       setError(null)
       setDebug(null)
+      setClarification(null)
       const response = await runSearch(query, 5)
       setResults(response.results)
       setConfidence(response.confidence)
       setTopicCovered(response.topicCovered)
       setCorrectedQuery(response.correctedQuery)
+      setClarification(response.clarification || null)
       setDebug(response.debug || null)
     } catch (err) {
       setError(err instanceof Error ? err.message : "Search failed")
@@ -85,6 +89,7 @@ export function useSearch(): UseSearchReturn {
     confidence,
     topicCovered,
     correctedQuery,
+    clarification,
     debug,
     topicSuggestions,
     doSearch,

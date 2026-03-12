@@ -1,4 +1,4 @@
-export type SearchOutcome = "matched" | "abstain"
+export type SearchOutcome = "matched" | "abstain" | "clarify"
 
 export type SearchEngineName = "intent_v1"
 
@@ -22,6 +22,19 @@ export interface AnswerBankRecord {
 export interface TopicSuggestion {
   label: string
   query: string
+}
+
+export interface ClarificationOption {
+  id: string
+  label: string
+  query: string
+  description?: string
+}
+
+export interface SearchClarification {
+  rule: string
+  question: string
+  options: ClarificationOption[]
 }
 
 export interface QueryBankRecord {
@@ -76,9 +89,10 @@ export interface SearchDebugInfo {
   topLabel?: string
   confidence?: number
   margin?: number
-  reason?: "ood" | "low_confidence" | "low_margin" | "no_candidates"
+  reason?: "ood" | "low_confidence" | "low_margin" | "no_candidates" | "clarify"
   topSections?: SearchDebugSectionScore[]
   topCandidates?: SearchDebugCandidate[]
+  clarification?: SearchClarification
 }
 
 export interface SearchResponse {
@@ -87,5 +101,6 @@ export interface SearchResponse {
   confidence: "high" | "medium" | "low" | "none"
   topicCovered: boolean
   outcome: SearchOutcome
+  clarification?: SearchClarification
   debug?: SearchDebugInfo
 }

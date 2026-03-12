@@ -1,5 +1,5 @@
 import { createHash } from "crypto"
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs"
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "fs"
 import { join } from "path"
 import { toDisplayAnswer } from "../src/lib/answer-display"
 
@@ -44,6 +44,10 @@ interface IntentManifest {
   }
 }
 
+interface IntentAliases {
+  canonicalByQaId?: Record<string, string>
+}
+
 function readExistingManifest(path: string): IntentManifest | null {
   if (!existsSync(path)) return null
 
@@ -51,6 +55,17 @@ function readExistingManifest(path: string): IntentManifest | null {
     return JSON.parse(readFileSync(path, "utf-8")) as IntentManifest
   } catch {
     return null
+  }
+}
+
+function readIntentAliases(path: string): Record<string, string> {
+  if (!existsSync(path)) return {}
+
+  try {
+    const payload = JSON.parse(readFileSync(path, "utf-8")) as IntentAliases
+    return payload.canonicalByQaId || {}
+  } catch {
+    return {}
   }
 }
 
@@ -116,28 +131,101 @@ function buildTopicSuggestions(answerBank: AnswerBankRecord[]): TopicSuggestion[
     }))
 }
 
-function buildQueryBank(answerBank: AnswerBankRecord[]): QueryBankRecord[] {
-  const manualPath = join(process.cwd(), "ml", "data", "in_scope.jsonl")
-  const manualByQaId = new Map<string, string[]>()
+function resolveQaId(
+  qaId: string,
+  answerBankById: Map<string, AnswerBankRecord>,
+  aliases: Record<string, string>
+): string | null {
+  if (answerBankById.has(qaId)) return qaId
 
-  if (existsSync(manualPath)) {
-    const lines = readFileSync(manualPath, "utf-8")
+  const canonicalQaId = aliases[qaId]
+  if (!canonicalQaId) return null
+
+  return answerBankById.has(canonicalQaId) ? canonicalQaId : null
+}
+
+function addManualQuery(
+  manualByQaId: Map<string, string[]>,
+  qaId: string,
+  text: string
+): void {
+  const normalized = normalizeText(text)
+  if (!normalized) return
+
+  const list = manualByQaId.get(qaId) || []
+  if (!list.includes(normalized)) {
+    list.push(normalized)
+    manualByQaId.set(qaId, list)
+  }
+}
+
+function loadManualJsonlQueries(
+  manualByQaId: Map<string, string[]>,
+  answerBankById: Map<string, AnswerBankRecord>,
+  aliases: Record<string, string>
+): void {
+  const manualPath = join(process.cwd(), "ml", "data", "in_scope.jsonl")
+  if (!existsSync(manualPath)) return
+
+  const lines = readFileSync(manualPath, "utf-8")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+
+  for (const line of lines) {
+    const row = JSON.parse(line) as { label?: string; text?: string }
+    const rawQaId = row.label?.trim()
+    if (!rawQaId || !row.text) continue
+
+    const qaId = resolveQaId(rawQaId, answerBankById, aliases)
+    if (!qaId) continue
+
+    addManualQuery(manualByQaId, qaId, row.text)
+  }
+}
+
+function loadManualTsvQueries(
+  manualByQaId: Map<string, string[]>,
+  answerBankById: Map<string, AnswerBankRecord>,
+  aliases: Record<string, string>
+): void {
+  const manualDir = join(process.cwd(), "ml", "manual")
+  if (!existsSync(manualDir)) return
+
+  const files = readdirSync(manualDir)
+    .filter((file) => file.startsWith("in_scope") && file.endsWith(".tsv"))
+    .sort()
+
+  for (const file of files) {
+    const lines = readFileSync(join(manualDir, file), "utf-8")
       .split("\n")
       .map((line) => line.trim())
       .filter(Boolean)
 
     for (const line of lines) {
-      const row = JSON.parse(line) as { label?: string; text?: string }
-      const qaId = row.label?.trim()
-      const text = normalizeText(row.text || "")
-      if (!qaId || !text) continue
-      const list = manualByQaId.get(qaId) || []
-      if (!list.includes(text)) {
-        list.push(text)
-        manualByQaId.set(qaId, list)
+      if (line.startsWith("#")) continue
+
+      const parts = line.split("\t").map((part) => part.trim()).filter(Boolean)
+      const rawQaId = parts[0]
+      if (!rawQaId) continue
+
+      const qaId = resolveQaId(rawQaId, answerBankById, aliases)
+      if (!qaId) continue
+
+      for (const text of parts.slice(1)) {
+        addManualQuery(manualByQaId, qaId, text)
       }
     }
   }
+}
+
+function buildQueryBank(answerBank: AnswerBankRecord[]): QueryBankRecord[] {
+  const answerBankById = new Map(answerBank.map((record) => [record.qaId, record]))
+  const aliases = readIntentAliases(join(process.cwd(), "src", "lib", "intent-aliases.json"))
+  const manualByQaId = new Map<string, string[]>()
+
+  loadManualJsonlQueries(manualByQaId, answerBankById, aliases)
+  loadManualTsvQueries(manualByQaId, answerBankById, aliases)
 
   return answerBank.map((record) => {
     const queries = manualByQaId.get(record.qaId) || [normalizeText(record.question)]

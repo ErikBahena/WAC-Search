@@ -152,6 +152,14 @@
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0356"
   },
   {
+    "qaId": "bb56ec118ee1",
+    "question": "What are the center staffing and ratio requirements?",
+    "answer": "For centers, the staff-to-child ratios and maximum group sizes are: infants 1:4 with a maximum group size of 8, or 1:3 with a maximum group size of 9; toddlers 1:7 with a maximum group size of 14, or 1:5 with a maximum group size of 15; preschoolers 1:10 with a maximum group size of 20; and school-age children 1:15 with a maximum group size of 30. Mixed-age groups must follow the ratio and group size for the youngest child in the group.",
+    "sectionId": "110-300-0356",
+    "sectionTitle": "Center capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0356"
+  },
+  {
     "qaId": "d7940def977c",
     "question": "When should staff wash their hands?",
     "answer": "After handling or feeding animals, handling an animal's toys or equipment, or cleaning up after animals.",
@@ -264,8 +272,24 @@
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0265"
   },
   {
+    "qaId": "7daa64f60444",
+    "question": "What are the requirements for nap time and sleep?",
+    "answer": "An early learning provider must offer a supervised daily rest period for preschool-age children and younger who are in care for more than six hours or who need rest, provide quiet activities for children who do not rest, communicate sleep needs with parents or guardians, not place children directly on the floor to sleep, and provide developmentally appropriate mats, cots, or other sleep equipment that can be cleaned and sanitized.",
+    "sectionId": "110-300-0265",
+    "sectionTitle": "Sleep, rest, and equipment",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0265"
+  },
+  {
     "qaId": "eac24d91ca2c",
     "question": "What are the requirements for nap mats and cots?",
+    "answer": "Floor mats designed for sleeping and mattresses must be at least one inch thick.",
+    "sectionId": "110-300-0265",
+    "sectionTitle": "Sleep, rest, and equipment",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0265"
+  },
+  {
+    "qaId": "b32c842f4300",
+    "question": "How thick do nap mats have to be?",
     "answer": "Floor mats designed for sleeping and mattresses must be at least one inch thick.",
     "sectionId": "110-300-0265",
     "sectionTitle": "Sleep, rest, and equipment",
@@ -402,7 +426,15 @@
   {
     "qaId": "183c78dc9649",
     "question": "Do children have to play outside every day?",
-    "answer": "Thirty minutes for each three hours of programming for children preschool age and older.",
+    "answer": "Infants and toddlers must get twenty minutes of active outdoor play for each three hours of programming, as tolerated. Children preschool age and older must get thirty minutes for each three hours of programming. Programs that operate more than six hours a day must provide sixty minutes for infants and toddlers and ninety minutes for preschool-age children and older, and up to thirty minutes of that required play time may be moderate to vigorous indoor activity.",
+    "sectionId": "110-300-0360",
+    "sectionTitle": "Program and daily schedule",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0360"
+  },
+  {
+    "qaId": "e963fac310d6",
+    "question": "How much outdoor play time is required?",
+    "answer": "Infants and toddlers must get twenty minutes of active outdoor play for each three hours of programming, as tolerated. Children preschool age and older must get thirty minutes for each three hours of programming. Programs that operate more than six hours a day must provide sixty minutes for infants and toddlers and ninety minutes for preschool-age children and older, and up to thirty minutes of that required play time may be moderate to vigorous indoor activity.",
     "sectionId": "110-300-0360",
     "sectionTitle": "Program and daily schedule",
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0360"
@@ -720,6 +752,14 @@
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0285"
   },
   {
+    "qaId": "c10bc88b0b32",
+    "question": "What are the infant feeding rules at daycare?",
+    "answer": "An early learning provider must have written feeding policies, follow a feeding plan developed with the parent or guardian, support breastfeeding, feed infants and toddlers according to hunger and developmental needs, prepare and store food safely, and follow the specific rules for bottles, breast milk, formula, juice, and safe food sizes.",
+    "sectionId": "110-300-0285",
+    "sectionTitle": "Infant and toddler nutrition and feeding",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0285"
+  },
+  {
     "qaId": "9a5fe74a8b83",
     "question": "What temperature should water be for children?",
     "answer": "Safe water temperature. All water accessible to enrolled children must not be hotter than 120 degrees Fahrenheit.",
@@ -768,6 +808,14 @@
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0165"
   },
   {
+    "qaId": "388676c1d293",
+    "question": "What are the general safety requirements at daycare?",
+    "answer": "An early learning provider must keep indoor and outdoor spaces, materials, and equipment free from hazards and in safe working condition, keep dangerous items inaccessible to children, maintain safe water and room temperatures, and prevent choking, injury, and other avoidable risks.",
+    "sectionId": "110-300-0165",
+    "sectionTitle": "Safety requirements",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0165"
+  },
+  {
     "qaId": "1d5d15984601",
     "question": "What discipline methods are prohibited at daycare?",
     "answer": "Emotional abuse including victimizing, bullying, rejecting, terrorizing, extensive ignoring, or corrupting a child.",
@@ -795,6 +843,14 @@
     "qaId": "b2fcc7f36904",
     "question": "Where should expressed breast milk be kept during the day?",
     "answer": "Immediately refrigerate or freeze the breast milk.",
+    "sectionId": "110-300-0281",
+    "sectionTitle": "Breast milk",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0281"
+  },
+  {
+    "qaId": "f18266dcfe9b",
+    "question": "What are the breast milk rules at daycare?",
+    "answer": "Breast milk provided by a parent or guardian must be refrigerated or frozen right away, labeled with the child's name and the date received, stored at the required temperatures, and discarded or returned according to the time limits for frozen, thawed, and left-out breast milk.",
     "sectionId": "110-300-0281",
     "sectionTitle": "Breast milk",
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0281"
@@ -896,9 +952,25 @@
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0197"
   },
   {
+    "qaId": "eb55a8ec1b5e",
+    "question": "What are the food safety requirements at daycare?",
+    "answer": "Early learning providers must follow food safety rules for handwashing, storing, preparing, cooking, holding, and serving food, keep perishable food refrigerated or frozen at safe temperatures, keep hot and cold foods at required holding temperatures, reheat food safely, store raw meat to prevent cross-contamination, and discard food that is expired or kept too long.",
+    "sectionId": "110-300-0197",
+    "sectionTitle": "Safe food practices",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0197"
+  },
+  {
     "qaId": "34ad3b646e16",
     "question": "What is the formula disposal rule?",
     "answer": "Throw away contents of any formula bottle not fully consumed within one hour (partially consumed bottles must not be put back into the refrigerator).",
+    "sectionId": "110-300-0280",
+    "sectionTitle": "Bottle preparation",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
+  },
+  {
+    "qaId": "0daa30f65382",
+    "question": "What are the bottle preparation rules at daycare?",
+    "answer": "Filled bottles brought from home must be clearly labeled and refrigerated right away. Bottle preparation areas must include a sink and be separated from diaper changing areas, bottles must be warmed safely without microwaving, and partially consumed bottles or unused formula must be discarded within the required time limits.",
     "sectionId": "110-300-0280",
     "sectionTitle": "Bottle preparation",
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0280"
@@ -944,6 +1016,14 @@
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0355"
   },
   {
+    "qaId": "77dbff83beac",
+    "question": "What are the family home staffing and ratio requirements?",
+    "answer": "A family home license may allow care for up to twelve children, but the approved capacity depends on the space, ages of children, and other safety factors. Family homes must follow the required age-based ratios, and additional staff are required when the number and ages of children in care trigger those staffing rules.",
+    "sectionId": "110-300-0355",
+    "sectionTitle": "Family home capacity, ratio, and group size",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0355"
+  },
+  {
     "qaId": "dadc57d79f4a",
     "question": "Do daycare workers need background checks?",
     "answer": "Complete and pass a background check, pursuant to chapter 110-06 WAC.",
@@ -952,9 +1032,25 @@
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0100"
   },
   {
+    "qaId": "12f46ed71d4a",
+    "question": "What are the staff qualification requirements at daycare?",
+    "answer": "All early learning providers must meet the age, education, background check, and preservice requirements that apply to their role before working, and many positions also have ongoing training, certification, and role-specific qualification requirements.",
+    "sectionId": "110-300-0100",
+    "sectionTitle": "General staff qualifications",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0100"
+  },
+  {
     "qaId": "e1d133422fd1",
     "question": "At what temperature should a child be sent home?",
     "answer": "A fever 101 degrees Fahrenheit for children over two months (or 100.4 degrees Fahrenheit for an infant younger than two months) by any method, and behavior change or other signs and symptoms of illness (including sore throat, earache, headache, rash, vomiting, diarrhea).",
+    "sectionId": "110-300-0205",
+    "sectionTitle": "Child, staff, and household member illness",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0205"
+  },
+  {
+    "qaId": "0f2a5aa81d48",
+    "question": "What are the illness and exclusion rules at daycare?",
+    "answer": "An early learning provider must watch children for signs of illness, notify parents or guardians when symptoms develop, decide when a child must be sent home or separated from others, follow the specific exclusion and return-to-care rules for fever, vomiting, diarrhea, and other symptoms, and report required illness outbreaks.",
     "sectionId": "110-300-0205",
     "sectionTitle": "Child, staff, and household member illness",
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0205"
@@ -971,6 +1067,14 @@
     "qaId": "d449a9f8e9f3",
     "question": "Where should medication be stored?",
     "answer": "Controlled substances must be locked in a container or cabinet which is inaccessible to children.",
+    "sectionId": "110-300-0215",
+    "sectionTitle": "Medication",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0215"
+  },
+  {
+    "qaId": "1f6bb29967fd",
+    "question": "What are the medication rules at daycare?",
+    "answer": "An early learning program must have a medication management policy, only trained providers may give medication, medication must be stored safely and out of children's reach, written authorization and documentation are required, and additional instructions apply for special or emergency medications.",
     "sectionId": "110-300-0215",
     "sectionTitle": "Medication",
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0215"
@@ -1000,11 +1104,27 @@
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0470"
   },
   {
+    "qaId": "5ecea85aa164",
+    "question": "What are the emergency preparedness requirements at daycare?",
+    "answer": "An early learning provider must have and follow a written emergency preparedness plan that covers likely emergencies, evacuation and reunification, emergency supplies and contacts, staff responsibilities, and required practice drills, including monthly fire and evacuation drills and other emergency drills every three months.",
+    "sectionId": "110-300-0470",
+    "sectionTitle": "Emergency preparedness plan",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0470"
+  },
+  {
     "qaId": "323ad16b0958",
     "question": "Is physical punishment allowed?",
     "answer": "Threats of physical harm or inappropriate discipline such as, but not limited to, spanking, biting, jerking, kicking, hitting, slapping, grabbing, shaking, pulling hair, pushing, shoving, throwing a child, or inflicting pain or humiliation as a punishment.",
     "sectionId": "110-300-0331",
     "sectionTitle": "Prohibited behavior and discipline",
+    "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0331"
+  },
+  {
+    "qaId": "2f9b52db907b",
+    "question": "What are the discipline rules at daycare?",
+    "answer": "An early learning provider, staff member, or household member must not use hostile, shaming, threatening, or physically punitive discipline. Physical separation may be used only within strict limits, and discipline may not involve humiliation, food, sleep, toileting, or any action that could harm a child.",
+    "sectionId": "110-300-0331",
+    "sectionTitle": "Prohibited behavior and discipline, and physical separation of children",
     "url": "https://app.leg.wa.gov/wac/default.aspx?cite=110-300-0331"
   }
 ]
